@@ -75,10 +75,10 @@
       gap:16px;
       flex-wrap:wrap;
     }
-    .brand{
-      font-size:1.25rem;
-      font-weight:800;
-      letter-spacing:.3px;
+    .nav img{
+      height:56px;
+      width:auto;
+      display:block;
     }
     .nav a{
       color:#fff;
@@ -274,7 +274,9 @@
 <body>
   <header>
     <div class="container nav">
-      <div class="brand">Rent-A-Wash</div>
+      <a href="#top" style="display:flex;align-items:center;gap:10px;text-decoration:none;">
+        <img src="8371.jpg" alt="Rent-A-Wash logo" />
+      </a>
       <nav aria-label="Main navigation">
         <a href="#services">Services</a>
         <a href="#areas">Areas</a>
@@ -284,7 +286,7 @@
     </div>
   </header>
 
-  <main class="container">
+  <main class="container" id="top">
     <section class="hero">
       <div>
         <span class="accent-band">Washer & Dryer Rentals Made Easy</span>
@@ -299,14 +301,8 @@
         </div>
       </div>
 
-      <div class="card">
-        <h2>Quick Details</h2>
-        <ul class="service-list">
-          <li>Fast local delivery</li>
-          <li>Simple monthly pricing</li>
-          <li>Setup included</li>
-          <li>Residential rentals</li>
-        </ul>
+      <div class="card" style="text-align:center;">
+        <img src="8371.jpg" alt="Rent-A-Wash logo" style="max-width:100%;height:auto;">
         <p style="margin-top:14px;">
           Email: <a href="mailto:rentawashnw@gmail.com">rentawashnw@gmail.com</a>
         </p>
