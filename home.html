@@ -3,162 +3,470 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Rent-A-Wash — Washer & Dryer Rental in West Pasco, WA</title>
-  <meta name="description" content="Rent-A-Wash rents washers and dryers across West Pasco and nearby areas. Affordable monthly rentals, free delivery & installation, flexible terms." />
-  <meta name="keywords" content="washer dryer rental, rent washer dryer West Pasco, appliance rental, monthly washer rental, Rent-A-Wash" />
-  <link rel="canonical" href="https://www.rentawash.com/" />
-  <meta property="og:title" content="Rent-A-Wash — Washer & Dryer Rental in West Pasco, WA" />
-  <meta property="og:description" content="Affordable monthly washer & dryer rental with delivery and installation in West Pasco and nearby towns." />
+  <title>Rent-A-Wash | Washer & Dryer Rentals in Richland, Pasco, Kennewick</title>
+  <meta name="description" content="Rent-A-Wash rents washers and dryers in Richland, Pasco, Kennewick, Hermiston, Yakima, and Walla Walla. Fast delivery, setup, and simple monthly rentals." />
+  <meta name="keywords" content="washer dryer rental, Rent-A-Wash, washer rental Richland, dryer rental Pasco, appliance rental Kennewick, Hermiston, Yakima, Walla Walla" />
+  <meta name="robots" content="index,follow" />
+  <link rel="canonical" href="https://rentyourwash.com/" />
+
+  <meta property="og:title" content="Rent-A-Wash | Washer & Dryer Rentals" />
+  <meta property="og:description" content="Fast washer and dryer rentals with delivery and setup in Richland, Pasco, Kennewick, Hermiston, Yakima, and Walla Walla." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://www.rentawash.com/" />
+  <meta property="og:url" content="https://rentyourwash.com/" />
   <meta property="og:site_name" content="Rent-A-Wash" />
   <meta name="twitter:card" content="summary_large_image" />
+
   <script type="application/ld+json">
   {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"Rent-A-Wash",
-    "image":"https://www.rentawash.com/brand-image.jpg",
-    "@id":"https://www.rentawash.com/",
-    "url":"https://www.rentawash.com/",
-    "telephone":"+1-509-212-7621",
-    "address":{
-      "@type":"PostalAddress",
-      "streetAddress":"Your street address",
-      "addressLocality":"West Pasco",
-      "addressRegion":"WA",
-      "postalCode":"99301",
-      "addressCountry":"US"
-    },
-    "priceRange":"$",
-    "description":"Rent washers and dryers with free delivery & installation in West Pasco and surrounding areas."
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Rent-A-Wash",
+    "url": "https://rentyourwash.com/",
+    "telephone": "+15092127621",
+    "email": "rentawashnw@gmail.com",
+    "priceRange": "$",
+    "areaServed": [
+      "Richland",
+      "Pasco",
+      "Kennewick",
+      "Hermiston",
+      "Yakima",
+      "Walla Walla"
+    ],
+    "description": "Washer and dryer rentals with delivery and setup."
   }
   </script>
+
   <style>
     :root{
       --brand:#ff5c7a;
       --accent:#00d4ff;
+      --accent2:#ffd84d;
       --bg:#fffde7;
       --text:#112244;
+      --card:#ffffff;
     }
-    html,body{margin:0;font-family:Inter,system-ui,Arial,sans-serif;color:var(--text);background:var(--bg);}
-    header{background:linear-gradient(90deg,var(--brand),var(--accent));color:white;padding:28px 20px;}
-    .container{max-width:1000px;margin:0 auto;padding:28px;}
-    .logo{font-weight:700;font-size:1.6rem;letter-spacing:0.6px;}
-    nav a{color:rgba(255,255,255,0.95);margin-left:16px;text-decoration:none;font-weight:600;}
-    .hero{display:flex;gap:20px;align-items:center;flex-wrap:wrap;}
-    .hero-left{flex:1;min-width:260px;}
-    .cta{background:white;color:var(--brand);padding:12px 18px;border-radius:10px;font-weight:700;border:none;cursor:pointer;text-decoration:none;display:inline-block;}
-    .features{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin-top:18px;}
-    .card{background:linear-gradient(180deg,rgba(255,255,255,0.9),white);padding:16px;border-radius:12px;box-shadow:0 6px 18px rgba(17,34,68,0.08);}
-    footer{padding:20px;text-align:center;font-size:0.9rem;color:#123;}
-    .badge{display:inline-block;background:var(--accent);color:#04303a;padding:6px 10px;border-radius:999px;font-weight:700;margin-top:12px;}
-    a.primary-link{color:var(--brand);font-weight:700;text-decoration:none;}
-    @media(max-width:640px){header{padding:18px} .hero{flex-direction:column;align-items:flex-start}}
+    *{box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{
+      margin:0;
+      font-family:Inter,system-ui,Arial,sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    header{
+      background:linear-gradient(90deg,var(--brand),var(--accent));
+      color:#fff;
+      padding:18px 20px;
+      position:sticky;
+      top:0;
+      z-index:10;
+    }
+    .container{
+      max-width:1100px;
+      margin:0 auto;
+      padding:0 20px;
+    }
+    .nav{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;
+    }
+    .brand{
+      font-size:1.25rem;
+      font-weight:800;
+      letter-spacing:.3px;
+    }
+    .nav a{
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      margin-left:16px;
+    }
+    .hero{
+      display:grid;
+      grid-template-columns:1.2fr .8fr;
+      gap:24px;
+      align-items:center;
+      padding:42px 0 28px;
+    }
+    .hero h1{
+      font-size:clamp(2.2rem,5vw,3.8rem);
+      line-height:1.05;
+      margin:0 0 12px;
+    }
+    .hero p{
+      margin:0 0 18px;
+      max-width:62ch;
+      font-size:1.06rem;
+    }
+    .cta-row{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+    .btn{
+      display:inline-block;
+      padding:12px 18px;
+      border-radius:10px;
+      text-decoration:none;
+      font-weight:800;
+      border:0;
+      cursor:pointer;
+    }
+    .btn-primary{
+      background:var(--brand);
+      color:#fff;
+    }
+    .btn-secondary{
+      background:#fff;
+      color:var(--text);
+      box-shadow:0 6px 18px rgba(17,34,68,.08);
+    }
+    .card{
+      background:var(--card);
+      border-radius:16px;
+      box-shadow:0 10px 30px rgba(17,34,68,.08);
+      padding:22px;
+    }
+    .section{
+      padding:18px 0 10px;
+    }
+    .section h2{
+      margin:0 0 10px;
+      font-size:1.8rem;
+    }
+    .features{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+      gap:14px;
+      margin-top:16px;
+    }
+    .feature{
+      background:linear-gradient(180deg,rgba(255,255,255,.95),#fff);
+      padding:18px;
+      border-radius:14px;
+      box-shadow:0 6px 18px rgba(17,34,68,.08);
+    }
+    .feature h3{margin-top:0;}
+    .service-list{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      padding:0;
+      list-style:none;
+      margin:14px 0 0;
+    }
+    .service-list li{
+      background:#fff;
+      border:1px solid #eee;
+      padding:10px 14px;
+      border-radius:999px;
+      font-weight:600;
+    }
+    .price-table{
+      width:100%;
+      border-collapse:collapse;
+      background:#fff;
+      overflow:hidden;
+      border-radius:14px;
+      box-shadow:0 8px 22px rgba(17,34,68,.08);
+    }
+    .price-table th,.price-table td{
+      text-align:left;
+      padding:14px;
+      border-bottom:1px solid #f0f0f0;
+      vertical-align:top;
+    }
+    .faq details{
+      background:#fff;
+      border-radius:12px;
+      padding:14px 16px;
+      box-shadow:0 6px 18px rgba(17,34,68,.06);
+      margin-bottom:12px;
+    }
+    .faq summary{
+      font-weight:700;
+      cursor:pointer;
+    }
+    .form-wrap{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:24px;
+      align-items:start;
+      margin-top:18px;
+    }
+    label{
+      display:block;
+      font-weight:700;
+      margin:14px 0 6px;
+    }
+    input, textarea{
+      width:100%;
+      padding:12px 13px;
+      border:1px solid #d9d9d9;
+      border-radius:10px;
+      font:inherit;
+      background:#fff;
+    }
+    textarea{
+      min-height:140px;
+      resize:vertical;
+    }
+    .submit-btn{
+      margin-top:16px;
+      background:linear-gradient(90deg,var(--brand),var(--accent));
+      color:#fff;
+      width:100%;
+    }
+    .small-note{
+      font-size:.95rem;
+      color:#445;
+      margin-top:10px;
+    }
+    .map-box{
+      aspect-ratio:16/9;
+      border-radius:14px;
+      overflow:hidden;
+      background:#eaf6ff;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      color:#335;
+      font-weight:700;
+    }
+    footer{
+      padding:22px 0 28px;
+      color:#334;
+    }
+    .footer-grid{
+      display:grid;
+      grid-template-columns:2fr 1fr;
+      gap:18px;
+      align-items:start;
+    }
+    .footer-grid a{
+      color:inherit;
+    }
+    .footer-links a{
+      display:block;
+      margin-bottom:8px;
+      text-decoration:none;
+    }
+    .accent-band{
+      display:inline-block;
+      background:var(--accent2);
+      color:#3b2f00;
+      padding:6px 10px;
+      border-radius:999px;
+      font-weight:700;
+      margin-bottom:12px;
+    }
+    @media (max-width: 860px){
+      .hero,.form-wrap,.footer-grid{grid-template-columns:1fr;}
+    }
   </style>
 </head>
 <body>
   <header>
-    <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
-      <div class="logo">Rent-A-Wash</div>
+    <div class="container nav">
+      <div class="brand">Rent-A-Wash</div>
       <nav aria-label="Main navigation">
-        <a href="index.html">Home</a>
-        <a href="contact.html">Contact</a>
+        <a href="#services">Services</a>
+        <a href="#areas">Areas</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Get Started</a>
       </nav>
     </div>
   </header>
 
-  <main class="container" role="main">
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="hero-left">
-        <h1 id="hero-heading" style="margin:0 0 8px 0;">Washer & Dryer Rentals — Fast delivery in West Pasco</h1>
-        <p style="margin:0 0 12px 0;max-width:62ch;">Rent-A-Wash provides affordable monthly washer and dryer rentals with free delivery, professional installation, and flexible terms for apartments, student housing, and short-term needs.</p>
-        <div>
-          <a class="cta" href="contact.html">Get a Quote</a>
-          <span class="badge">Free delivery & install</span>
+  <main class="container">
+    <section class="hero">
+      <div>
+        <span class="accent-band">Washer & Dryer Rentals Made Easy</span>
+        <h1>Rent a Washer and Dryer Fast in Your Area</h1>
+        <p>
+          Rent-A-Wash provides bright, reliable, and affordable washer and dryer rentals with delivery and setup.
+          We serve Richland, Pasco, Kennewick, Hermiston, Yakima, and Walla Walla.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Get Started</a>
+          <a class="btn btn-secondary" href="tel:+15092127621">Call 5092127621</a>
         </div>
       </div>
 
-      <div style="flex:0 0 320px;">
-        <picture>
-          <source media="(min-width:600px)" srcset="https://www.rentawash.com/hero-large.jpg">
-          <img src="https://www.rentawash.com/hero-small.jpg" alt="Stacked washer and dryer on delivery dolly" style="width:100%;border-radius:12px;box-shadow:0 8px 24px rgba(0,0,0,0.12);">
-        </picture>
+      <div class="card">
+        <h2>Quick Details</h2>
+        <ul class="service-list">
+          <li>Fast local delivery</li>
+          <li>Simple monthly pricing</li>
+          <li>Setup included</li>
+          <li>Residential rentals</li>
+        </ul>
+        <p style="margin-top:14px;">
+          Email: <a href="mailto:rentawashnw@gmail.com">rentawashnw@gmail.com</a>
+        </p>
       </div>
     </section>
 
-    <section aria-labelledby="why-heading" style="margin-top:24px;">
-      <h2 id="why-heading">Why choose Rent-A-Wash</h2>
-      <div class="features" role="list">
-        <article class="card" role="listitem">
-          <h3>Flexible plans</h3>
-          <p>Weekly or monthly rentals, upgrade or return any time with no long-term commitment.</p>
+    <section class="section" id="services">
+      <h2>Why Choose Rent-A-Wash</h2>
+      <div class="features">
+        <article class="feature">
+          <h3>Flexible rentals</h3>
+          <p>Choose a washer, a dryer, or both with a straightforward rental plan that fits your needs.</p>
         </article>
-        <article class="card" role="listitem">
-          <h3>Hassle-free delivery</h3>
-          <p>Free delivery and professional installation across West Pasco and surrounding zip codes.</p>
+        <article class="feature">
+          <h3>Fast delivery</h3>
+          <p>We help customers get appliances delivered and set up without the hassle of buying new machines.</p>
         </article>
-        <article class="card" role="listitem">
-          <h3>Maintenance & support</h3>
-          <p>Fast replacement and service included for rental term customers.</p>
+        <article class="feature">
+          <h3>Easy support</h3>
+          <p>If something goes wrong, you have a clear contact path and a team that can help quickly.</p>
         </article>
       </div>
     </section>
 
-    <section aria-labelledby="service-area" style="margin-top:22px;">
-      <h2 id="service-area">Service areas & keywords</h2>
-      <p>We serve West Pasco, Pasco, Richland, Kennewick, and other Tri-Cities locations — search terms: "washer dryer rental near me", "rent washer and dryer West Pasco".</p>
-      <ul>
-        <li>Monthly washer & dryer rental</li>
-        <li>Washer dryer rental near me</li>
-        <li>Appliance rental for apartments</li>
+    <section class="section" id="areas">
+      <h2>Service Areas</h2>
+      <p>We proudly serve customers in:</p>
+      <ul class="service-list">
+        <li>Richland</li>
+        <li>Pasco</li>
+        <li>Kennewick</li>
+        <li>Hermiston</li>
+        <li>Yakima</li>
+        <li>Walla Walla</li>
       </ul>
     </section>
 
-    <section style="margin-top:22px;">
-      <h2>Packages</h2>
-      <table style="width:100%;border-collapse:collapse;">
+    <section class="section" id="pricing">
+      <h2>Pricing</h2>
+      <table class="price-table">
         <thead>
-          <tr style="text-align:left;">
-            <th style="padding:10px">Package</th>
-            <th style="padding:10px">Price</th>
-            <th style="padding:10px">Includes</th>
+          <tr>
+            <th>Package</th>
+            <th>Monthly Price</th>
+            <th>Includes</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td style="padding:10px">Basic Washer</td>
-            <td style="padding:10px">$29/mo</td>
-            <td style="padding:10px">Delivery, install, maintenance</td>
+            <td>Basic Washer</td>
+            <td>$29/mo</td>
+            <td>Washer rental, delivery, setup</td>
           </tr>
           <tr>
-            <td style="padding:10px">Washer + Dryer</td>
-            <td style="padding:10px">$49/mo</td>
-            <td style="padding:10px">Delivery, install, maintenance</td>
+            <td>Washer + Dryer</td>
+            <td>$49/mo</td>
+            <td>Washer and dryer rental, delivery, setup</td>
           </tr>
         </tbody>
       </table>
     </section>
 
-    <section style="margin-top:22px;">
-      <h2>How it works</h2>
-      <ol>
-        <li>Contact us for a quick quote.</li>
-        <li>Choose a package and schedule delivery.</li>
-        <li>Enjoy the machine — we handle maintenance.</li>
-      </ol>
+    <section class="section">
+      <h2>How It Works</h2>
+      <div class="features">
+        <article class="feature">
+          <h3>1. Request a quote</h3>
+          <p>Send your name, email, phone, address, and message using the form below.</p>
+        </article>
+        <article class="feature">
+          <h3>2. We confirm details</h3>
+          <p>We’ll follow up with availability, pricing, and delivery timing.</p>
+        </article>
+        <article class="feature">
+          <h3>3. Delivery day</h3>
+          <p>Your appliances are delivered and installed so you can start using them right away.</p>
+        </article>
+      </div>
     </section>
 
-    <section style="margin-top:22px;">
-      <h2>Reviews</h2>
-      <p>“Fast delivery and painless installation — great service.” — Local customer.</p>
+    <section class="section">
+      <h2>FAQs</h2>
+      <div class="faq">
+        <details>
+          <summary>What areas do you serve?</summary>
+          <p>Richland, Pasco, Kennewick, Hermiston, Yakima, and Walla Walla.</p>
+        </details>
+        <details>
+          <summary>How do I contact you?</summary>
+          <p>Call 5092127621 or email rentawashnw@gmail.com.</p>
+        </details>
+        <details>
+          <summary>Do you deliver and install?</summary>
+          <p>Yes, delivery and setup are included with our rental service.</p>
+        </details>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Service Area Map</h2>
+      <div class="map-box">
+        Add your Google Map embed here
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>Get Started</h2>
+      <div class="form-wrap">
+        <div class="card">
+          <h3>Contact Form</h3>
+          <p>Fill this out and we’ll send you a quote.</p>
+
+          <form action="thank-you.html" method="post">
+            <label for="name">Name</label>
+            <input id="name" name="name" type="text" placeholder="Your full name" required />
+
+            <label for="email">Email</label>
+            <input id="email" name="email" type="email" placeholder="rentawashnw@gmail.com" required />
+
+            <label for="phone">Phone Number</label>
+            <input id="phone" name="phone" type="tel" placeholder="5092127621" />
+
+            <label for="address">Address</label>
+            <input id="address" name="address" type="text" placeholder="Street address, city, state, zip" />
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us what you need and when you need it."></textarea>
+
+            <button class="btn submit-btn" type="submit">Get Started</button>
+          </form>
+
+          <p class="small-note">
+            Form tip: connect this to a form service or backend so it can redirect to your thank-you page after a successful submission.
+          </p>
+        </div>
+
+        <aside class="card">
+          <h3>Contact Details</h3>
+          <p><strong>Phone:</strong> <a href="tel:+15092127621">5092127621</a></p>
+          <p><strong>Email:</strong> <a href="mailto:rentawashnw@gmail.com">rentawashnw@gmail.com</a></p>
+          <p><strong>Business:</strong> Rent-A-Wash</p>
+          <p><strong>Website:</strong> <a href="https://rentyourwash.com/">rentyourwash.com</a></p>
+          <p><strong>Service Area:</strong> Richland, Pasco, Kennewick, Hermiston, Yakima, Walla Walla</p>
+        </aside>
+      </div>
     </section>
   </main>
 
   <footer>
-    <div class="container">
-      <p><strong>Rent-A-Wash</strong> — Washer & Dryer Rental • West Pasco, WA • <a class="primary-link" href="contact.html">Contact us</a></p>
-      <p>Phone: <a href="tel:+15092127621">509-212-7621</a></p>
+    <div class="container footer-grid">
+      <div>
+        <p><strong>Rent-A-Wash</strong> • Washer & Dryer Rentals • Serving Richland, Pasco, Kennewick, Hermiston, Yakima, and Walla Walla.</p>
+        <p>Phone: <a href="tel:+15092127621">5092127621</a> • Email: <a href="mailto:rentawashnw@gmail.com">rentawashnw@gmail.com</a></p>
+      </div>
+      <div class="footer-links">
+        <a href="#services">Services</a>
+        <a href="#areas">Areas</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#contact">Contact</a>
+      </div>
     </div>
   </footer>
 </body>
