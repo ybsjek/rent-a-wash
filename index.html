@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rent-A-Wash offers affordable washer and dryer rentals in Tri-Cities, Benton City, and Hermiston. Delivery, maintenance, and weekly pricing available." />
-  <meta name="keywords" content="washer and dryer rentals, Tri-Cities WA, Benton City washer rental, Hermiston dryer rental, Rent-A-Wash, appliance rental, local laundry rentals" />
+  <meta name="description" content="Rent-A-Wash offers affordable washer and dryer rentals in Tri-Cities, Benton City, and Hermiston. Month-to-month rentals with no commitment, delivery, and maintenance available." />
+  <meta name="keywords" content="washer and dryer rentals, Tri-Cities WA, Benton City washer rental, Hermiston dryer rental, Rent-A-Wash, month-to-month rentals, no commitment appliance rental" />
   <meta name="author" content="Rent-A-Wash" />
   <title>Rent-A-Wash | Washer & Dryer Rentals in Tri-Cities, Benton City & Hermiston</title>
   <style>
@@ -18,7 +18,7 @@
       --muted: #5f7488;
       --white: #ffffff;
       --shadow: 0 12px 30px rgba(15, 79, 138, 0.12);
-      --radius: 18px;
+      --radius: 20px;
       --max: 1180px;
     }
 
@@ -77,7 +77,7 @@
       top: 0;
       z-index: 50;
       backdrop-filter: blur(12px);
-      background: rgba(255,255,255,0.82);
+      background: rgba(255,255,255,0.84);
       border-bottom: 1px solid rgba(22,50,79,0.08);
     }
 
@@ -150,7 +150,7 @@
     }
 
     .hero-card {
-      background: linear-gradient(145deg, rgba(255,255,255,0.96), rgba(245,250,255,0.96));
+      background: linear-gradient(145deg, rgba(255,255,255,0.97), rgba(245,250,255,0.97));
       border: 1px solid rgba(30,115,190,0.12);
       box-shadow: var(--shadow);
       border-radius: 28px;
@@ -213,9 +213,13 @@
     }
 
     .btn-secondary {
-      background: white;
-      color: var(--blue-dark);
-      border-color: rgba(30,115,190,0.18);
+      background: var(--blue-dark);
+      color: white;
+      border-color: rgba(15, 79, 138, 0.18);
+    }
+
+    .btn-secondary:hover {
+      background: var(--blue);
     }
 
     .hero-side {
@@ -288,7 +292,7 @@
     }
 
     .card {
-      background: rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.97);
       border-radius: 22px;
       padding: 24px;
       box-shadow: var(--shadow);
@@ -370,36 +374,74 @@
 
     ul.clean li:first-child { border-top: none; }
 
-    .service-area {
+    .booking-section {
+      padding: 18px 0 56px;
+    }
+
+    .booking-wrap {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 0.9fr 1.1fr;
       gap: 18px;
       align-items: stretch;
     }
 
-    .map-box {
-      background: linear-gradient(135deg, rgba(30,115,190,0.10), rgba(247,147,30,0.10));
+    .booking-copy,
+    .booking-form {
+      background: white;
       border-radius: 24px;
-      padding: 26px;
+      padding: 28px;
       box-shadow: var(--shadow);
       border: 1px solid rgba(30,115,190,0.10);
     }
 
-    .contact-box {
-      background: linear-gradient(180deg, var(--blue-dark), #123e6b);
-      color: white;
-      border-radius: 24px;
-      padding: 30px;
-      box-shadow: var(--shadow);
+    .booking-copy h3 {
+      margin-top: 0;
+      color: var(--blue-dark);
+      font-size: 1.8rem;
     }
 
-    .contact-box h3,
-    .contact-box p,
-    .contact-box li { color: white; }
+    .form-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
 
-    .contact-box a {
-      color: #fff6e8;
-      font-weight: 800;
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field.full { grid-column: 1 / -1; }
+
+    label {
+      font-weight: 700;
+      color: var(--blue-dark);
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+      padding: 14px;
+      border-radius: 14px;
+      border: 1px solid rgba(22,50,79,0.16);
+      font: inherit;
+      background: #fbfdff;
+      color: var(--text);
+    }
+
+    input:focus,
+    select:focus,
+    textarea:focus {
+      outline: none;
+      border-color: var(--blue);
+      box-shadow: 0 0 0 4px rgba(30,115,190,0.10);
+    }
+
+    .booking-btn {
+      margin-top: 18px;
+      width: 100%;
     }
 
     .faq-grid {
@@ -421,6 +463,20 @@
       color: var(--blue-dark);
     }
 
+    .service-area {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .map-box {
+      background: linear-gradient(135deg, rgba(30,115,190,0.10), rgba(247,147,30,0.10));
+      border-radius: 24px;
+      padding: 26px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(30,115,190,0.10);
+    }
+
     footer {
       padding: 28px 0 42px;
       text-align: center;
@@ -437,12 +493,13 @@
       .hero-grid,
       .grid-3,
       .pricing-grid,
-      .service-area,
+      .booking-wrap,
       .faq-grid {
         grid-template-columns: 1fr;
       }
 
       .stats { grid-template-columns: 1fr; }
+      .form-grid { grid-template-columns: 1fr; }
       .nav { justify-content: center; }
       .brand { justify-content: center; }
       .nav-links { justify-content: center; }
@@ -453,7 +510,7 @@
 <body>
   <div class="topbar">
     <div class="container topbar-inner">
-      <div><strong>Rent-A-Wash</strong> — Washer & Dryer Rentals in Tri-Cities, Benton City & Hermiston</div>
+      <div><strong>Rent-A-Wash</strong> — Month-to-month washer & dryer rentals with no commitment</div>
       <a class="phone-link" href="tel:5092127621">Call Now: 509-212-7621</a>
     </div>
   </div>
@@ -472,9 +529,9 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="#services">Services</a>
         <a href="#pricing">Pricing</a>
+        <a href="#booking">Booking</a>
         <a href="#faq">FAQ</a>
-        <a href="#areas">Service Area</a>
-        <a href="#contact">Contact</a>
+        <a href="#areas">Locations</a>
       </nav>
     </div>
   </header>
@@ -483,15 +540,15 @@
     <section class="hero">
       <div class="container hero-grid">
         <div class="hero-card">
-          <span class="eyebrow">Fast delivery. Local service. Peace of mind.</span>
+          <span class="eyebrow">Month-to-month. No commitment. Fast delivery.</span>
           <h2>Rent a <span>washer & dryer</span> without the stress.</h2>
           <p>
-            Rent-A-Wash provides affordable washer and dryer rentals with delivery, maintenance, and dependable support for homes in Tri-Cities, Benton City, Hermiston, and nearby areas.
+            Rent-A-Wash provides affordable month-to-month washer and dryer rentals with no commitment, delivery, maintenance, and dependable support for homes in Tri-Cities, Benton City, Hermiston, and nearby areas.
           </p>
           <div class="cta-row">
             <a class="btn btn-primary" href="tel:5092127621">Call 509-212-7621</a>
-            <a class="btn btn-secondary" href="#pricing">View Pricing</a>
-            <a class="btn btn-secondary" href="#contact">Get Started</a>
+            <a class="btn btn-secondary" href="#pricing">See Pricing</a>
+            <a class="btn btn-secondary" href="#booking">Request Availability</a>
           </div>
         </div>
 
@@ -499,7 +556,7 @@
           <div class="info-box">
             <h3>Why Rent-A-Wash?</h3>
             <p class="small-note">
-              No big upfront purchase. No delivery hassle. No repair surprises. Just a simple rental plan that keeps laundry day easy.
+              No big upfront purchase. No long-term contract. No repair surprises. Just a simple month-to-month rental plan that keeps laundry day easy.
             </p>
           </div>
 
@@ -515,8 +572,8 @@
                 <span>Washer or Dryer Weekly</span>
               </div>
               <div class="stat">
-                <strong>Local</strong>
-                <span>Friendly Support</span>
+                <strong>No</strong>
+                <span>Commitment</span>
               </div>
             </div>
           </div>
@@ -528,34 +585,26 @@
       <div class="container">
         <div class="section-title">
           <h2>What We Offer</h2>
-          <p>
-            Our service is built for convenience, reliability, and a clean, professional experience from the first call to setup and ongoing support.
-          </p>
+          <p>Our service is built for convenience, reliability, and a clean, professional experience from the first call to ongoing support.</p>
         </div>
 
         <div class="grid-3">
           <div class="card">
             <div class="icon">🚚</div>
             <h3>Delivery & Setup</h3>
-            <p>
-              We bring the washer and dryer to you and get everything placed and ready so you can get back to daily life quickly.
-            </p>
+            <p>We bring the washer and dryer to you and get everything placed and ready so you can get back to daily life quickly.</p>
           </div>
 
           <div class="card">
             <div class="icon">🛠️</div>
             <h3>Maintenance Included</h3>
-            <p>
-              If there is a service issue, we help keep things running smoothly. That means less worry and fewer unexpected headaches.
-            </p>
+            <p>If there is a service issue, we help keep things running smoothly. That means less worry and fewer unexpected headaches.</p>
           </div>
 
           <div class="card">
             <div class="icon">🛡️</div>
             <h3>Peace of Mind</h3>
-            <p>
-              Enjoy a simple rental plan with local support, dependable equipment, and one less thing to manage at home.
-            </p>
+            <p>Enjoy a simple month-to-month rental plan with no commitment, local support, dependable equipment, and one less thing to manage at home.</p>
           </div>
         </div>
       </div>
@@ -565,9 +614,7 @@
       <div class="container">
         <div class="section-title">
           <h2>Simple Weekly Pricing</h2>
-          <p>
-            Clear pricing helps customers decide quickly. These rates are easy to understand and ideal for local search visitors.
-          </p>
+          <p>Clear pricing helps customers decide quickly. These rates are easy to understand and ideal for local search visitors.</p>
         </div>
 
         <div class="pricing-grid">
@@ -577,9 +624,10 @@
             <div class="amount">$15 <span>/ week</span></div>
             <p>Perfect for households that want a complete laundry solution at one affordable weekly rate.</p>
             <ul class="clean">
+              <li>Month-to-month rental</li>
+              <li>No commitment</li>
               <li>Delivery available</li>
               <li>Maintenance support included</li>
-              <li>Simple rental plan</li>
             </ul>
           </div>
 
@@ -589,11 +637,76 @@
             <div class="amount">$8 <span>/ week</span></div>
             <p>Choose just the appliance you need and keep your weekly cost low while still getting local support.</p>
             <ul class="clean">
+              <li>Month-to-month rental</li>
+              <li>No commitment</li>
               <li>Great for smaller households</li>
+              <li>Maintenance support included</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="booking" class="booking-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Request Your Rental</h2>
+          <p>Tell us what you need and we’ll follow up about availability, delivery, and setup. Rent-A-Wash is month-to-month with no commitment.</p>
+        </div>
+
+        <div class="booking-wrap">
+          <div class="booking-copy">
+            <span class="eyebrow">Quick booking request</span>
+            <h3>Get started in just a minute.</h3>
+            <p>Use the form to request a washer, dryer, or both. We’ll contact you to confirm details, answer questions, and schedule delivery.</p>
+            <ul class="clean">
+              <li>Month-to-month rentals</li>
+              <li>No commitment</li>
               <li>Delivery available</li>
               <li>Maintenance support included</li>
             </ul>
           </div>
+
+          <form class="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+            <div class="form-grid">
+              <div class="field">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name" required />
+              </div>
+
+              <div class="field">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="509-555-1234" required />
+              </div>
+
+              <div class="field">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" placeholder="you@example.com" required />
+              </div>
+
+              <div class="field">
+                <label for="city">City</label>
+                <input type="text" id="city" name="city" placeholder="Pasco, Richland, Benton City, Hermiston" required />
+              </div>
+
+              <div class="field full">
+                <label for="appliance">What do you need?</label>
+                <select id="appliance" name="appliance" required>
+                  <option value="">Select one</option>
+                  <option>Washer and Dryer</option>
+                  <option>Washer Only</option>
+                  <option>Dryer Only</option>
+                </select>
+              </div>
+
+              <div class="field full">
+                <label for="message">Delivery Notes</label>
+                <textarea id="message" name="message" rows="5" placeholder="Tell us anything helpful, like your address details, preferred contact time, or questions."></textarea>
+              </div>
+            </div>
+
+            <button type="submit" class="btn btn-primary booking-btn">Request Availability</button>
+          </form>
         </div>
       </div>
     </section>
@@ -602,52 +715,38 @@
       <div class="container">
         <div class="section-title">
           <h2>Frequently Asked Questions</h2>
-          <p>
-            Quick answers to common questions about Rent-A-Wash, our rental plans, delivery, and service area.
-          </p>
+          <p>Quick answers to common questions about Rent-A-Wash, our rental plans, delivery, and service area.</p>
         </div>
 
         <div class="faq-grid">
           <div class="faq-item">
             <h3>What areas do you serve?</h3>
-            <p>
-              We serve Tri-Cities, including Kennewick, Richland, and Pasco, plus Benton City, Hermiston, and nearby communities.
-            </p>
+            <p>We serve Tri-Cities, including Kennewick, Richland, and Pasco, plus Benton City, Hermiston, and nearby communities.</p>
           </div>
 
           <div class="faq-item">
             <h3>Do you deliver the washer and dryer?</h3>
-            <p>
-              Yes. Delivery is available, and we make setup simple so you can get started with less hassle.
-            </p>
+            <p>Yes. Delivery is available, and we make setup simple so you can get started with less hassle.</p>
           </div>
 
           <div class="faq-item">
             <h3>Is maintenance included?</h3>
-            <p>
-              Yes. We offer maintenance support to help keep your rental working properly and give you peace of mind.
-            </p>
+            <p>Yes. We offer maintenance support to help keep your rental working properly and give you peace of mind.</p>
           </div>
 
           <div class="faq-item">
             <h3>How much does it cost?</h3>
-            <p>
-              A washer and dryer together are $15 per week. A washer or dryer individually is $8 per week.
-            </p>
+            <p>A washer and dryer together are $15 per week. A washer or dryer individually is $8 per week.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Is there a long-term contract?</h3>
+            <p>No. Rent-A-Wash is month-to-month with no commitment, so you can rent without being locked into a long contract.</p>
           </div>
 
           <div class="faq-item">
             <h3>How do I get started?</h3>
-            <p>
-              Just call us at <a href="tel:5092127621">509-212-7621</a> to ask about availability and delivery options.
-            </p>
-          </div>
-
-          <div class="faq-item">
-            <h3>Why choose Rent-A-Wash?</h3>
-            <p>
-              We make laundry easier with affordable weekly pricing, local support, delivery, maintenance, and a simple rental process.
-            </p>
+            <p>Just call us at <a href="tel:5092127621">509-212-7621</a> or use the booking form to request availability.</p>
           </div>
         </div>
       </div>
@@ -657,34 +756,14 @@
       <div class="container">
         <div class="section-title">
           <h2>Serving Your Area</h2>
-          <p>
-            We proudly serve Tri-Cities and nearby communities, including Benton City and Hermiston.
-          </p>
+          <p>We proudly serve Tri-Cities and nearby communities, including Benton City and Hermiston.</p>
         </div>
 
         <div class="service-area">
           <div class="map-box">
             <h3>Areas We Serve</h3>
-            <p>
-              Kennewick, Richland, Pasco, Benton City, Hermiston, and surrounding communities.
-            </p>
-            <p class="small-note">
-              This local wording helps your page show up for searches related to washer and dryer rentals in your target cities.
-            </p>
-          </div>
-
-          <div class="contact-box" id="contact">
-            <h3>Contact Rent-A-Wash</h3>
-            <p>Call today to ask about availability, delivery, and current rental options.</p>
-            <ul class="clean" style="color:white;">
-              <li>Phone: <a href="tel:5092127621">509-212-7621</a></li>
-              <li>Email: <a href="mailto:info@rentawash.com">info@rentawash.com</a></li>
-              <li>Service: Washer & dryer rentals</li>
-            </ul>
-            <div class="cta-row" style="margin-top:22px;">
-              <a class="btn btn-primary" href="tel:5092127621">Call Now</a>
-              <a class="btn btn-secondary" href="#pricing">See Pricing</a>
-            </div>
+            <p>Kennewick, Richland, Pasco, Benton City, Hermiston, and surrounding communities.</p>
+            <p class="small-note">This local wording helps your page show up for searches related to washer and dryer rentals in your target cities.</p>
           </div>
         </div>
       </div>
@@ -693,8 +772,9 @@
 
   <footer>
     <div class="container">
-      <p><strong>Rent-A-Wash</strong> — Washer and dryer rentals with delivery, maintenance, and peace of mind.</p>
-      <p class="small-note">Tri-Cities, Benton City, Hermiston, and surrounding areas.</p>
+      <p><strong>Rent-A-Wash</strong></p>
+      <p class="small-note">Kennewick • Richland • Pasco • Benton City • Hermiston</p>
+      <p class="small-note"><a href="tel:5092127621">509-212-7621</a></p>
     </div>
   </footer>
 
@@ -737,10 +817,10 @@
       },
       {
         "@type": "Question",
-        "name": "How do I get started?",
+        "name": "Is there a long-term contract?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Call Rent-A-Wash at 509-212-7621 to ask about availability, service area, and delivery options."
+          "text": "No. Rent-A-Wash is month-to-month with no commitment."
         }
       }
     ]
