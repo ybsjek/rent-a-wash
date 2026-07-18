@@ -5,12 +5,179 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Rentyourwash</title>
   <meta name="description" content="Affordable appliance cleaning and laundry service." />
-  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    :root {
+      --blue: #0B3D91;
+      --orange: #F57C00;
+      --bg: #F7FAFF;
+      --card: #ffffff;
+      --text: #1F2937;
+      --muted: #6B7280;
+      --border: #D9E3F0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #eef4ff 0%, var(--bg) 100%);
+      color: var(--text);
+    }
+
+    a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--orange);
+    }
+
+    .page {
+      width: min(960px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 32px 0 56px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 48px 20px 36px;
+    }
+
+    .logo-mark {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 18px;
+      border-radius: 24px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, var(--blue), #1456c7);
+      color: white;
+      font-size: 2rem;
+      font-weight: 700;
+      box-shadow: 0 12px 30px rgba(11, 61, 145, 0.18);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2rem, 5vw, 3.25rem);
+      color: var(--blue);
+    }
+
+    .tagline {
+      margin: 12px auto 22px;
+      max-width: 640px;
+      font-size: 1.1rem;
+      color: var(--muted);
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 22px;
+      border-radius: 999px;
+      background: var(--orange);
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 10px 20px rgba(245, 124, 0, 0.25);
+    }
+
+    .btn:hover {
+      background: #e86f00;
+      color: white;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 22px;
+      padding: 28px;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(31, 41, 55, 0.05);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: var(--blue);
+      font-size: 1.6rem;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .price-box {
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 22px;
+      background: #fbfdff;
+    }
+
+    .price-box.featured {
+      border-color: rgba(245, 124, 0, 0.35);
+      background: linear-gradient(180deg, #fff8ef 0%, #ffffff 100%);
+    }
+
+    .price-box h3 {
+      margin: 0 0 10px;
+      font-size: 1.05rem;
+    }
+
+    .price {
+      margin: 0;
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: var(--orange);
+    }
+
+    .price span {
+      font-size: 1rem;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .service-list {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--text);
+    }
+
+    .service-list li + li {
+      margin-top: 10px;
+    }
+
+    .contact p {
+      margin: 8px 0 0;
+      color: var(--muted);
+    }
+
+    @media (max-width: 720px) {
+      .pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 22px;
+      }
+
+      .hero {
+        padding-top: 28px;
+      }
+    }
+  </style>
 </head>
 <body>
   <main class="page">
     <section class="hero">
-      <img class="logo" src="8371.jpg" alt="Rentyourwash logo" />
+      <div class="logo-mark">RW</div>
       <h1>Rentyourwash</h1>
       <p class="tagline">Simple, reliable appliance cleaning and laundry service.</p>
       <a class="btn" href="#pricing">See Pricing</a>
