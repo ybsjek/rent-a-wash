@@ -1,787 +1,856 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Rent-A-Wash offers washer and dryer rentals and repairs in Tri-Cities, Benton City, and Hermiston. Month-to-month service with no commitment, first month free, affordable delivery, and maintenance support." />
-  <meta name="keywords" content="washer rental, dryer rental, washer repair, dryer repair, Tri-Cities WA, Benton City, Hermiston, Rent-A-Wash, month-to-month rentals, no commitment, first month free, affordable delivery" />
-  <meta name="author" content="Rent-A-Wash" />
-  <title>Rent-A-Wash | Rentals & Repairs in Tri-Cities, Benton City & Hermiston</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta
+    name="description"
+    content="Rent-A-Wash offers washer and dryer rentals and repairs in Tri-Cities, Benton City, and Hermiston. Month-to-month rentals with no long-term commitment, affordable delivery, and maintenance support."
+  >
+  <meta name="author" content="Rent-A-Wash">
+
+  <title>Rent-A-Wash | Washer & Dryer Rentals & Repairs</title>
+
   <style>
     :root {
       --blue: #1f5f9b;
       --blue-dark: #163f68;
-      --blue-soft: #eaf2fb;
       --orange: #f28c28;
-      --orange-dark: #cc6d10;
+      --orange-dark: #a64c00;
       --tan: #f7f2e8;
       --text: #243241;
-      --muted: #5f6e7c;
+      --muted: #526170;
+      --border: #cbd2d8;
       --white: #ffffff;
-      --shadow: 0 10px 24px rgba(22, 63, 104, 0.10);
-      --radius: 16px;
       --max: 1160px;
     }
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
-      background: linear-gradient(180deg, #fff 0%, #f6f8fb 100%);
+      background: #ffffff;
       line-height: 1.6;
     }
 
-    a { color: inherit; text-decoration: none; }
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
     .container {
-      width: min(100% - 28px, var(--max));
-      margin: 0 auto;
+      width: min(100% - 32px, var(--max));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: absolute;
+      top: -100px;
+      left: 16px;
+      padding: 12px 18px;
+      color: var(--blue-dark);
+      background: white;
+      z-index: 100;
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 4px;
     }
 
     .topbar {
-      background: linear-gradient(90deg, var(--blue-dark), var(--blue));
+      background: var(--blue-dark);
       color: white;
-      font-size: 0.95rem;
-      border-bottom: 4px solid var(--orange);
+      border-bottom: 5px solid var(--orange);
     }
 
     .topbar-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 16px;
-      padding: 10px 0;
       flex-wrap: wrap;
+      gap: 14px;
+      padding-block: 12px;
     }
 
-    .phone-link {
-      font-weight: 700;
-      background: rgba(255,255,255,0.12);
-      padding: 8px 14px;
-      border-radius: 999px;
-      border: 1px solid rgba(255,255,255,0.22);
+    .topbar-inner p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .apply-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 10px 26px;
+      background: var(--orange);
+      color: #172b40;
+      border: 2px solid var(--orange);
+      border-radius: 3px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
       white-space: nowrap;
     }
 
-    header {
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      background: rgba(255,255,255,0.95);
-      border-bottom: 1px solid rgba(22,50,79,0.10);
-      box-shadow: 0 4px 14px rgba(0,0,0,0.04);
+    .apply-link:hover {
+      background: #ffac54;
+      border-color: #ffac54;
     }
 
-    .nav {
+    .site-header {
+      background: white;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
-      padding: 14px 0;
       flex-wrap: wrap;
+      gap: 24px;
+      padding-block: 14px;
     }
 
     .brand {
       display: flex;
       align-items: center;
-      gap: 14px;
+      flex-wrap: wrap;
+      gap: 16px;
     }
 
-    .logo-wrap {
-      width: 180px;
-      height: 110px;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: var(--shadow);
-      background: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border: 1px solid rgba(22,50,79,0.12);
-      padding: 8px;
-    }
-
-    .logo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
+    .brand img {
       display: block;
+      width: 300px;
+      max-width: 100%;
+      height: auto;
     }
 
-    .brand-text h1 {
-      margin: 0;
-      font-size: 1.4rem;
-      line-height: 1.1;
+    .brand-name {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 900;
       color: var(--blue-dark);
+      line-height: 1.2;
     }
 
-    .brand-text p {
-      margin: 3px 0 0;
-      font-size: 0.92rem;
+    .brand-description {
+      display: block;
+      margin-top: 5px;
       color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .navigation {
+      background: var(--blue-dark);
+      color: white;
     }
 
     .nav-links {
       display: flex;
-      gap: 16px;
       flex-wrap: wrap;
-      font-weight: 700;
-      color: var(--blue-dark);
+      gap: 0;
     }
 
-    .nav-links a:hover { color: var(--orange-dark); }
+    .nav-links a {
+      display: inline-block;
+      padding: 14px 20px;
+      font-weight: 800;
+    }
+
+    .nav-links a:hover {
+      background: var(--blue);
+    }
+
+    .nav-links .nav-apply {
+      color: #172b40;
+      background: var(--orange);
+    }
 
     .hero {
-      padding: 44px 0 34px;
-      background:
-        linear-gradient(180deg, rgba(255,255,255,0.72), rgba(255,255,255,0.72)),
-        url('') center/cover no-repeat;
+      padding-block: 40px;
+      background: var(--tan);
+      border-bottom: 1px solid var(--border);
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 22px;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 28px;
       align-items: stretch;
     }
 
-    .hero-card {
-      background: linear-gradient(180deg, #ffffff, #fbfcfe);
-      border: 1px solid rgba(22,50,79,0.10);
-      box-shadow: var(--shadow);
-      border-radius: 20px;
-      padding: 30px;
+    .hero-copy {
+      padding: 10px 0;
     }
 
     .eyebrow {
       display: inline-block;
-      padding: 7px 12px;
-      border-radius: 999px;
-      background: rgba(242,140,40,0.14);
-      color: var(--orange-dark);
-      font-weight: 800;
       margin-bottom: 16px;
-      border: 1px solid rgba(242,140,40,0.25);
+      padding: 7px 12px;
+      background: #ffe5bf;
+      border-left: 5px solid var(--orange);
+      color: #703600;
+      font-weight: 800;
+      text-transform: uppercase;
+      font-size: 0.85rem;
+      letter-spacing: 0.03em;
     }
 
-    .hero h2 {
-      font-size: clamp(2.1rem, 4vw, 4rem);
-      line-height: 1.05;
-      margin: 0 0 14px;
-      color: var(--blue-dark);
-      letter-spacing: -0.02em;
-    }
-
-    .hero h2 span { color: var(--orange-dark); }
-
-    .hero p {
-      font-size: 1.05rem;
-      color: var(--muted);
-      max-width: 62ch;
+    h1 {
       margin: 0 0 18px;
+      color: var(--blue-dark);
+      font-size: clamp(2.25rem, 4.5vw, 4rem);
+      line-height: 1.08;
+      font-weight: 900;
+    }
+
+    h1 span {
+      color: var(--orange-dark);
+    }
+
+    .hero-copy p {
+      max-width: 650px;
+      color: var(--muted);
+      font-size: 1.08rem;
     }
 
     .cta-row {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
-      margin-top: 16px;
+      gap: 12px;
+      margin-top: 24px;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 13px 20px;
-      border-radius: 12px;
-      font-weight: 800;
+      min-height: 48px;
+      padding: 12px 20px;
       border: 2px solid transparent;
-      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: var(--shadow);
+      border-radius: 3px;
+      font-weight: 900;
+      text-align: center;
     }
 
     .btn-primary {
-      background: linear-gradient(90deg, var(--orange), var(--orange-dark));
-      color: white;
+      background: var(--orange);
+      border-color: #bd6210;
+      color: #172b40;
+    }
+
+    .btn-primary:hover {
+      background: #ffac54;
     }
 
     .btn-secondary {
       background: var(--blue-dark);
+      border-color: var(--blue-dark);
       color: white;
-      border-color: rgba(22, 63, 104, 0.18);
     }
 
-    .hero-side {
-      display: grid;
-      gap: 16px;
+    .btn-secondary:hover {
+      background: var(--blue);
+      border-color: var(--blue);
     }
 
-    .info-box {
-      background: var(--tan);
-      border-radius: 18px;
-      padding: 20px;
-      border: 1px solid rgba(22,50,79,0.10);
-      box-shadow: var(--shadow);
-    }
-
-    .info-box h3 {
-      margin: 0 0 10px;
-      color: var(--blue-dark);
-      font-size: 1.1rem;
-    }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
-    }
-
-    .stat {
+    .feature-box {
       background: white;
-      border-radius: 14px;
-      padding: 14px 12px;
-      text-align: center;
-      border: 1px solid rgba(22,50,79,0.10);
+      border: 1px solid var(--border);
+      border-top: 7px solid var(--orange);
+      padding: 26px;
     }
 
-    .stat strong {
-      display: block;
-      font-size: 1.2rem;
+    .feature-box h2 {
+      margin-top: 0;
       color: var(--blue-dark);
+      font-size: 1.7rem;
+      line-height: 1.2;
     }
 
-    .stat span {
-      font-size: 0.88rem;
-      color: var(--muted);
+    .feature-list {
+      list-style: none;
+      margin: 20px 0 0;
+      padding: 0;
     }
 
-    section { padding: 20px 0 52px; }
+    .feature-list li {
+      padding: 13px 0;
+      border-top: 1px solid var(--border);
+      font-weight: 700;
+    }
+
+    .feature-list li::before {
+      content: "✓";
+      color: var(--blue);
+      font-weight: 900;
+      margin-right: 10px;
+    }
+
+    .section {
+      padding-block: 48px;
+    }
 
     .section-title {
-      text-align: center;
-      margin-bottom: 24px;
+      margin-bottom: 26px;
     }
 
     .section-title h2 {
-      margin: 0 0 8px;
-      font-size: clamp(1.7rem, 3vw, 2.5rem);
+      margin: 0 0 10px;
       color: var(--blue-dark);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 1.2;
     }
 
     .section-title p {
-      margin: 0 auto;
-      max-width: 760px;
+      margin: 0;
+      max-width: 780px;
       color: var(--muted);
     }
 
     .grid-3 {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 20px;
     }
 
     .card {
+      padding: 24px;
       background: white;
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(22,50,79,0.10);
+      border: 1px solid var(--border);
+      border-top: 5px solid var(--blue-dark);
     }
 
-    .card h3 { margin-top: 0; color: var(--blue-dark); }
-
-    .icon {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
+    .card h3 {
+      margin: 0 0 12px;
+      color: var(--blue-dark);
       font-size: 1.3rem;
-      background: linear-gradient(180deg, rgba(242,140,40,0.16), rgba(31,95,155,0.12));
-      margin-bottom: 12px;
-      border: 1px solid rgba(22,50,79,0.08);
+    }
+
+    .card p {
+      margin-bottom: 0;
     }
 
     .pricing {
-      background: linear-gradient(180deg, #f7fbff, #eef4fa);
-      border-top: 1px solid rgba(22,50,79,0.10);
-      border-bottom: 1px solid rgba(22,50,79,0.10);
+      background: #edf3f8;
+      border-block: 1px solid var(--border);
     }
 
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
     }
 
     .price-card {
+      padding: 28px;
+      border: 1px solid var(--border);
+      border-top: 7px solid var(--blue-dark);
       background: white;
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-      border: 2px solid rgba(22,50,79,0.10);
     }
 
     .price-card.featured {
-      border-color: rgba(242,140,40,0.38);
-      background: linear-gradient(180deg, #fff, #fffaf3);
+      border-top-color: var(--orange);
     }
 
     .price-badge {
       display: inline-block;
-      padding: 6px 11px;
-      border-radius: 999px;
-      font-size: 0.84rem;
+      padding: 5px 10px;
+      background: var(--tan);
+      color: var(--blue-dark);
+      font-size: 0.85rem;
       font-weight: 800;
-      background: rgba(242,140,40,0.14);
-      color: var(--orange-dark);
-      margin-bottom: 12px;
-      border: 1px solid rgba(242,140,40,0.22);
+      text-transform: uppercase;
+    }
+
+    .price-card h3 {
+      margin-bottom: 8px;
+      font-size: 1.55rem;
+      color: var(--blue-dark);
     }
 
     .amount {
-      font-size: 2.4rem;
-      font-weight: 900;
+      margin-block: 8px;
       color: var(--blue-dark);
-      margin: 8px 0;
+      font-size: 3rem;
+      font-weight: 900;
     }
 
     .amount span {
       font-size: 1rem;
-      color: var(--muted);
       font-weight: 600;
+      color: var(--muted);
     }
 
-    ul.clean {
+    .clean {
       list-style: none;
       padding: 0;
-      margin: 16px 0 0;
+      margin: 18px 0;
     }
 
-    ul.clean li {
-      padding: 9px 0;
-      border-top: 1px solid rgba(22,50,79,0.08);
+    .clean li {
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
     }
 
-    ul.clean li:first-child { border-top: none; }
-
-    .booking-section {
-      padding: 18px 0 52px;
+    .small-note {
+      color: var(--muted);
+      font-size: 0.92rem;
     }
 
-    .booking-wrap {
-      display: grid;
-      grid-template-columns: 0.9fr 1.1fr;
-      gap: 16px;
-      align-items: stretch;
-    }
-
-    .booking-copy,
-    .booking-form {
+    .repair-note {
+      margin-top: 24px;
+      padding: 20px;
       background: white;
-      border-radius: 18px;
-      padding: 24px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(22,50,79,0.10);
+      border-left: 5px solid var(--orange);
     }
 
-    .booking-copy h3 {
-      margin-top: 0;
+    .repair-note p {
+      margin: 0;
+    }
+
+    .repair-note a,
+    .faq-item a {
       color: var(--blue-dark);
-      font-size: 1.7rem;
-    }
-
-    .form-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 14px;
-    }
-
-    .field {
-      display: flex;
-      flex-direction: column;
-      gap: 7px;
-    }
-
-    .field.full { grid-column: 1 / -1; }
-
-    label {
+      text-decoration: underline;
+      text-underline-offset: 3px;
       font-weight: 700;
-      color: var(--blue-dark);
-    }
-
-    input,
-    select,
-    textarea {
-      width: 100%;
-      padding: 13px 14px;
-      border-radius: 12px;
-      border: 1px solid rgba(22,50,79,0.16);
-      font: inherit;
-      background: #fbfdff;
-      color: var(--text);
-    }
-
-    input:focus,
-    select:focus,
-    textarea:focus {
-      outline: none;
-      border-color: var(--blue);
-      box-shadow: 0 0 0 4px rgba(31,95,155,0.10);
-    }
-
-    .booking-btn {
-      margin-top: 16px;
-      width: 100%;
     }
 
     .faq-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 20px;
     }
 
     .faq-item {
+      padding: 22px;
       background: white;
-      border-radius: 18px;
-      padding: 20px;
-      border: 1px solid rgba(22,50,79,0.10);
-      box-shadow: var(--shadow);
+      border: 1px solid var(--border);
     }
 
     .faq-item h3 {
-      margin-top: 0;
+      margin: 0 0 10px;
       color: var(--blue-dark);
+      font-size: 1.15rem;
     }
 
-    .service-area {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
+    .faq-item p {
+      margin: 0;
     }
 
-    .map-box {
-      background: linear-gradient(180deg, #fff, #f6f1e6);
-      border-radius: 18px;
-      padding: 22px;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(22,50,79,0.10);
+    .areas {
+      background: var(--tan);
+      border-top: 1px solid var(--border);
+    }
+
+    .location-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      list-style: none;
+      padding: 0;
+      margin: 24px 0 0;
+    }
+
+    .location-list li {
+      padding: 12px 18px;
+      background: white;
+      color: var(--blue-dark);
+      border: 1px solid var(--border);
+      font-weight: 800;
     }
 
     footer {
-      padding: 28px 0 42px;
+      padding: 28px 0;
       text-align: center;
-      color: var(--muted);
-      font-size: 0.95rem;
-      background: #fff;
-      border-top: 1px solid rgba(22,50,79,0.08);
+      background: var(--blue-dark);
+      color: white;
+      border-top: 5px solid var(--orange);
     }
 
-    .small-note {
-      font-size: 0.92rem;
-      color: var(--muted);
+    footer p {
+      margin: 7px 0;
+    }
+
+    .footer-name {
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    footer a {
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      font-weight: 700;
     }
 
     @media (max-width: 900px) {
       .hero-grid,
-      .grid-3,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .header-inner,
+      .brand {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
       .pricing-grid,
-      .booking-wrap,
       .faq-grid {
         grid-template-columns: 1fr;
       }
 
-      .stats { grid-template-columns: 1fr; }
-      .form-grid { grid-template-columns: 1fr; }
-      .nav { justify-content: center; }
-      .brand { justify-content: center; }
-      .nav-links { justify-content: center; }
-      .hero { padding-top: 32px; }
-      .logo-wrap { width: 150px; height: 96px; }
+      .topbar-inner {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .brand img {
+        width: 300px;
+      }
+
+      .nav-links a {
+        padding: 12px 13px;
+        font-size: 0.9rem;
+      }
+
+      .cta-row .btn {
+        width: 100%;
+      }
+
+      .section {
+        padding-block: 36px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
+
 <body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
   <div class="topbar">
     <div class="container topbar-inner">
-      <div><strong>Rent-A-Wash</strong> — Rentals & Repairs with month-to-month service and no commitment</div>
-      <a class="phone-link" href="tel:5092127621">Call Now: 509-212-7621</a>
+      <p>
+        Rent-A-Wash — Month-to-month rentals.
+        No long-term commitment.
+      </p>
+      <a class="apply-link" href="./apply.html">Apply Now</a>
     </div>
   </div>
 
-  <header>
-    <div class="container nav">
-      <div class="brand">
-        <div class="logo-wrap">
-          <img src="8371.png" alt="Rent-A-Wash logo" />
-        </div>
-        <div class="brand-text">
-          <h1>Rent-A-Wash</h1>
-          <p>Rentals and repairs made easy</p>
-        </div>
-      </div>
-      <nav class="nav-links" aria-label="Main navigation">
-        <a href="#services">Services</a>
-        <a href="#pricing">Pricing</a>
-        <a href="#booking">Booking</a>
-        <a href="#faq">FAQ</a>
-        <a href="#areas">Locations</a>
-      </nav>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="brand" href="./index.html">
+        <img src="./8371.png" alt="Rent-A-Wash logo">
+        <span>
+          <span class="brand-name">Rent-A-Wash</span>
+          <span class="brand-description">
+            Washer &amp; Dryer Rentals and Repairs
+          </span>
+        </span>
+      </a>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
+  <nav class="navigation" aria-label="Main navigation">
+    <div class="container nav-links">
+      <a href="#services">Services</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#faq">FAQ</a>
+      <a href="#areas">Locations</a>
+      <a class="nav-apply" href="./apply.html">Apply Now</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="hero" aria-labelledby="hero-heading">
       <div class="container hero-grid">
-        <div class="hero-card">
-          <span class="eyebrow">First month free • Affordable delivery • No commitment</span>
-          <h2>Rentals and repairs for <span>washer & dryer</span> customers.</h2>
+        <div class="hero-copy">
+          <span class="eyebrow">
+            Affordable delivery • Local support
+          </span>
+
+          <h1 id="hero-heading">
+            Washer &amp; Dryer
+            <span>Rentals &amp; Repairs.</span>
+          </h1>
+
           <p>
-            Rent-A-Wash offers month-to-month washer and dryer rentals and repair help with no commitment. We make it easy with affordable delivery, dependable support, and service across Tri-Cities, Benton City, Hermiston, and nearby areas.
+            Keep laundry day moving with Rent-A-Wash.
+            We offer month-to-month washer and dryer rentals
+            with no long-term commitment, plus repair services
+            for washers and dryers.
           </p>
+
+          <p>
+            Serving Tri-Cities, including Kennewick, Richland,
+            and Pasco, plus Benton City and Hermiston.
+          </p>
+
           <div class="cta-row">
-            <a class="btn btn-primary" href="tel:5092127621">Call 509-212-7621</a>
-            <a class="btn btn-secondary" href="#pricing">See Pricing</a>
-            <a class="btn btn-secondary" href="#booking">Request Service</a>
+            <a class="btn btn-primary" href="./apply.html">
+              Apply Now
+            </a>
+            <a class="btn btn-secondary" href="#pricing">
+              See Pricing
+            </a>
+            <a class="btn btn-secondary" href="tel:+15092127621">
+              Call 509-212-7621
+            </a>
           </div>
         </div>
 
-        <div class="hero-side">
-          <div class="info-box">
-            <h3>Featured offer</h3>
-            <p class="small-note">
-              <strong>First Month Free</strong> on qualifying rentals, plus <strong>affordable delivery</strong> to help you get started with less upfront cost.
-            </p>
-          </div>
-
-          <div class="info-box">
-            <h3>Quick Highlights</h3>
-            <div class="stats">
-              <div class="stat">
-                <strong>Free</strong>
-                <span>First Month</span>
-              </div>
-              <div class="stat">
-                <strong>Low</strong>
-                <span>Delivery Cost</span>
-              </div>
-              <div class="stat">
-                <strong>No</strong>
-                <span>Commitment</span>
-              </div>
-              <div class="stat">
-                <strong>Local</strong>
-                <span>Repair Support</span>
-              </div>
-            </div>
-          </div>
-        </div>
+        <aside class="feature-box">
+          <h2>Practical Options. Less Hassle.</h2>
+          <p>
+            Need a complete laundry setup, just one appliance,
+            or help with a repair? Start here.
+          </p>
+          <ul class="feature-list">
+            <li>Month-to-month rentals</li>
+            <li>No long-term commitment</li>
+            <li>Affordable delivery available</li>
+            <li>Rental maintenance support</li>
+            <li>Washer and dryer repair services</li>
+          </ul>
+        </aside>
       </div>
     </section>
 
-    <section id="services">
+    <section id="services" class="section">
       <div class="container">
         <div class="section-title">
-          <h2>What We Offer</h2>
-          <p>Practical service, straightforward pricing, and local support for families and households that need help fast.</p>
+          <h2>Laundry Appliances. Local Help.</h2>
+          <p>
+            Straightforward rental options, repair services,
+            and support when you need it.
+          </p>
         </div>
 
         <div class="grid-3">
-          <div class="card">
-            <div class="icon">🚚</div>
-            <h3>Affordable Delivery</h3>
-            <p>We bring the washer or dryer to you with a simple delivery process designed to keep things easy and affordable.</p>
-          </div>
+          <article class="card">
+            <h3>Washer &amp; Dryer Rentals</h3>
+            <p>
+              Rent a washer, dryer, or both.
+              Our month-to-month rentals give you flexibility
+              without a long-term commitment.
+            </p>
+          </article>
 
-          <div class="card">
-            <div class="icon">🛠️</div>
-            <h3>Rentals & Repairs</h3>
-            <p>Need a machine now or need service on an existing one? We help with rental options and repair support.</p>
-          </div>
+          <article class="card">
+            <h3>Washer &amp; Dryer Repairs</h3>
+            <p>
+              Having trouble with your laundry appliance?
+              Tell us what is happening so we can discuss
+              repair options, pricing, and scheduling.
+            </p>
+          </article>
 
-          <div class="card">
-            <div class="icon">🛡️</div>
-            <h3>Peace of Mind</h3>
-            <p>Month-to-month service with no commitment gives you flexibility, support, and less stress at home.</p>
-          </div>
+          <article class="card">
+            <h3>Delivery &amp; Peace of Mind</h3>
+            <p>
+              Affordable delivery and rental maintenance support
+              help make your laundry setup one less thing to
+              worry about.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section class="pricing" id="pricing">
+    <section id="pricing" class="section pricing">
       <div class="container">
         <div class="section-title">
-          <h2>Simple Weekly Pricing</h2>
-          <p>Clear pricing helps customers decide quickly. These rates are easy to understand and ideal for local search visitors.</p>
+          <h2>Straightforward Rental Pricing</h2>
+          <p>
+            Choose the appliance setup you need.
+            Rentals are month-to-month with no long-term
+            commitment; rates below are shown per week.
+          </p>
         </div>
 
         <div class="pricing-grid">
-          <div class="price-card">
-            <div class="price-badge">Best for full laundry setup</div>
+          <article class="price-card featured">
+            <span class="price-badge">Complete Laundry Setup</span>
             <h3>Washer + Dryer</h3>
             <div class="amount">$15 <span>/ week</span></div>
-            <p>Perfect for households that want a complete laundry solution at one affordable weekly rate.</p>
+            <p>
+              Both appliances for your home at one weekly rate.
+            </p>
             <ul class="clean">
               <li>Month-to-month rental</li>
-              <li>No commitment</li>
-              <li>First month free on qualifying rentals</li>
+              <li>No long-term commitment</li>
               <li>Affordable delivery available</li>
+              <li>Rental maintenance support</li>
             </ul>
-          </div>
+            <a class="btn btn-primary" href="./apply.html">
+              Apply for a Washer &amp; Dryer
+            </a>
+          </article>
 
-          <div class="price-card featured">
-            <div class="price-badge">Flexible option</div>
+          <article class="price-card">
+            <span class="price-badge">Just What You Need</span>
             <h3>Washer or Dryer</h3>
             <div class="amount">$8 <span>/ week</span></div>
-            <p>Choose just the appliance you need and keep your weekly cost low while still getting local support.</p>
+            <p>
+              Rent just one appliance to complete your setup.
+            </p>
             <ul class="clean">
               <li>Month-to-month rental</li>
-              <li>No commitment</li>
-              <li>First month free on qualifying rentals</li>
+              <li>No long-term commitment</li>
               <li>Affordable delivery available</li>
+              <li>Rental maintenance support</li>
             </ul>
-          </div>
+            <a class="btn btn-secondary" href="./apply.html">
+              Apply for One Appliance
+            </a>
+          </article>
+        </div>
+
+        <p class="small-note">
+          Ask us about billing details, delivery charges,
+          and current availability before starting your rental.
+        </p>
+
+        <div class="repair-note">
+          <p>
+            <strong>Need a repair instead?</strong>
+            Repair pricing is separate from rental pricing.
+            <a href="./apply.html">Send a repair request</a>
+            or call
+            <a href="tel:+15092127621">509-212-7621</a>
+            to discuss your appliance.
+          </p>
         </div>
       </div>
     </section>
 
-    <section id="booking" class="booking-section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Request Your Rental or Repair</h2>
-          <p>Tell us what you need and we’ll follow up about availability, delivery, and repair options. Rent-A-Wash is month-to-month with no commitment.</p>
-        </div>
-
-        <div class="booking-wrap">
-          <div class="booking-copy">
-            <span class="eyebrow">Quick request form</span>
-            <h3>Get started in just a minute.</h3>
-            <p>Use the form to request a washer, dryer, rental help, or repair service. We’ll contact you to confirm details and next steps.</p>
-            <ul class="clean">
-              <li>Month-to-month rentals</li>
-              <li>No commitment</li>
-              <li>First month free offer</li>
-              <li>Affordable delivery available</li>
-            </ul>
-          </div>
-
-          <form class="booking-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
-            <div class="form-grid">
-              <div class="field">
-                <label for="name">Full Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name" required />
-              </div>
-
-              <div class="field">
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="509-555-1234" required />
-              </div>
-
-              <div class="field">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" placeholder="you@example.com" required />
-              </div>
-
-              <div class="field">
-                <label for="city">City</label>
-                <input type="text" id="city" name="city" placeholder="Pasco, Richland, Benton City, Hermiston" required />
-              </div>
-
-              <div class="field full">
-                <label for="service">What do you need?</label>
-                <select id="service" name="service" required>
-                  <option value="">Select one</option>
-                  <option>Washer Rental</option>
-                  <option>Dryer Rental</option>
-                  <option>Washer and Dryer Rental</option>
-                  <option>Repair Service</option>
-                </select>
-              </div>
-
-              <div class="field full">
-                <label for="message">Details</label>
-                <textarea id="message" name="message" rows="5" placeholder="Tell us anything helpful, like your address details, preferred contact time, or questions."></textarea>
-              </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary booking-btn">Request Availability</button>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq">
+    <section id="faq" class="section">
       <div class="container">
         <div class="section-title">
           <h2>Frequently Asked Questions</h2>
-          <p>Quick answers to common questions about Rent-A-Wash, our rental plans, delivery, and service area.</p>
+          <p>
+            Answers about our rentals, repairs, delivery,
+            and service area.
+          </p>
         </div>
 
         <div class="faq-grid">
-          <div class="faq-item">
-            <h3>What areas do you serve?</h3>
-            <p>We serve Tri-Cities, including Kennewick, Richland, and Pasco, plus Benton City, Hermiston, and nearby communities.</p>
-          </div>
+          <article class="faq-item">
+            <h3>Where does Rent-A-Wash provide service?</h3>
+            <p>
+              We serve Kennewick, Richland, and Pasco in
+              Tri-Cities, plus Benton City and Hermiston.
+              Contact us to ask about nearby locations.
+            </p>
+          </article>
 
-          <div class="faq-item">
-            <h3>Do you offer rentals and repairs?</h3>
-            <p>Yes. We offer washer and dryer rentals plus repair support to help keep your laundry setup working properly.</p>
-          </div>
+          <article class="faq-item">
+            <h3>Do you offer washer and dryer repairs?</h3>
+            <p>
+              Yes. We offer washer and dryer repair services.
+              Send a request describing the appliance and
+              the problem so we can discuss next steps.
+            </p>
+          </article>
 
-          <div class="faq-item">
-            <h3>Do you deliver?</h3>
-            <p>Yes. Affordable delivery is available to help make setup easier and more convenient.</p>
-          </div>
+          <article class="faq-item">
+            <h3>Is affordable delivery available?</h3>
+            <p>
+              Yes. Affordable delivery is available for rentals.
+              Contact us to confirm delivery costs and
+              scheduling for your location.
+            </p>
+          </article>
 
-          <div class="faq-item">
-            <h3>How much does it cost?</h3>
-            <p>A washer and dryer together are $15 per week. A washer or dryer individually is $8 per week.</p>
-          </div>
+          <article class="faq-item">
+            <h3>How much do washer and dryer rentals cost?</h3>
+            <p>
+              A washer and dryer together cost $15 per week.
+              A washer or dryer individually costs $8 per week.
+              Repair pricing is separate.
+            </p>
+          </article>
 
-          <div class="faq-item">
-            <h3>Is there a long-term contract?</h3>
-            <p>No. Rent-A-Wash is month-to-month with no commitment.</p>
-          </div>
+          <article class="faq-item">
+            <h3>Are rentals month-to-month?</h3>
+            <p>
+              Yes. Rentals are month-to-month with no
+              long-term commitment. Ask us about billing
+              and return arrangements before starting.
+            </p>
+          </article>
 
-          <div class="faq-item">
-            <h3>How do I get started?</h3>
-            <p>Just call us at <a href="tel:5092127621">509-212-7621</a> or use the booking form to request availability.</p>
-          </div>
+          <article class="faq-item">
+            <h3>How do I apply or request a repair?</h3>
+            <p>
+              Visit our
+              <a href="./apply.html">application page</a>
+              to submit your information, or call
+              <a href="tel:+15092127621">509-212-7621</a>.
+              We’ll follow up to discuss your request.
+            </p>
+          </article>
         </div>
       </div>
     </section>
 
-    <section id="areas">
+    <section id="areas" class="section areas">
       <div class="container">
         <div class="section-title">
-          <h2>Serving Your Area</h2>
-          <p>We proudly serve Tri-Cities and nearby communities, including Benton City and Hermiston.</p>
+          <h2>Serving Tri-Cities &amp; Nearby Communities</h2>
+          <p>
+            Washer and dryer rentals and repairs in
+            Kennewick, Richland, Pasco, Benton City,
+            and Hermiston.
+          </p>
         </div>
 
-        <div class="service-area">
-          <div class="map-box">
-            <h3>Areas We Serve</h3>
-            <p>Kennewick, Richland, Pasco, Benton City, Hermiston, and surrounding communities.</p>
-            <p class="small-note">This local wording helps your page show up for searches related to rentals and repairs in your target cities.</p>
-          </div>
-        </div>
+        <ul class="location-list">
+          <li>Kennewick</li>
+          <li>Richland</li>
+          <li>Pasco</li>
+          <li>Benton City</li>
+          <li>Hermiston</li>
+        </ul>
       </div>
     </section>
   </main>
 
   <footer>
     <div class="container">
-      <p><strong>Rent-A-Wash</strong></p>
-      <p class="small-note">Kennewick • Richland • Pasco • Benton City • Hermiston</p>
-      <p class="small-note"><a href="tel:5092127621">509-212-7621</a></p>
+      <p class="footer-name">Rent-A-Wash</p>
+      <p>Kennewick • Richland • Pasco • Benton City • Hermiston</p>
+      <p><a href="tel:+15092127621">509-212-7621</a></p>
     </div>
   </footer>
 
@@ -792,42 +861,50 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "What areas do you serve?",
+        "name": "Where does Rent-A-Wash provide service?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "We serve Tri-Cities, including Kennewick, Richland, and Pasco, plus Benton City, Hermiston, and nearby communities."
+          "text": "We serve Kennewick, Richland, and Pasco in Tri-Cities, plus Benton City and Hermiston. Contact us to ask about nearby locations."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you offer rentals and repairs?",
+        "name": "Do you offer washer and dryer repairs?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. We offer washer and dryer rentals plus repair support to help keep your laundry setup working properly."
+          "text": "Yes. We offer washer and dryer repair services. Send a request describing the appliance and the problem so we can discuss next steps."
         }
       },
       {
         "@type": "Question",
-        "name": "Do you deliver?",
+        "name": "Is affordable delivery available?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Yes. Affordable delivery is available to help make setup easier and more convenient."
+          "text": "Yes. Affordable delivery is available for rentals. Contact us to confirm delivery costs and scheduling for your location."
         }
       },
       {
         "@type": "Question",
-        "name": "How much does it cost?",
+        "name": "How much do washer and dryer rentals cost?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A washer and dryer together are 15 dollars per week. A washer or dryer individually is 8 dollars per week."
+          "text": "A washer and dryer together cost $15 per week. A washer or dryer individually costs $8 per week. Repair pricing is separate."
         }
       },
       {
         "@type": "Question",
-        "name": "Is there a long-term contract?",
+        "name": "Are rentals month-to-month?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "No. Rent-A-Wash is month-to-month with no commitment."
+          "text": "Yes. Rentals are month-to-month with no long-term commitment. Ask us about billing and return arrangements before starting."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I apply or request a repair?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Visit our application page to submit your information, or call 509-212-7621. We’ll follow up to discuss your request."
         }
       }
     ]
