@@ -100,6 +100,7 @@
 
     .brand {
       display: inline-block;
+      max-width: 100%;
     }
 
     .brand img {
@@ -170,12 +171,6 @@
       font-weight: 900;
     }
 
-    .section-note {
-      margin: 0 0 20px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
     .form-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -197,19 +192,13 @@
       font-weight: 700;
     }
 
-    .optional {
-      color: var(--muted);
-      font-size: 0.85rem;
-      font-weight: 400;
-    }
-
     input,
     select,
     button {
       font: inherit;
     }
 
-    input,
+    input:not([type="checkbox"]):not([type="hidden"]),
     select {
       display: block;
       width: 100%;
@@ -234,12 +223,6 @@
       outline-offset: 4px;
     }
 
-    .help-text {
-      margin: 6px 0 0;
-      color: var(--muted);
-      font-size: 0.85rem;
-    }
-
     .checkbox-row {
       display: flex;
       align-items: flex-start;
@@ -250,9 +233,8 @@
     .checkbox-row input {
       width: 20px;
       height: 20px;
-      min-height: 20px;
       flex-shrink: 0;
-      margin-top: 4px;
+      margin: 4px 0 0;
       accent-color: var(--navy);
     }
 
@@ -263,23 +245,11 @@
       font-weight: 400;
     }
 
-    .notice {
-      padding: 16px;
-      margin-block: 24px;
-      background: #f0f4f8;
-      border-left: 4px solid var(--navy);
-      color: var(--muted);
-      font-size: 0.9rem;
-    }
-
-    .notice p {
-      margin: 0;
-    }
-
     .submit-button {
       display: block;
       width: 100%;
       min-height: 54px;
+      margin-top: 26px;
       padding: 14px 20px;
       background: var(--orange);
       color: #172b40;
@@ -293,13 +263,6 @@
 
     .submit-button:hover {
       background: #ffac54;
-    }
-
-    .form-status:not(:empty) {
-      margin-top: 18px;
-      padding: 14px;
-      background: #fff3df;
-      border-left: 4px solid var(--orange);
     }
 
     .bottom-note {
@@ -327,6 +290,7 @@
     footer a {
       color: white;
       font-weight: 700;
+      overflow-wrap: anywhere;
     }
 
     .footer-name {
@@ -412,22 +376,14 @@
           Fields marked * are required.
         </p>
 
-        <!--
-          Replace YOUR_SECURE_FORM_ENDPOINT with your approved
-          HTTPS form-processing endpoint before publishing.
-        -->
         <form
           id="rental-application"
           action="https://formspree.io/f/maeedbgk"
           method="POST"
+          accept-charset="UTF-8"
         >
           <fieldset>
             <legend>Contact Information:</legend>
-
-            <p class="section-note">
-              Enter your name and the address where the
-              rental appliances will be used.
-            </p>
 
             <div class="form-grid">
               <div class="field full">
@@ -457,10 +413,7 @@
               </div>
 
               <div class="field full">
-                <label for="unit">
-                  Apartment / Unit
-                  <span class="optional">(optional)</span>
-                </label>
+                <label for="unit">Apartment / Unit</label>
                 <input
                   id="unit"
                   name="service_unit"
@@ -539,15 +492,10 @@
           <fieldset>
             <legend>About You:</legend>
 
-            <p class="section-note">
-              Enter your monthly income, work information,
-              and self-reported credit score.
-            </p>
-
             <div class="form-grid">
               <div class="field full">
                 <label for="monthly-income">
-                  Gross Monthly Income (USD) *
+                  Gross Monthly Income *
                 </label>
                 <input
                   id="monthly-income"
@@ -556,13 +504,8 @@
                   min="0"
                   step="0.01"
                   inputmode="decimal"
-                  aria-describedby="income-help"
                   required
                 >
-                <p id="income-help" class="help-text">
-                  Enter your income before taxes for one month.
-                  Enter numbers only, without a dollar sign.
-                </p>
               </div>
 
               <div class="field full">
@@ -584,36 +527,31 @@
                   <option value="Self-employed">
                     Self-employed
                   </option>
-                  <option value="Retired">Retired</option>
+                  <option value="Retired">
+                    Retired
+                  </option>
                   <option value="Not currently employed">
                     Not currently employed
                   </option>
-                  <option value="Other">Other</option>
+                  <option value="Other">
+                    Other
+                  </option>
                 </select>
               </div>
 
               <div class="field full">
-                <label for="employer-name">
-                  Employer Name
-                  <span class="optional">(if applicable)</span>
-                </label>
+                <label for="employer-name">Employer Name</label>
                 <input
                   id="employer-name"
                   name="employer_name"
                   type="text"
                   maxlength="200"
-                  aria-describedby="employer-help"
                 >
-                <p id="employer-help" class="help-text">
-                  If self-employed, enter your business name.
-                  Leave blank if you do not have an employer.
-                </p>
               </div>
 
               <div class="field full">
                 <label for="employer-street">
                   Employer Street Address
-                  <span class="optional">(if applicable)</span>
                 </label>
                 <input
                   id="employer-street"
@@ -624,10 +562,7 @@
               </div>
 
               <div class="field">
-                <label for="employer-city">
-                  Employer City
-                  <span class="optional">(if applicable)</span>
-                </label>
+                <label for="employer-city">Employer City</label>
                 <input
                   id="employer-city"
                   name="employer_city"
@@ -639,7 +574,6 @@
               <div class="field">
                 <label for="employer-state">
                   Employer State / Region
-                  <span class="optional">(if applicable)</span>
                 </label>
                 <input
                   id="employer-state"
@@ -652,7 +586,6 @@
               <div class="field full">
                 <label for="employer-zip">
                   Employer ZIP / Postal Code
-                  <span class="optional">(if applicable)</span>
                 </label>
                 <input
                   id="employer-zip"
@@ -663,10 +596,7 @@
               </div>
 
               <div class="field full">
-                <label for="credit-score">
-                  Self-Reported Credit Score
-                  <span class="optional">(if known)</span>
-                </label>
+                <label for="credit-score">Credit Score</label>
                 <input
                   id="credit-score"
                   name="self_reported_credit_score"
@@ -674,13 +604,7 @@
                   min="0"
                   step="1"
                   inputmode="numeric"
-                  aria-describedby="credit-help"
                 >
-                <p id="credit-help" class="help-text">
-                  Enter your estimated score, or leave blank
-                  if you do not know it. This form does not
-                  obtain a credit report or run a credit check.
-                </p>
               </div>
             </div>
           </fieldset>
@@ -714,34 +638,9 @@
             </label>
           </div>
 
-          <div class="notice">
-            <p>
-              Submitting an application does not guarantee
-              approval or reserve equipment. Do not provide
-              Social Security numbers, bank account numbers,
-              payment card details, or account passwords.
-            </p>
-          </div>
-
           <button class="submit-button" type="submit">
             Submit Application
           </button>
-
-          <p
-            id="form-status"
-            class="form-status"
-            role="status"
-            aria-live="polite"
-          ></p>
-
-          <noscript>
-            <p>
-              Online submission requires JavaScript.
-              Please call
-              <a href="tel:+15092127621">509-212-7621</a>
-              for assistance.
-            </p>
-          </noscript>
         </form>
       </div>
 
@@ -756,48 +655,11 @@
     <p class="footer-name">Rent-A-Wash</p>
     <p>Kennewick • Richland • Pasco • Benton City • Hermiston</p>
     <p><a href="tel:+15092127621">509-212-7621</a></p>
+    <p>
+      <a href="mailto:Rentyourwash@gmail.com">
+        Rentyourwash@gmail.com
+      </a>
+    </p>
   </footer>
-
-  <script>
-    const form = document.getElementById("rental-application");
-    const status = document.getElementById("form-status");
-
-    form.addEventListener("submit", function (event) {
-      const endpoint = form.getAttribute("action");
-
-      if (
-        !endpoint ||
-        endpoint === "YOUR_SECURE_FORM_ENDPOINT" ||
-        !endpoint.startsWith("https://")
-      ) {
-        event.preventDefault();
-
-        status.textContent =
-          "Online applications are not available yet. " +
-          "Please call 509-212-7621 for assistance.";
-
-        return;
-      }
-    });
-
-    // Require JavaScript so the placeholder endpoint cannot
-    // receive an accidental native form submission.
-    form.addEventListener("formdata", function () {
-      status.textContent = "";
-    });
-  </script>
-
-  <script>
-    // Enable submission only after the page scripts have loaded.
-    // The noscript rule below blocks submission otherwise.
-  </script>
-
-  <noscript>
-    <style>
-      .submit-button {
-        display: none;
-      }
-    </style>
-  </noscript>
 </body>
 </html>
