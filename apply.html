@@ -8,7 +8,7 @@
 
   <meta
     name="description"
-    content="Apply for a washer or dryer rental with Rent-A-Wash. Serving Kennewick, Richland, Pasco, Benton City, and Hermiston."
+    content="Apply for a washer or dryer rental with Rent-A-Wash. Serving Tri-Cities, Benton City, Hermiston, Walla Walla, College Place, and Umatilla."
   >
 
   <style>
@@ -335,7 +335,9 @@
 
   <div class="topbar">
     <div class="container topbar-inner">
-      <p>Month-to-month rentals. No long-term commitment.</p>
+      <p>
+        Washer &amp; dryer rentals with flexible cancellations.
+      </p>
       <a href="./index.html">Back to Home</a>
     </div>
   </div>
@@ -373,7 +375,9 @@
         </p>
 
         <p class="required-note">
-          Fields marked * are required.
+          Fields marked * are required. Enter N/A for an
+          apartment or required employer field that does not
+          apply to you.
         </p>
 
         <form
@@ -413,13 +417,14 @@
               </div>
 
               <div class="field full">
-                <label for="unit">Apartment / Unit</label>
+                <label for="unit">Apartment / Unit *</label>
                 <input
                   id="unit"
                   name="service_unit"
                   type="text"
                   autocomplete="section-service address-line2"
                   maxlength="100"
+                  required
                 >
               </div>
 
@@ -436,12 +441,11 @@
               </div>
 
               <div class="field">
-                <label for="state">State *</label>
+                <label for="state">State</label>
                 <select
                   id="state"
                   name="service_state"
                   autocomplete="section-service address-level1"
-                  required
                 >
                   <option value="">Select state</option>
                   <option value="WA">Washington</option>
@@ -450,7 +454,7 @@
               </div>
 
               <div class="field">
-                <label for="zip">ZIP Code *</label>
+                <label for="zip">ZIP Code</label>
                 <input
                   id="zip"
                   name="service_zip"
@@ -459,7 +463,6 @@
                   autocomplete="section-service postal-code"
                   pattern="[0-9]{5}(-[0-9]{4})?"
                   title="Enter a five-digit ZIP code or ZIP+4."
-                  required
                 >
               </div>
 
@@ -510,12 +513,11 @@
 
               <div class="field full">
                 <label for="employment-status">
-                  Employment Status *
+                  Employment Status
                 </label>
                 <select
                   id="employment-status"
                   name="employment_status"
-                  required
                 >
                   <option value="">Select an option</option>
                   <option value="Full-time employed">
@@ -540,34 +542,54 @@
               </div>
 
               <div class="field full">
-                <label for="employer-name">Employer Name</label>
+                <label for="employer-name">
+                  Employer Name *
+                </label>
                 <input
                   id="employer-name"
                   name="employer_name"
                   type="text"
                   maxlength="200"
+                  required
+                >
+              </div>
+
+              <div class="field full">
+                <label for="employer-phone">
+                  Employer Phone Number *
+                </label>
+                <input
+                  id="employer-phone"
+                  name="employer_phone"
+                  type="tel"
+                  maxlength="40"
+                  required
                 >
               </div>
 
               <div class="field full">
                 <label for="employer-street">
-                  Employer Street Address
+                  Employer Street Address *
                 </label>
                 <input
                   id="employer-street"
                   name="employer_street_address"
                   type="text"
                   maxlength="200"
+                  required
                 >
               </div>
 
               <div class="field">
-                <label for="employer-city">Employer City</label>
+                <label for="employer-city">
+                  Employer City *
+                </label>
                 <input
                   id="employer-city"
                   name="employer_city"
                   type="text"
                   maxlength="100"
+                  required
                 >
               </div>
 
@@ -596,7 +618,7 @@
               </div>
 
               <div class="field full">
-                <label for="credit-score">Credit Score</label>
+                <label for="credit-score">Credit Score *</label>
                 <input
                   id="credit-score"
                   name="self_reported_credit_score"
@@ -604,6 +626,7 @@
                   min="0"
                   step="1"
                   inputmode="numeric"
+                  required
                 >
               </div>
             </div>
@@ -653,8 +676,16 @@
 
   <footer>
     <p class="footer-name">Rent-A-Wash</p>
-    <p>Kennewick • Richland • Pasco • Benton City • Hermiston</p>
-    <p><a href="tel:+15092127621">509-212-7621</a></p>
+
+    <p>
+      Kennewick • Richland • Pasco • Benton City • Hermiston
+      • Walla Walla • College Place • Umatilla
+    </p>
+
+    <p>
+      <a href="tel:+15092127621">509-212-7621</a>
+    </p>
+
     <p>
       <a href="mailto:Rentyourwash@gmail.com">
         Rentyourwash@gmail.com
