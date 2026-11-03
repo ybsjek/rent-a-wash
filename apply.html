@@ -97,7 +97,6 @@
 
     .header-inner {
       display: flex;
-      justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 20px;
@@ -115,12 +114,6 @@
       height: auto;
     }
 
-    .header-label {
-      color: var(--navy);
-      font-weight: 800;
-      font-size: 1.1rem;
-    }
-
     .banner {
       padding-block: 30px;
       background: var(--orange);
@@ -128,42 +121,22 @@
     }
 
     h1 {
-      margin: 0 0 10px;
+      margin: 0;
       color: #172b40;
       font-size: clamp(2rem, 5vw, 3rem);
       line-height: 1.15;
       text-transform: uppercase;
     }
 
-    .banner p {
-      margin: 0;
-      max-width: 700px;
-    }
-
     main {
       padding-block: 32px 48px;
     }
 
-    .delivery-card {
+    .application-card {
       padding: 30px;
       background: var(--white);
       border: 1px solid var(--border);
       border-top: 6px solid var(--navy);
-    }
-
-    .intro {
-      margin-top: 0;
-      color: var(--muted);
-    }
-
-    .form-help {
-      margin-bottom: 24px;
-      color: var(--muted);
-      font-size: 0.95rem;
-    }
-
-    .form-help a {
-      font-weight: 700;
     }
 
     .tally-form {
@@ -206,7 +179,7 @@
     }
 
     @media (max-width: 600px) {
-      .delivery-card {
+      .application-card {
         padding: 20px 12px;
       }
 
@@ -215,10 +188,6 @@
         justify-content: center;
         text-align: center;
       }
-
-      .header-label {
-        width: 100%;
-      }
     }
   </style>
 
@@ -226,7 +195,7 @@
 </head>
 
 <body>
-  <a class="skip-link" href="#delivery">
+  <a class="skip-link" href="#application">
     Skip to application form
   </a>
 
@@ -247,37 +216,18 @@
           alt="Rent-A-Wash — Back to home"
         >
       </a>
-
     </div>
   </header>
 
   <section class="banner" aria-labelledby="page-title">
     <div class="container">
       <h1 id="page-title">Rental Application</h1>
-      <p>
-        Complete the form below as part of your application process.
-      </p>
     </div>
   </section>
 
-  <main id="delivery">
+  <main id="application">
     <div class="container">
-      <div class="delivery-card">
-        <p class="intro">
-          Thank you for choosing Rent-A-Wash!
-          Please complete and submit this form as part
-          of your application
-        </p>
-
-        <p class="form-help">
-          Having trouble with the form?
-          <a
-            href="https://tally.so/r/xVrayo"
-            target="_blank"
-            rel="noopener noreferrer"
-          >Open it in a new tab</a>.
-        </p>
-
+      <div class="application-card">
         <iframe
           class="tally-form"
           src="https://tally.so/embed/xVrayo?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
