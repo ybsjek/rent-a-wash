@@ -6,7 +6,7 @@
 
   <meta
     name="description"
-    content="Rent-A-Wash offers top load washer and dryer rentals starting at $35 every two weeks and front load rentals starting at $45 every two weeks, plus repairs, flexible cancellations, and affordable delivery. Serving Tri-Cities, Benton City, Hermiston, Walla Walla, College Place, and Umatilla."
+    content="Rent-A-Wash offers washer-only rentals for $25 every two weeks, top load washer and dryer rentals starting at $35 every two weeks, and front load rentals starting at $45 every two weeks. Local delivery is $49. Serving Tri-Cities, Benton City, Hermiston, Walla Walla, College Place, and Umatilla."
   >
 
   <meta name="author" content="Rent-A-Wash">
@@ -25,6 +25,7 @@
       --border: #cbd2d8;
       --white: #ffffff;
       --max: 1160px;
+      --sticky-height: 90px;
     }
 
     * {
@@ -33,7 +34,7 @@
 
     html {
       scroll-behavior: smooth;
-      scroll-padding-top: 30px;
+      scroll-padding-top: calc(var(--sticky-height) + 20px);
     }
 
     body {
@@ -55,13 +56,13 @@
     }
 
     .skip-link {
-      position: absolute;
-      top: -100px;
+      position: fixed;
+      top: -150px;
       left: 16px;
       padding: 12px 18px;
       color: var(--blue-dark);
-      background: white;
-      z-index: 100;
+      background: var(--white);
+      z-index: 2000;
     }
 
     .skip-link:focus {
@@ -74,16 +75,19 @@
     }
 
     .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
       background: var(--blue-dark);
-      color: white;
+      color: var(--white);
       border-bottom: 5px solid var(--orange);
+      box-shadow: 0 3px 12px rgb(0 0 0 / 15%);
     }
 
     .topbar-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: wrap;
       gap: 14px;
       padding-block: 12px;
     }
@@ -93,10 +97,16 @@
       font-size: 0.95rem;
     }
 
+    .topbar-brand {
+      display: block;
+      font-weight: 900;
+    }
+
     .apply-link {
       display: inline-flex;
       align-items: center;
       justify-content: center;
+      flex-shrink: 0;
       min-height: 46px;
       padding: 10px 26px;
       background: var(--orange);
@@ -114,14 +124,17 @@
       border-color: #ffac54;
     }
 
+    .apply-link:focus-visible {
+      outline-color: var(--white);
+    }
+
     .site-header {
-      background: white;
+      background: var(--white);
       border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
       display: flex;
-      justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
       gap: 24px;
@@ -160,7 +173,7 @@
 
     .navigation {
       background: var(--blue-dark);
-      color: white;
+      color: var(--white);
     }
 
     .nav-links {
@@ -176,15 +189,6 @@
 
     .nav-links a:hover {
       background: var(--blue);
-    }
-
-    .nav-links .nav-apply {
-      color: #172b40;
-      background: var(--orange);
-    }
-
-    .nav-links .nav-apply:hover {
-      background: #ffac54;
     }
 
     .hero {
@@ -235,6 +239,24 @@
       font-size: 1.08rem;
     }
 
+    .delivery-highlight {
+      margin-block: 22px;
+      padding: 16px 18px;
+      background: var(--white);
+      border-left: 5px solid var(--orange);
+    }
+
+    .delivery-highlight strong {
+      display: block;
+      color: var(--blue-dark);
+      font-size: 1.4rem;
+    }
+
+    .delivery-highlight span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
     .cta-row {
       display: flex;
       flex-wrap: wrap;
@@ -267,7 +289,7 @@
     .btn-secondary {
       background: var(--blue-dark);
       border-color: var(--blue-dark);
-      color: white;
+      color: var(--white);
     }
 
     .btn-secondary:hover {
@@ -276,7 +298,7 @@
     }
 
     .feature-box {
-      background: white;
+      background: var(--white);
       border: 1px solid var(--border);
       border-top: 7px solid var(--orange);
       padding: 26px;
@@ -337,7 +359,7 @@
 
     .card {
       padding: 24px;
-      background: white;
+      background: var(--white);
       border: 1px solid var(--border);
       border-top: 5px solid var(--blue-dark);
     }
@@ -359,17 +381,17 @@
 
     .pricing-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
     .price-card {
       display: flex;
       flex-direction: column;
-      padding: 28px;
+      padding: 26px;
       border: 1px solid var(--border);
       border-top: 7px solid var(--blue-dark);
-      background: white;
+      background: var(--white);
     }
 
     .price-card.featured {
@@ -389,11 +411,12 @@
 
     .price-card h3 {
       margin-bottom: 8px;
-      font-size: 1.7rem;
+      font-size: 1.6rem;
+      line-height: 1.25;
       color: var(--blue-dark);
     }
 
-    .starting-at {
+    .rate-label {
       display: block;
       margin-top: 14px;
       margin-bottom: 2px;
@@ -431,7 +454,7 @@
 
     .price-card .btn {
       margin-top: auto;
-      align-self: flex-start;
+      width: 100%;
     }
 
     .small-note {
@@ -439,579 +462,21 @@
       font-size: 0.92rem;
     }
 
+    .delivery-note,
     .repair-note {
       margin-top: 24px;
       padding: 20px;
-      background: white;
+      background: var(--white);
       border-left: 5px solid var(--orange);
     }
 
+    .delivery-note h3 {
+      margin: 0 0 8px;
+      color: var(--blue-dark);
+      font-size: 1.4rem;
+    }
+
+    .delivery-note p,
     .repair-note p {
       margin: 0;
     }
-
-    .repair-note a,
-    .faq-item a {
-      color: var(--blue-dark);
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      font-weight: 700;
-      overflow-wrap: anywhere;
-    }
-
-    .faq-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 20px;
-    }
-
-    .faq-item {
-      padding: 22px;
-      background: white;
-      border: 1px solid var(--border);
-    }
-
-    .faq-item h3 {
-      margin: 0 0 10px;
-      color: var(--blue-dark);
-      font-size: 1.15rem;
-    }
-
-    .faq-item p {
-      margin: 0;
-    }
-
-    .areas {
-      background: var(--tan);
-      border-top: 1px solid var(--border);
-    }
-
-    .location-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      list-style: none;
-      padding: 0;
-      margin: 24px 0 0;
-    }
-
-    .location-list li {
-      padding: 12px 18px;
-      background: white;
-      color: var(--blue-dark);
-      border: 1px solid var(--border);
-      font-weight: 800;
-    }
-
-    footer {
-      padding: 28px 0;
-      text-align: center;
-      background: var(--blue-dark);
-      color: white;
-      border-top: 5px solid var(--orange);
-    }
-
-    footer p {
-      margin: 7px 0;
-    }
-
-    .footer-name {
-      font-size: 1.25rem;
-      font-weight: 900;
-    }
-
-    footer a {
-      text-decoration: underline;
-      text-underline-offset: 3px;
-      font-weight: 700;
-      overflow-wrap: anywhere;
-    }
-
-    @media (max-width: 900px) {
-      .hero-grid,
-      .grid-3 {
-        grid-template-columns: 1fr;
-      }
-
-      .header-inner,
-      .brand {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .nav-links {
-        justify-content: center;
-      }
-    }
-
-    @media (max-width: 600px) {
-      .pricing-grid,
-      .faq-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .topbar-inner {
-        justify-content: center;
-        text-align: center;
-      }
-
-      .brand img {
-        width: 300px;
-      }
-
-      .nav-links a {
-        padding: 12px 13px;
-        font-size: 0.9rem;
-      }
-
-      .cta-row .btn,
-      .price-card .btn {
-        width: 100%;
-      }
-
-      .section {
-        padding-block: 36px;
-      }
-
-      .price-card {
-        padding: 24px;
-      }
-    }
-
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <a class="skip-link" href="#main">
-    Skip to main content
-  </a>
-
-  <div class="topbar">
-    <div class="container topbar-inner">
-      <p>
-        Rent-A-Wash — Washer &amp; dryer rentals
-        with flexible cancellations.
-      </p>
-
-      <a class="apply-link" href="./apply.html">
-        Apply Now
-      </a>
-    </div>
-  </div>
-
-  <header class="site-header">
-    <div class="container header-inner">
-      <a class="brand" href="./index.html">
-        <img
-          src="./8371.png"
-          alt="Rent-A-Wash logo"
-        >
-
-        <span>
-          <span class="brand-name">Rent-A-Wash</span>
-          <span class="brand-description">
-            Washer &amp; Dryer Rentals and Repairs
-          </span>
-        </span>
-      </a>
-    </div>
-  </header>
-
-  <nav class="navigation" aria-label="Main navigation">
-    <div class="container nav-links">
-      <a href="#services">Services</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#faq">FAQ</a>
-      <a href="#areas">Locations</a>
-      <a class="nav-apply" href="./apply.html">Apply Now</a>
-    </div>
-  </nav>
-
-  <main id="main">
-    <section class="hero" aria-labelledby="hero-heading">
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <span class="eyebrow">
-            Affordable delivery • Flexible cancellations
-          </span>
-
-          <h1 id="hero-heading">
-            Washer &amp; Dryer
-            <span>Rentals &amp; Repairs.</span>
-          </h1>
-
-          <p>
-            Keep laundry day moving with Rent-A-Wash.
-            Choose a top load or front load washer and dryer
-            rental with pricing every two weeks,
-            flexible cancellations, and local support.
-          </p>
-
-          <p>
-            We also offer washer and dryer repairs.
-            Serving Tri-Cities, Benton City, Hermiston,
-            Walla Walla, College Place, and Umatilla.
-          </p>
-
-          <div class="cta-row">
-            <a class="btn btn-primary" href="./apply.html">
-              Apply Now
-            </a>
-
-            <a class="btn btn-secondary" href="#pricing">
-              See Pricing
-            </a>
-
-            <a
-              class="btn btn-secondary"
-              href="tel:+15092127621"
-            >
-              Call 509-212-7621
-            </a>
-          </div>
-        </div>
-
-        <aside class="feature-box">
-          <h2>Practical Options. Less Hassle.</h2>
-
-          <p>
-            Choose the laundry setup that works for your home,
-            with affordable delivery and help when you need it.
-          </p>
-
-          <ul class="feature-list">
-            <li>Top load and front load available</li>
-            <li>Pricing every two weeks</li>
-            <li>Flexible cancellations</li>
-            <li>Affordable delivery available</li>
-            <li>Rental maintenance support</li>
-            <li>Washer and dryer repair services</li>
-          </ul>
-        </aside>
-      </div>
-    </section>
-
-    <section id="services" class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Laundry Appliances. Local Help.</h2>
-          <p>
-            Straightforward rental options, repair services,
-            and support when you need it.
-          </p>
-        </div>
-
-        <div class="grid-3">
-          <article class="card">
-            <h3>Washer &amp; Dryer Rentals</h3>
-            <p>
-              Top load and front load options are available.
-              Choose your laundry setup with pricing every
-              two weeks and flexible cancellations.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Washer &amp; Dryer Repairs</h3>
-            <p>
-              Having trouble with your laundry appliance?
-              Call us to discuss the problem, repair options,
-              pricing, and scheduling.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Delivery &amp; Peace of Mind</h3>
-            <p>
-              Affordable delivery and rental maintenance support
-              help make your laundry setup one less thing
-              to worry about.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="pricing" class="section pricing">
-      <div class="container">
-        <div class="section-title">
-          <h2>Top Load &amp; Front Load Available</h2>
-
-          <p>
-            Choose the washer and dryer rental option that
-            fits your home. Starting prices below are
-            for every two weeks.
-          </p>
-        </div>
-
-        <div class="pricing-grid">
-          <article class="price-card featured">
-            <span class="price-badge">Top Load Option</span>
-
-            <h3>Top Load</h3>
-
-            <div class="starting-at">Starting at</div>
-            <div class="amount">
-              $35 <span>/ 2 weeks</span>
-            </div>
-
-            <p>
-              A straightforward laundry setup at an
-              affordable two-week rate.
-            </p>
-
-            <ul class="clean">
-              <li>Washer and dryer rental</li>
-              <li>Flexible cancellations</li>
-              <li>Affordable delivery available</li>
-              <li>Rental maintenance support</li>
-            </ul>
-
-            <a class="btn btn-primary" href="./apply.html">
-              Apply for Top Load
-            </a>
-          </article>
-
-          <article class="price-card">
-            <span class="price-badge">Front Load Option</span>
-
-            <h3>Front Load</h3>
-
-            <div class="starting-at">Starting at</div>
-            <div class="amount">
-              $45 <span>/ 2 weeks</span>
-            </div>
-
-            <p>
-              Prefer a front load setup? Ask about
-              our available front load rental options.
-            </p>
-
-            <ul class="clean">
-              <li>Washer and dryer rental</li>
-              <li>Flexible cancellations</li>
-              <li>Affordable delivery available</li>
-              <li>Rental maintenance support</li>
-            </ul>
-
-            <a class="btn btn-secondary" href="./apply.html">
-              Apply for Front Load
-            </a>
-          </article>
-        </div>
-
-        <p class="small-note">
-          Prices shown are starting rates. Contact us to
-          confirm pricing, availability, delivery charges,
-          billing details, and cancellation arrangements
-          before starting your rental.
-        </p>
-
-        <div class="repair-note">
-          <p>
-            Need a repair instead? Repair pricing is separate
-            from rental pricing. Call
-            <a href="tel:+15092127621">509-212-7621</a>
-            to discuss your appliance.
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <section id="faq" class="section">
-      <div class="container">
-        <div class="section-title">
-          <h2>Frequently Asked Questions</h2>
-
-          <p>
-            Answers about our rentals, repairs, delivery,
-            and service area.
-          </p>
-        </div>
-
-        <div class="faq-grid">
-          <article class="faq-item">
-            <h3>Where does Rent-A-Wash provide service?</h3>
-            <p>
-              We serve Kennewick, Richland, and Pasco in
-              Tri-Cities, plus Benton City, Hermiston,
-              Walla Walla, College Place, and Umatilla.
-              Contact us to ask about nearby locations.
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>Do you offer top load and front load rentals?</h3>
-            <p>
-              Yes. Top load and front load washer and dryer
-              rental options are available. Contact us to
-              confirm current availability.
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>How much do rentals cost?</h3>
-            <p>
-              Top load rentals start at $35 every two weeks.
-              Front load rentals start at $45 every two weeks.
-              Contact us to confirm pricing for your rental.
-              Delivery charges and repair pricing are separate.
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>Do you offer flexible cancellations?</h3>
-            <p>
-              Yes. Our rentals offer flexible cancellations.
-              Contact us to discuss cancellation and return
-              arrangements before starting your rental.
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>Is affordable delivery available?</h3>
-            <p>
-              Yes. Affordable delivery is available for rentals.
-              Contact us to confirm delivery costs and
-              scheduling for your location.
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>Do you repair washers and dryers?</h3>
-            <p>
-              Yes. We offer washer and dryer repair services.
-              Call
-              <a href="tel:+15092127621">509-212-7621</a>
-              to discuss the appliance, the problem,
-              and next steps.
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>How do I apply for a rental?</h3>
-            <p>
-              Visit our
-              <a href="./apply.html">application page</a>
-              to submit your information. We’ll follow up
-              to discuss your application and availability.
-            </p>
-          </article>
-
-          <article class="faq-item">
-            <h3>How can I contact Rent-A-Wash?</h3>
-            <p>
-              Call
-              <a href="tel:+15092127621">509-212-7621</a>
-              or email
-              <a href="mailto:Rentyourwash@gmail.com">Rentyourwash@gmail.com</a>.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="areas" class="section areas">
-      <div class="container">
-        <div class="section-title">
-          <h2>Serving Tri-Cities &amp; Nearby Communities</h2>
-
-          <p>
-            Washer and dryer rentals and repairs in
-            Kennewick, Richland, Pasco, Benton City,
-            Hermiston, Walla Walla, College Place,
-            and Umatilla.
-          </p>
-        </div>
-
-        <ul class="location-list">
-          <li>Kennewick</li>
-          <li>Richland</li>
-          <li>Pasco</li>
-          <li>Benton City</li>
-          <li>Hermiston</li>
-          <li>Walla Walla</li>
-          <li>College Place</li>
-          <li>Umatilla</li>
-        </ul>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p class="footer-name">Rent-A-Wash</p>
-
-      <p>
-        Kennewick • Richland • Pasco • Benton City • Hermiston
-        • Walla Walla • College Place • Umatilla
-      </p>
-
-      <p>
-        <a href="tel:+15092127621">509-212-7621</a>
-      </p>
-
-      <p>
-        <a href="mailto:Rentyourwash@gmail.com">
-          Rentyourwash@gmail.com
-        </a>
-      </p>
-    </div>
-  </footer>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Where does Rent-A-Wash provide service?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We serve Kennewick, Richland, and Pasco in Tri-Cities, plus Benton City, Hermiston, Walla Walla, College Place, and Umatilla. Contact us to ask about nearby locations."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer top load and front load rentals?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Top load and front load washer and dryer rental options are available. Contact us to confirm current availability."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much do rentals cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Top load rentals start at $35 every two weeks. Front load rentals start at $45 every two weeks. Contact us to confirm pricing for your rental. Delivery charges and repair pricing are separate."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer flexible cancellations?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Our rentals offer flexible cancellations. Contact us to discuss cancellation and return arrangements before starting your rental."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Is affordable delivery available?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Affordable delivery is available for rentals. Contact us to confirm delivery costs and scheduling for your location."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you repair washers and dryers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We offer washer and dryer repair services. Call 509-212-7621 to discuss the appliance, the problem, and next
