@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Documents | Rent-A-Wash</title>
+
+  <meta
+    name="description"
+    content="View Rent-A-Wash rental documents, including the rental contract, liability waiver, user care guide, and rental timeline."
+  >
+
+  <meta name="author" content="Rent-A-Wash">
+
+  <style>
+    :root {
+      --navy: #163f68;
+      --blue: #1f5f9b;
+      --orange: #f28c28;
+      --cream: #f7f2e8;
+      --text: #243241;
+      --muted: #526170;
+      --border: #cbd2d8;
+      --white: #ffffff;
+      --max: 1100px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--navy);
+      text-underline-offset: 3px;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--blue);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: -150px;
+      left: 16px;
+      z-index: 2000;
+      padding: 12px 18px;
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--navy);
+      color: var(--white);
+      border-bottom: 5px solid var(--orange);
+      box-shadow: 0 3px 12px rgb(0 0 0 / 15%);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding-block: 12px;
+    }
+
+    .topbar p {
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .topbar-brand {
+      display: block;
+      font-weight: 900;
+    }
+
+    .apply-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      min-height: 46px;
+      padding: 10px 26px;
+      background: var(--orange);
+      color: #172b40;
+      border: 2px solid var(--orange);
+      border-radius: 3px;
+      text-decoration: none;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .apply-link:hover {
+      background: #ffac54;
+      border-color: #ffac54;
+    }
+
+    .apply-link:focus-visible {
+      outline-color: var(--white);
+    }
+
+    .site-header {
+      padding-block: 16px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: inline-block;
+      max-width: 100%;
+    }
+
+    .brand img {
+      display: block;
+      width: 300px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .navigation {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      padding: 14px 20px;
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .nav-links a:hover {
+      background: var(--blue);
+    }
+
+    .nav-links a[aria-current="page"] {
+      background: var(--orange);
+      color: #172b40;
+    }
+
+    .banner {
+      padding-block: 30px;
+      background: var(--orange);
+      border-bottom: 4px solid var(--navy);
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      color: #172b40;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+      text-transform: uppercase;
+    }
+
+    .banner p {
+      margin: 0;
+      max-width: 720px;
+    }
+
+    main {
+      padding-block: 40px 48px;
+    }
+
+    .documents-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 24px;
+    }
+
+    .document-card {
+      display: flex;
+      flex-direction: column;
+      padding: 28px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 6px solid var(--navy);
+    }
+
+    .document-type {
+      align-self: flex-start;
+      margin-bottom: 14px;
+      padding: 4px 10px;
+      background: var(--cream);
+      color: var(--navy);
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+    }
+
+    .document-card h2 {
+      margin: 0 0 12px;
+      color: var(--navy);
+      font-size: 1.6rem;
+      line-height: 1.25;
+    }
+
+    .document-card p {
+      margin: 0 0 24px;
+      color: var(--muted);
+    }
+
+    .document-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 10px 18px;
+      border: 2px solid var(--navy);
+      border-radius: 3px;
+      background: var(--navy);
+      color: var(--white);
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .button:hover {
+      background: var(--blue);
+      border-color: var(--blue);
+    }
+
+    .button-outline {
+      background: var(--white);
+      color: var(--navy);
+    }
+
+    .button-outline:hover {
+      background: var(--cream);
+      border-color: var(--navy);
+    }
+
+    .help-note {
+      margin: 30px 0 0;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .help-note a {
+      font-weight: 700;
+    }
+
+    footer {
+      padding: 28px 0;
+      background: var(--navy);
+      color: var(--white);
+      border-top: 5px solid var(--orange);
+      text-align: center;
+    }
+
+    footer p {
+      margin: 7px 0;
+    }
+
+    footer a {
+      color: var(--white);
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-name {
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    @media (max-width: 600px) {
+      .documents-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .topbar-inner {
+        gap: 10px;
+      }
+
+      .topbar p {
+        font-size: 0.8rem;
+        line-height: 1.35;
+      }
+
+      .apply-link {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+      }
+
+      .site-header {
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+
+      .nav-links a {
+        padding: 12px 13px;
+        font-size: 0.9rem;
+      }
+
+      .document-card {
+        padding: 24px;
+      }
+
+      .document-actions .button {
+        flex: 1 1 140px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#documents">
+    Skip to documents
+  </a>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <p>
+        <span class="topbar-brand">Rent-A-Wash</span>
+        Washer &amp; dryer rentals • Flexible cancellations
+      </p>
+
+      <a class="apply-link" href="./apply.html">
+        Apply Now
+      </a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container">
+      <a class="brand" href="./index.html">
+        <img
+          src="./8371.png"
+          alt="Rent-A-Wash — Back to home"
+        >
+      </a>
+    </div>
+  </header>
+
+  <nav class="navigation" aria-label="Main navigation">
+    <div class="container nav-links">
+      <a href="./index.html">Home</a>
+      <a href="./index.html#pricing">Pricing</a>
+      <a href="./index.html#faq">FAQ</a>
+      <a href="./documents.html" aria-current="page">Documents</a>
+    </div>
+  </nav>
+
+  <section class="banner" aria-labelledby="page-title">
+    <div class="container">
+      <h1 id="page-title">Documents</h1>
+      <p>
+        View or download our rental documents and guides.
+      </p>
+    </div>
+  </section>
+
+  <main id="documents">
+    <div class="container">
+      <div class="documents-grid">
+
+        <article class="document-card">
+          <span class="document-type">PDF DOCUMENT</span>
+
+          <h2>Rental Contract</h2>
+
+          <p>
+            Review the rental contract for your
+            Rent-A-Wash rental.
+          </p>
+
+          <div class="document-actions">
+            <a
+              class="button"
+              href="./documents/rental-contract.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View rental contract PDF in a new tab"
+            >
+              View PDF
+            </a>
+
+            <a
+              class="button button-outline"
+              href="./documents/rental-contract.pdf"
+              download
+              aria-label="Download rental contract PDF"
+            >
+              Download
+            </a>
+          </div>
+        </article>
+
+        <article class="document-card">
+          <span class="document-type">PDF DOCUMENT</span>
+
+          <h2>Liability Waiver</h2>
+
+          <p>
+            Review the liability waiver associated
+            with your rental.
+          </p>
+
+          <div class="document-actions">
+            <a
+              class="button"
+              href="./documents/liability-waiver.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View liability waiver PDF in a new tab"
+            >
+              View PDF
+            </a>
+
+            <a
+              class="button button-outline"
+              href="./documents/liability-waiver.pdf"
+              download
+              aria-label="Download liability waiver PDF"
+            >
+              Download
+            </a>
+          </div>
+        </article>
+
+        <article class="document-card">
+          <span class="document-type">PDF DOCUMENT</span>
+
+          <h2>User Care Guide</h2>
+
+          <p>
+            Read our guide to using and caring for
+            your rental appliances.
+          </p>
+
+          <div class="document-actions">
+            <a
+              class="button"
+              href="./documents/user-care-guide.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View user care guide PDF in a new tab"
+            >
+              View PDF
+            </a>
+
+            <a
+              class="button button-outline"
+              href="./documents/user-care-guide.pdf"
+              download
+              aria-label="Download user care guide PDF"
+            >
+              Download
+            </a>
+          </div>
+        </article>
+
+        <article class="document-card">
+          <span class="document-type">PDF DOCUMENT</span>
+
+          <h2>Rental Timeline</h2>
+
+          <p>
+            Review the rental timeline and what to
+            expect during the rental process.
+          </p>
+
+          <div class="document-actions">
+            <a
+              class="button"
+              href="./documents/rental-timeline.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="View rental timeline PDF in a new tab"
+            >
+              View PDF
+            </a>
+
+            <a
+              class="button button-outline"
+              href="./documents/rental-timeline.pdf"
+              download
+              aria-label="Download rental timeline PDF"
+            >
+              Download
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <p class="help-note">
+        Questions about these documents?
+        Call <a href="tel:+15092127621">509-212-7621</a>.
+      </p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-name">Rent-A-Wash</p>
+
+      <p>
+        Kennewick &bull; Richland &bull; Pasco &bull;
+        Benton City &bull; Hermiston &bull; Walla Walla
+        &bull; College Place &bull; Umatilla
+      </p>
+
+      <p>
+        <a href="tel:+15092127621">509-212-7621</a>
+      </p>
+
+      <p>
+        <a href="mailto:Rentyourwash@gmail.com">
+          Rentyourwash@gmail.com
+        </a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
