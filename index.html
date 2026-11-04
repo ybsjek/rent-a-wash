@@ -4,14 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>Washer &amp; Dryer Rentals in Tri-Cities, WA | Rent-A-Wash</title>
+
   <meta
     name="description"
-    content="Rent-A-Wash offers washer-only rentals for $25 every two weeks, top load washer and dryer rentals starting at $35 every two weeks, and front load rentals starting at $45 every two weeks. Serving Tri-Cities, Benton City, Hermiston, Walla Walla, College Place, and Umatilla."
+    content="Washer and dryer rentals and repairs in Richland, Kennewick and Pasco. Washer-only rentals $25 every two weeks; sets from $35. Call Rent-A-Wash."
   >
 
   <meta name="author" content="Rent-A-Wash">
 
-  <title>Rent-A-Wash | Washer &amp; Dryer Rentals &amp; Repairs</title>
+  <link rel="canonical" href="https://rentyourwash.com/">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Rent-A-Wash">
+  <meta property="og:url" content="https://rentyourwash.com/">
+  <meta
+    property="og:title"
+    content="Washer &amp; Dryer Rentals in Tri-Cities, WA | Rent-A-Wash"
+  >
+  <meta
+    property="og:description"
+    content="Washer-only rentals $25 every two weeks. Top load sets from $35 and front load sets from $45 every two weeks. Serving Tri-Cities and surrounding communities."
+  >
+
+  <meta name="twitter:card" content="summary">
+  <meta
+    name="twitter:title"
+    content="Washer &amp; Dryer Rentals | Rent-A-Wash"
+  >
+  <meta
+    name="twitter:description"
+    content="Washer and dryer rentals and repairs in Tri-Cities and surrounding communities. Call 509-212-7621."
+  >
 
   <style>
     :root {
@@ -619,6 +644,57 @@
       }
     }
   </style>
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "@id": "https://rentyourwash.com/#organization",
+    "name": "Rent-A-Wash",
+    "url": "https://rentyourwash.com/",
+    "telephone": "+1-509-212-7621",
+    "email": "Rentyourwash@gmail.com",
+    "description": "Washer and dryer rentals and repair services in Tri-Cities, Washington, and surrounding communities.",
+    "areaServed": [
+      {
+        "@type": "City",
+        "name": "Richland, Washington"
+      },
+      {
+        "@type": "City",
+        "name": "Kennewick, Washington"
+      },
+      {
+        "@type": "City",
+        "name": "Pasco, Washington"
+      },
+      {
+        "@type": "City",
+        "name": "Benton City, Washington"
+      },
+      {
+        "@type": "City",
+        "name": "Yakima, Washington"
+      },
+      {
+        "@type": "City",
+        "name": "Walla Walla, Washington"
+      },
+      {
+        "@type": "City",
+        "name": "College Place, Washington"
+      },
+      {
+        "@type": "City",
+        "name": "Hermiston, Oregon"
+      },
+      {
+        "@type": "City",
+        "name": "Umatilla, Oregon"
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
@@ -641,7 +717,11 @@
 
   <header class="site-header">
     <div class="container header-inner">
-      <a class="brand" href="./index.html">
+      <a
+        class="brand"
+        href="/"
+        aria-label="Rent-A-Wash home"
+      >
         <img
           src="./8371.png"
           alt="Rent-A-Wash logo"
@@ -662,8 +742,8 @@
       <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-      <a href="#areas">Locations</a>
-      <a href="./documents.html"> Documents</a>
+      <a href="#areas">Service Areas</a>
+      <a href="./documents.html">Documents</a>
     </div>
   </nav>
 
@@ -676,12 +756,14 @@
           </span>
 
           <h1 id="hero-heading">
-            Washer &amp; Dryer
-            <span>Rentals &amp; Repairs.</span>
+            Washer &amp; Dryer Rentals
+            <span>in Tri-Cities, WA</span>
           </h1>
 
           <p>
-            Keep laundry day moving with Rent-A-Wash.
+            Rent-A-Wash provides washer and dryer rentals
+            and repair services in Richland, Kennewick,
+            Pasco, and surrounding communities.
             Rent a washer only for $25 every two weeks,
             a top load washer and dryer set starting at
             $35 every two weeks, or a front load set
@@ -689,18 +771,20 @@
           </p>
 
           <p>
-            We also offer washer and dryer repairs.
-            Serving Tri-Cities, Benton City, Hermiston,
-            Walla Walla, College Place, and Umatilla.
+            We also serve Benton City, Yakima, Walla Walla,
+            College Place, Hermiston, and Umatilla.
+            Local rental delivery is $49, separate from
+            your rental rate. Call to confirm coverage,
+            appliance availability, and scheduling.
           </p>
 
           <div class="cta-row">
             <a class="btn btn-primary" href="./apply.html">
-              Apply Now
+              Apply for a Rental
             </a>
 
             <a class="btn btn-secondary" href="#pricing">
-              See Pricing
+              See Rental Pricing
             </a>
 
             <a
@@ -712,8 +796,13 @@
           </div>
         </div>
 
-        <aside class="feature-box">
-          <h2>Practical Options. Less Hassle.</h2>
+        <aside
+          class="feature-box"
+          aria-labelledby="rental-benefits-heading"
+        >
+          <h2 id="rental-benefits-heading">
+            Practical Options. Less Hassle.
+          </h2>
 
           <p>
             Choose the laundry setup that works for your home,
@@ -732,19 +821,28 @@
       </div>
     </section>
 
-    <section id="services" class="section">
+    <section
+      id="services"
+      class="section"
+      aria-labelledby="services-heading"
+    >
       <div class="container">
         <div class="section-title">
-          <h2>Laundry Appliances. Local Help.</h2>
+          <h2 id="services-heading">
+            Washer &amp; Dryer Rentals and Repairs
+          </h2>
+
           <p>
-            Straightforward rental options, repair services,
-            and support when you need it.
+            Straightforward laundry appliance rentals,
+            repair services, and local support for
+            Tri-Cities and surrounding communities.
           </p>
         </div>
 
         <div class="grid-3">
           <article class="card">
             <h3>Washer &amp; Dryer Rentals</h3>
+
             <p>
               Need just a washer or a complete set?
               Choose washer-only rental, a top load set,
@@ -755,34 +853,44 @@
 
           <article class="card">
             <h3>Washer &amp; Dryer Repairs</h3>
+
             <p>
               Having trouble with your laundry appliance?
               Call us to discuss the problem, repair options,
-              pricing, and scheduling.
+              pricing, and scheduling. Repair pricing is
+              separate from rental pricing.
             </p>
           </article>
 
           <article class="card">
-            <h3>Delivery &amp; Peace of Mind</h3>
+            <h3>Delivery &amp; Rental Support</h3>
+
             <p>
-              Delivery and rental maintenance support help
-              make your laundry setup one less thing
-              to worry about. Contact us to arrange
-              service for your home.
+              Local delivery and rental maintenance support
+              help make your laundry setup one less thing
+              to worry about. Contact us to confirm
+              coverage and arrange service for your home.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="pricing" class="section pricing">
+    <section
+      id="pricing"
+      class="section pricing"
+      aria-labelledby="pricing-heading"
+    >
       <div class="container">
         <div class="section-title">
-          <h2>Three Rental Options. Simple Pricing.</h2>
+          <h2 id="pricing-heading">
+            Washer &amp; Dryer Rental Pricing
+          </h2>
 
           <p>
             Choose a washer only or a washer and dryer set.
             Rental prices below are for every two weeks.
+            Delivery is separate.
           </p>
         </div>
 
@@ -793,6 +901,7 @@
             <h3>Washer Rental Only</h3>
 
             <div class="rate-label">Rental rate</div>
+
             <div class="amount">
               $25 <span>/ 2 weeks</span>
             </div>
@@ -819,6 +928,7 @@
             <h3>Top Load Washer &amp; Dryer</h3>
 
             <div class="rate-label">Starting at</div>
+
             <div class="amount">
               $35 <span>/ 2 weeks</span>
             </div>
@@ -845,6 +955,7 @@
             <h3>Front Load Washer &amp; Dryer</h3>
 
             <div class="rate-label">Starting at</div>
+
             <div class="amount">
               $45 <span>/ 2 weeks</span>
             </div>
@@ -882,7 +993,8 @@
         </p>
 
         <div class="delivery-note">
-          <h3>Local Delivery for Just $49</h3>
+          <h3>Local Rental Delivery for $49</h3>
+
           <p>
             Delivery is separate from your rental rate.
             Call
@@ -897,36 +1009,46 @@
             Need a repair instead? Repair pricing is separate
             from rental pricing. Call
             <a href="tel:+15092127621">509-212-7621</a>
-            to discuss your appliance.
+            to discuss your washer or dryer.
           </p>
         </div>
       </div>
     </section>
 
-    <section id="faq" class="section">
+    <section
+      id="faq"
+      class="section"
+      aria-labelledby="faq-heading"
+    >
       <div class="container">
         <div class="section-title">
-          <h2>Frequently Asked Questions</h2>
+          <h2 id="faq-heading">
+            Frequently Asked Questions
+          </h2>
 
           <p>
-            Answers about our rentals, repairs, delivery,
-            and service area.
+            Answers about our washer and dryer rentals,
+            repairs, delivery, and service area.
           </p>
         </div>
 
         <div class="faq-grid">
           <article class="faq-item">
             <h3>Where does Rent-A-Wash provide service?</h3>
+
             <p>
-              We serve Kennewick, Richland, and Pasco in
-              Tri-Cities, plus Benton City, Hermiston,
-              Walla Walla, College Place, and Umatilla.
-              Contact us to ask about nearby locations.
+              We serve Richland, Kennewick, Pasco,
+              Benton City, Yakima, Walla Walla, and
+              College Place in Washington, plus Hermiston
+              and Umatilla in Oregon. Contact us to confirm
+              rental delivery or repair availability
+              for your address.
             </p>
           </article>
 
           <article class="faq-item">
             <h3>Can I rent just a washer?</h3>
+
             <p>
               Yes. Washer-only rental is $25 every two weeks.
               This option includes one washer and does not
@@ -936,6 +1058,7 @@
 
           <article class="faq-item">
             <h3>Do you offer top load and front load sets?</h3>
+
             <p>
               Yes. Top load and front load washer and dryer
               sets are available. Contact us to confirm
@@ -944,17 +1067,19 @@
           </article>
 
           <article class="faq-item">
-            <h3>How much do rentals cost?</h3>
+            <h3>How much do washer and dryer rentals cost?</h3>
+
             <p>
               Washer-only rental is $25 every two weeks.
               Top load washer and dryer sets start at
               $35 every two weeks. Front load sets start at
-              $45 every two weeks.
+              $45 every two weeks. Delivery is separate.
             </p>
           </article>
 
           <article class="faq-item">
             <h3>Do you offer flexible cancellations?</h3>
+
             <p>
               Yes. Our rentals offer flexible cancellations.
               Contact us to discuss cancellation and return
@@ -964,6 +1089,7 @@
 
           <article class="faq-item">
             <h3>How much is local delivery?</h3>
+
             <p>
               Local rental delivery is $49, separate from
               your rental rate. Contact us to confirm
@@ -973,6 +1099,7 @@
 
           <article class="faq-item">
             <h3>Do you repair washers and dryers?</h3>
+
             <p>
               Yes. We offer washer and dryer repair services.
               Call
@@ -984,50 +1111,87 @@
 
           <article class="faq-item">
             <h3>How do I apply for a rental?</h3>
+
             <p>
               Visit our
-              <a href="./apply.html">application page</a>
+              <a href="./apply.html">rental application page</a>
               to submit your information. We’ll follow up
               to discuss your application and availability.
             </p>
           </article>
 
           <article class="faq-item">
+            <h3>Where can I review the rental documents?</h3>
+
+            <p>
+              Visit our
+              <a href="./documents.html">
+                rental documents and guides page
+              </a>
+              to review the available paperwork.
+              Contact us with questions before starting
+              your rental.
+            </p>
+          </article>
+
+          <article class="faq-item">
             <h3>How can I contact Rent-A-Wash?</h3>
+
             <p>
               Call
               <a href="tel:+15092127621">509-212-7621</a>
               or email
-              <a href="mailto:Rentyourwash@gmail.com">Rentyourwash@gmail.com</a>.
+              <a href="mailto:Rentyourwash@gmail.com">
+                Rentyourwash@gmail.com
+              </a>.
             </p>
           </article>
         </div>
       </div>
     </section>
 
-    <section id="areas" class="section areas">
+    <section
+      id="areas"
+      class="section areas"
+      aria-labelledby="areas-heading"
+    >
       <div class="container">
         <div class="section-title">
-          <h2>Serving Tri-Cities &amp; Nearby Communities</h2>
+          <h2 id="areas-heading">
+            Washer &amp; Dryer Rental Service Areas
+          </h2>
 
           <p>
-            Washer and dryer rentals and repairs in
-            Kennewick, Richland, Pasco, Benton City,
-            Hermiston, Walla Walla, College Place,
-            and Umatilla.
+            Based in Richland, Rent-A-Wash offers washer
+            and dryer rentals and repairs throughout
+            Tri-Cities and the communities listed below.
+            Contact us to confirm delivery coverage,
+            repair availability, and scheduling
+            for your address.
           </p>
         </div>
 
         <ul class="location-list">
-          <li>Kennewick</li>
-          <li>Richland</li>
-          <li>Pasco</li>
-          <li>Benton City</li>
-          <li>Hermiston</li>
-          <li>Walla Walla</li>
-          <li>College Place</li>
-          <li>Umatilla</li>
+          <li>Richland, WA</li>
+          <li>Kennewick, WA</li>
+          <li>Pasco, WA</li>
+          <li>Benton City, WA</li>
+          <li>Yakima, WA</li>
+          <li>Walla Walla, WA</li>
+          <li>College Place, WA</li>
+          <li>Hermiston, OR</li>
+          <li>Umatilla, OR</li>
         </ul>
+
+        <div class="cta-row">
+          <a class="btn btn-primary" href="./apply.html">
+            Apply for a Rental
+          </a>
+
+          <a class="btn btn-secondary" href="tel:+15092127621">
+            Call to Confirm Coverage
+          </a>
+        </div>
       </div>
     </section>
   </main>
@@ -1037,9 +1201,13 @@
       <p class="footer-name">Rent-A-Wash</p>
 
       <p>
-        Kennewick &bull; Richland &bull; Pasco &bull;
-        Benton City &bull; Hermiston &bull; Walla Walla
-        &bull; College Place &bull; Umatilla
+        Washer &amp; Dryer Rentals and Repairs
+      </p>
+
+      <p>
+        Richland &bull; Kennewick &bull; Pasco &bull;
+        Benton City &bull; Yakima &bull; Walla Walla &bull;
+        College Place &bull; Hermiston &bull; Umatilla
       </p>
 
       <p>
@@ -1051,6 +1219,12 @@
           Rentyourwash@gmail.com
         </a>
       </p>
+
+      <p>
+        <a href="./apply.html">Rental Application</a>
+        &bull;
+        <a href="./documents.html">Documents &amp; Guides</a>
+      </p>
     </div>
   </footer>
 
@@ -1058,6 +1232,8 @@
     const topbar = document.querySelector(".topbar");
 
     function updateStickyHeight() {
+      if (!topbar) return;
+
       document.documentElement.style.setProperty(
         "--sticky-height",
         `${topbar.getBoundingClientRect().height}px`
@@ -1066,93 +1242,12 @@
 
     updateStickyHeight();
 
-    if ("ResizeObserver" in window) {
+    if (topbar && "ResizeObserver" in window) {
       const topbarObserver = new ResizeObserver(updateStickyHeight);
       topbarObserver.observe(topbar);
     } else {
       window.addEventListener("resize", updateStickyHeight);
     }
-  </script>
-
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "Where does Rent-A-Wash provide service?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "We serve Kennewick, Richland, and Pasco in Tri-Cities, plus Benton City, Hermiston, Walla Walla, College Place, and Umatilla. Contact us to ask about nearby locations."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I rent just a washer?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Washer-only rental is $25 every two weeks. This option includes one washer and does not include a dryer."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer top load and front load sets?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Top load and front load washer and dryer sets are available. Contact us to confirm current availability."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much do rentals cost?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Washer-only rental is $25 every two weeks. Top load washer and dryer sets start at $35 every two weeks. Front load sets start at $45 every two weeks."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you offer flexible cancellations?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. Our rentals offer flexible cancellations. Contact us to discuss cancellation and return arrangements before starting your rental."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How much is local delivery?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Local rental delivery is $49, separate from your rental rate. Contact us to confirm coverage for your address and arrange scheduling."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do you repair washers and dryers?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes. We offer washer and dryer repair services. Call 509-212-7621 to discuss the appliance, the problem, and next steps. Repair pricing is separate."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How do I apply for a rental?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Visit our application page to submit your information. We will follow up to discuss your application and availability."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How can I contact Rent-A-Wash?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Call 509-212-7621 or email Rentyourwash@gmail.com."
-        }
-      }
-    ]
-  }
   </script>
 </body>
 </html>
