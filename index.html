@@ -1,3 +1,8 @@
+Here is your full **corrected** homepage code. It keeps the three-link navigation, adds the Home highlight, fixes both email links, and replaces the remaining “application” wording with “sign-up.” Your existing Schema.org organization markup is retained. [schema](https://schema.org)
+
+Replace your current `index.html` with this:
+
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -220,11 +225,17 @@
     .nav-links a {
       display: inline-block;
       padding: 14px 20px;
+      color: var(--white);
       font-weight: 800;
     }
 
     .nav-links a:hover {
       background: var(--blue);
+    }
+
+    .nav-links a[aria-current="page"] {
+      background: var(--orange);
+      color: #172b40;
     }
 
     .hero {
@@ -805,13 +816,15 @@
     </div>
   </header>
 
-<nav class="navigation" aria-label="Main navigation">
-  <div class="container nav-links">
-    <a href="./index.html" aria-current="page">Home</a>
-    <a href="./real-estate-program.html">Homebuyer Program</a>
-    <a href="./documents.html">Documents</a>
-  </div>
-</nav>
+  <nav class="navigation" aria-label="Main navigation">
+    <div class="container nav-links">
+      <a href="./index.html" aria-current="page">Home</a>
+      <a href="./real-estate-program.html">
+        Homebuyer Program
+      </a>
+      <a href="./documents.html">Documents</a>
+    </div>
+  </nav>
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-heading">
@@ -1002,12 +1015,12 @@
               class="btn btn-secondary"
               href="./apply.html"
             >
-              Apply with Your Agent’s Referral
+              Sign Up with Your Agent’s Referral
             </a>
           </div>
 
           <p class="small-note">
-            On the application, select the real estate
+            On the sign-up form, select the real estate
             agent referral option and enter your
             agent’s name.
           </p>
@@ -1169,7 +1182,7 @@
         </p>
 
         <p class="small-note">
-          Want to review the paperwork before applying?
+          Want to review the paperwork before signing up?
           <a href="./documents.html">
             View our rental documents and guides.
           </a>
@@ -1345,11 +1358,11 @@
           </article>
 
           <article class="faq-item">
-            <h3>How do I apply with my real estate agent’s referral?</h3>
+            <h3>How do I sign up with my real estate agent’s referral?</h3>
 
             <p>
               Use our
-              <a href="./apply.html">regular rental application</a>.
+              <a href="./apply.html">rental sign-up form</a>.
               Select the real estate agent referral
               option and enter your agent’s name.
               We’ll follow up to confirm program
@@ -1370,13 +1383,14 @@
           </article>
 
           <article class="faq-item">
-            <h3>How do I apply for a rental?</h3>
+            <h3>How do I sign up for a rental?</h3>
 
             <p>
               Visit our
-              <a href="./apply.html">rental application page</a>
+              <a href="./apply.html">rental sign-up page</a>
               to submit your information. We’ll follow up
-              to discuss your application and availability.
+              to confirm appliance availability,
+              rental details, and delivery scheduling.
             </p>
           </article>
 
@@ -1489,7 +1503,7 @@
       </p>
 
       <p>
-        <a href="./apply.html">Rental Application</a>
+        <a href="./apply.html">Rental Sign-Up</a>
         &bull;
         <a href="./real-estate-program.html">
           Homebuyer Program
