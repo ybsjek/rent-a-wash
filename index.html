@@ -4,13 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" type="image/png" sizes="512x512" href="/favicon.png">
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="512x512"
+    href="/documents/favicon.png"
+  >
 
   <title>Washer &amp; Dryer Rentals in Tri-Cities, WA | Rent-A-Wash</title>
 
   <meta
     name="description"
-    content="Washer and dryer rentals and repairs in Richland, Kennewick and Pasco. Washer-only rentals $25 every two weeks; sets from $35. Call Rent-A-Wash."
+    content="Washer and dryer rentals in Richland, Kennewick and Pasco. Washer-only rentals $25 every two weeks; sets from $35. Explore our referred-homebuyer delivery offer."
   >
 
   <meta name="author" content="Rent-A-Wash">
@@ -29,7 +34,7 @@
 
   <meta
     property="og:description"
-    content="Washer-only rentals $25 every two weeks. Top load sets from $35 and front load sets from $45 every two weeks. Serving Tri-Cities and surrounding communities."
+    content="Washer-only rentals $25 every two weeks. Top load sets from $35 and front load sets from $45 every two weeks. Ask about our Homebuyer Program for partner-agent referrals."
   >
 
   <meta name="twitter:card" content="summary">
@@ -41,7 +46,7 @@
 
   <meta
     name="twitter:description"
-    content="Washer and dryer rentals and repairs in Tri-Cities and surrounding communities. Call 509-212-7621."
+    content="Washer and dryer rentals in Tri-Cities and surrounding communities. Explore rental options and our Homebuyer Program. Call 509-212-7621."
   >
 
   <style>
@@ -237,6 +242,7 @@
 
     .hero-copy {
       padding: 10px 0;
+      min-width: 0;
     }
 
     .eyebrow {
@@ -311,6 +317,7 @@
     }
 
     .feature-box {
+      min-width: 0;
       background: var(--white);
       border: 1px solid var(--border);
       border-top: 7px solid var(--orange);
@@ -475,11 +482,13 @@
       font-size: 0.92rem;
     }
 
-    .small-note a {
+    .small-note a,
+    .text-link {
       color: var(--blue-dark);
       text-decoration: underline;
       text-underline-offset: 3px;
       font-weight: 700;
+      overflow-wrap: anywhere;
     }
 
     .delivery-note,
@@ -509,6 +518,57 @@
       text-underline-offset: 3px;
       font-weight: 700;
       overflow-wrap: anywhere;
+    }
+
+    .homebuyer {
+      background: var(--tan);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .homebuyer-panel {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: start;
+    }
+
+    .homebuyer-copy,
+    .homebuyer-details {
+      min-width: 0;
+    }
+
+    .homebuyer-copy h2 {
+      margin: 0 0 16px;
+      color: var(--blue-dark);
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      line-height: 1.2;
+    }
+
+    .homebuyer-copy p {
+      color: var(--muted);
+    }
+
+    .homebuyer-details {
+      padding: 26px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 7px solid var(--orange);
+    }
+
+    .homebuyer-details h3 {
+      margin: 0 0 16px;
+      color: var(--blue-dark);
+      font-size: 1.4rem;
+      line-height: 1.3;
+    }
+
+    .homebuyer-details ul {
+      margin: 0;
+      padding-left: 22px;
+    }
+
+    .homebuyer-details li {
+      padding-block: 7px;
     }
 
     .faq-grid {
@@ -587,7 +647,8 @@
 
     @media (max-width: 900px) {
       .hero-grid,
-      .grid-3 {
+      .grid-3,
+      .homebuyer-panel {
         grid-template-columns: 1fr;
       }
 
@@ -639,7 +700,8 @@
         padding-block: 36px;
       }
 
-      .price-card {
+      .price-card,
+      .homebuyer-details {
         padding: 24px;
       }
     }
@@ -712,7 +774,7 @@
     <div class="container topbar-inner">
       <p>
         <span class="topbar-brand">Rent-A-Wash</span>
-        Washer &amp; dryer rentals • Flexible cancellations
+        Washer &amp; dryer rentals • Local support
       </p>
 
       <a class="apply-link" href="./apply.html">
@@ -747,6 +809,7 @@
     <div class="container nav-links">
       <a href="#services">Services</a>
       <a href="#pricing">Pricing</a>
+      <a href="./real-estate-program.html">Homebuyer Program</a>
       <a href="#faq">FAQ</a>
       <a href="#areas">Service Areas</a>
       <a href="./documents.html">Documents</a>
@@ -758,7 +821,7 @@
       <div class="container hero-grid">
         <div class="hero-copy">
           <span class="eyebrow">
-            Local service • Flexible cancellations
+            Local service • Flexible rental options
           </span>
 
           <h1 id="hero-heading">
@@ -779,9 +842,10 @@
           <p>
             We also serve Benton City, Yakima, Walla Walla,
             College Place, Hermiston, and Umatilla.
-            Local rental delivery is $49, separate from
-            your rental rate. Call to confirm coverage,
-            appliance availability, and scheduling.
+            Standard local rental delivery is $49,
+            separate from your rental rate. Call to
+            confirm coverage, appliance availability,
+            and scheduling.
           </p>
 
           <div class="cta-row">
@@ -800,6 +864,14 @@
               Call 509-212-7621
             </a>
           </div>
+
+          <p class="small-note">
+            Just purchased a home and been referred by
+            a partner real estate agent?
+            <a href="./real-estate-program.html">
+              Explore our Homebuyer Program.
+            </a>
+          </p>
         </div>
 
         <aside
@@ -819,7 +891,7 @@
             <li>Washer-only rental available</li>
             <li>Top load and front load sets available</li>
             <li>Pricing every two weeks</li>
-            <li>Flexible cancellations</li>
+            <li>Flexible rental options</li>
             <li>Rental maintenance support</li>
             <li>Washer and dryer repair services</li>
           </ul>
@@ -853,7 +925,8 @@
               Need just a washer or a complete set?
               Choose washer-only rental, a top load set,
               or a front load set, with pricing every
-              two weeks and flexible cancellations.
+              two weeks. Contact us to discuss the
+              rental terms that apply to your selection.
             </p>
           </article>
 
@@ -883,6 +956,110 @@
     </section>
 
     <section
+      id="homebuyer-program"
+      class="section homebuyer"
+      aria-labelledby="homebuyer-heading"
+    >
+      <div class="container homebuyer-panel">
+        <div class="homebuyer-copy">
+          <span class="eyebrow">
+            Real Estate Partner Program
+          </span>
+
+          <h2 id="homebuyer-heading">
+            New Home? Get Free In-Town Delivery.
+          </h2>
+
+          <p>
+            Recently purchased a home and been referred
+            by a partner real estate agent? Sign a
+            three-month washer and dryer rental lease
+            and receive free delivery in Pasco,
+            Richland, or Kennewick.
+          </p>
+
+          <p>
+            Regular rental rates apply. Outside these
+            three cities, discounted delivery is available
+            within our service area. Contact us to
+            confirm coverage and your delivery price.
+          </p>
+
+          <p>
+            At the end of the initial three months,
+            continue renting month to month, purchase
+            the machines outright, or return them.
+            Affordable pickup is available for an
+            additional charge.
+          </p>
+
+          <div class="cta-row">
+            <a
+              class="btn btn-primary"
+              href="./real-estate-program.html"
+            >
+              See Homebuyer Program Details
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="./apply.html"
+            >
+              Apply with Your Agent’s Referral
+            </a>
+          </div>
+
+          <p class="small-note">
+            On the application, select the real estate
+            agent referral option and enter your
+            agent’s name.
+          </p>
+        </div>
+
+        <aside
+          class="homebuyer-details"
+          aria-labelledby="homebuyer-details-heading"
+        >
+          <h3 id="homebuyer-details-heading">
+            Program at a Glance
+          </h3>
+
+          <ul>
+            <li>
+              For recent homebuyers referred by
+              participating partner real estate agents.
+            </li>
+            <li>
+              Initial three-month rental lease required.
+            </li>
+            <li>
+              Free delivery in Pasco, Richland,
+              or Kennewick.
+            </li>
+            <li>
+              Discounted delivery outside these cities
+              within our service area.
+            </li>
+            <li>
+              Regular rental prices apply.
+            </li>
+            <li>
+              After three months: continue renting,
+              purchase, or return.
+            </li>
+            <li>
+              Pickup is available for an additional charge.
+            </li>
+            <li>
+              Rental payments do not count toward
+              the purchase price.
+            </li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <section
       id="pricing"
       class="section pricing"
       aria-labelledby="pricing-heading"
@@ -896,7 +1073,9 @@
           <p>
             Choose a washer only or a washer and dryer set.
             Rental prices below are for every two weeks.
-            Delivery is separate.
+            Standard delivery is separate; qualifying
+            Homebuyer Program referrals receive the
+            program’s delivery offer.
           </p>
         </div>
 
@@ -919,7 +1098,7 @@
 
             <ul class="clean">
               <li>One washer rental; dryer not included</li>
-              <li>Flexible cancellations</li>
+              <li>Contact us for rental terms</li>
               <li>Rental maintenance support</li>
             </ul>
 
@@ -946,7 +1125,7 @@
 
             <ul class="clean">
               <li>Washer and dryer rental</li>
-              <li>Flexible cancellations</li>
+              <li>Contact us for rental terms</li>
               <li>Rental maintenance support</li>
             </ul>
 
@@ -973,7 +1152,7 @@
 
             <ul class="clean">
               <li>Washer and dryer rental</li>
-              <li>Flexible cancellations</li>
+              <li>Contact us for rental terms</li>
               <li>Rental maintenance support</li>
             </ul>
 
@@ -988,7 +1167,8 @@
           Set prices shown are starting rates.
           Contact us to confirm availability, billing details,
           and cancellation arrangements before starting
-          your rental.
+          your rental. The Homebuyer Program requires
+          an initial three-month lease.
         </p>
 
         <p class="small-note">
@@ -999,14 +1179,30 @@
         </p>
 
         <div class="delivery-note">
-          <h3>Local Rental Delivery for $49</h3>
+          <h3>Standard Local Rental Delivery for $49</h3>
 
           <p>
-            Delivery is separate from your rental rate.
-            Call
+            Standard delivery is separate from your
+            rental rate. Call
             <a href="tel:+15092127621">509-212-7621</a>
             to confirm local coverage and arrange
             a delivery time.
+          </p>
+        </div>
+
+        <div class="delivery-note">
+          <h3>Referred by a Partner Real Estate Agent?</h3>
+
+          <p>
+            Qualifying recent homebuyers receive free
+            delivery in Pasco, Richland, or Kennewick
+            with a three-month rental lease. Discounted
+            delivery is available outside these cities
+            within our service area. Regular rental
+            rates apply, and pickup costs extra.
+            <a href="./real-estate-program.html">
+              Review Homebuyer Program details.
+            </a>
           </p>
         </div>
 
@@ -1034,7 +1230,8 @@
 
           <p>
             Answers about our washer and dryer rentals,
-            repairs, delivery, and service area.
+            Homebuyer Program, repairs, delivery,
+            and service area.
           </p>
         </div>
 
@@ -1079,7 +1276,8 @@
               Washer-only rental is $25 every two weeks.
               Top load washer and dryer sets start at
               $35 every two weeks. Front load sets start at
-              $45 every two weeks. Delivery is separate.
+              $45 every two weeks. Standard delivery
+              is separate.
             </p>
           </article>
 
@@ -1087,9 +1285,11 @@
             <h3>Do you offer flexible cancellations?</h3>
 
             <p>
-              Yes. Our rentals offer flexible cancellations.
-              Contact us to discuss cancellation and return
+              Our regular rentals offer flexible cancellations.
+              Contact us to discuss the terms and return
               arrangements before starting your rental.
+              The Homebuyer Program has an initial
+              three-month lease commitment.
             </p>
           </article>
 
@@ -1097,9 +1297,66 @@
             <h3>How much is local delivery?</h3>
 
             <p>
-              Local rental delivery is $49, separate from
-              your rental rate. Contact us to confirm
-              coverage for your address and arrange scheduling.
+              Standard local rental delivery is $49,
+              separate from your rental rate.
+              Qualifying
+              <a href="./real-estate-program.html">
+                Homebuyer Program
+              </a>
+              participants receive free delivery in
+              Pasco, Richland, or Kennewick with
+              a three-month lease.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>What is the Homebuyer Program?</h3>
+
+            <p>
+              Recent homebuyers referred by participating
+              partner real estate agents can sign
+              a three-month rental lease and receive
+              free delivery in Pasco, Richland, or
+              Kennewick. Discounted delivery is available
+              outside those cities within our service area.
+              Regular rental rates apply.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>What happens after the Homebuyer Program’s first three months?</h3>
+
+            <p>
+              You may continue renting month to month,
+              purchase the machines outright, or
+              return them. Affordable pickup is available
+              for an additional charge. Contact us to
+              arrange your preferred next step.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>Do Homebuyer Program rental payments count toward a purchase?</h3>
+
+            <p>
+              No. Rental payments do not count toward
+              or reduce the outright purchase price.
+              Contact us for the purchase price of
+              your machines. This is not a rent-to-own
+              program.
+            </p>
+          </article>
+
+          <article class="faq-item">
+            <h3>How do I apply with my real estate agent’s referral?</h3>
+
+            <p>
+              Use our
+              <a href="./apply.html">regular rental application</a>.
+              Select the real estate agent referral
+              option and enter your agent’s name.
+              We’ll follow up to confirm program
+              eligibility and availability.
             </p>
           </article>
 
@@ -1147,7 +1404,9 @@
               Call
               <a href="tel:+15092127621">509-212-7621</a>
               or email
-              <a href="mailto:Rentyourwash@gmail.com">Rentyourwash@gmail.com</a>.
+              <a href="mailto:Rentyourwash@gmail.com">
+                Rentyourwash@gmail.com
+              </a>.
             </p>
           </article>
         </div>
@@ -1186,6 +1445,14 @@
           <li>Hermiston, OR</li>
           <li>Umatilla, OR</li>
         </ul>
+
+        <p class="small-note">
+          Homebuyer Program free delivery is limited
+          to Pasco, Richland, and Kennewick.
+          Discounted delivery is available elsewhere
+          within our service area. Call for an
+          address-specific delivery price.
+        </p>
 
         <div class="cta-row">
           <a class="btn btn-primary" href="./apply.html">
@@ -1227,31 +1494,43 @@
       <p>
         <a href="./apply.html">Rental Application</a>
         &bull;
+        <a href="./real-estate-program.html">
+          Homebuyer Program
+        </a>
+        &bull;
         <a href="./documents.html">Documents &amp; Guides</a>
       </p>
     </div>
   </footer>
 
   <script>
-    const topbar = document.querySelector(".topbar");
+    (() => {
+      const topbar = document.querySelector(".topbar");
 
-    function updateStickyHeight() {
-      if (!topbar) return;
+      function updateStickyHeight() {
+        if (!topbar) return;
 
-      document.documentElement.style.setProperty(
-        "--sticky-height",
-        `${topbar.getBoundingClientRect().height}px`
-      );
-    }
+        document.documentElement.style.setProperty(
+          "--sticky-height",
+          `${topbar.getBoundingClientRect().height}px`
+        );
+      }
 
-    updateStickyHeight();
+      updateStickyHeight();
 
-    if (topbar && "ResizeObserver" in window) {
-      const topbarObserver = new ResizeObserver(updateStickyHeight);
-      topbarObserver.observe(topbar);
-    } else {
-      window.addEventListener("resize", updateStickyHeight);
-    }
+      if (topbar && "ResizeObserver" in window) {
+        const topbarObserver = new ResizeObserver(
+          updateStickyHeight
+        );
+
+        topbarObserver.observe(topbar);
+      } else {
+        window.addEventListener(
+          "resize",
+          updateStickyHeight
+        );
+      }
+    })();
   </script>
 </body>
 </html>
