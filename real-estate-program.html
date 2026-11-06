@@ -250,7 +250,7 @@
       display: grid;
       grid-template-columns: 1.2fr 0.8fr;
       gap: 28px;
-      align-items: start;
+      align-items: center;
     }
 
     .hero-copy,
@@ -258,21 +258,8 @@
       min-width: 0;
     }
 
-    .eyebrow {
-      display: inline-block;
-      margin-bottom: 16px;
-      padding: 7px 12px;
-      background: #ffe5bf;
-      color: #703600;
-      border-left: 5px solid var(--orange);
-      font-size: 0.85rem;
-      font-weight: 800;
-      letter-spacing: 0.03em;
-      text-transform: uppercase;
-    }
-
     h1 {
-      margin: 0 0 18px;
+      margin: 0;
       color: var(--blue-dark);
       font-size: clamp(2.25rem, 4.5vw, 4rem);
       font-weight: 900;
@@ -280,12 +267,9 @@
     }
 
     h1 span {
+      display: block;
+      margin-top: 8px;
       color: var(--orange-dark);
-    }
-
-    .hero-copy p {
-      color: var(--muted);
-      font-size: 1.08rem;
     }
 
     .cta-row {
@@ -392,7 +376,8 @@
       gap: 22px;
     }
 
-    .price-card {
+    .price-card,
+    .contract-card {
       display: flex;
       flex-direction: column;
       min-width: 0;
@@ -402,7 +387,8 @@
       border-top: 7px solid var(--blue-dark);
     }
 
-    .price-card.featured {
+    .price-card.featured,
+    .contract-card.featured {
       border-top-color: var(--orange);
     }
 
@@ -470,20 +456,6 @@
       overflow-wrap: anywhere;
     }
 
-    .contract-card {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      padding: 26px;
-      background: var(--white);
-      border: 1px solid var(--border);
-      border-top: 7px solid var(--blue-dark);
-    }
-
-    .contract-card.featured {
-      border-top-color: var(--orange);
-    }
-
     .contract-card h3 {
       margin: 0 0 14px;
       color: var(--blue-dark);
@@ -505,29 +477,6 @@
 
     .contract-list li {
       padding-block: 6px;
-    }
-
-    .rate-lock-box {
-      margin-top: 28px;
-      padding: 26px;
-      background: var(--tan);
-      border: 1px solid var(--border);
-      border-left: 6px solid var(--orange);
-    }
-
-    .rate-lock-box h3 {
-      margin: 0 0 12px;
-      color: var(--blue-dark);
-      font-size: 1.6rem;
-      line-height: 1.25;
-    }
-
-    .rate-lock-box p {
-      margin: 0 0 14px;
-    }
-
-    .rate-lock-box p:last-child {
-      margin-bottom: 0;
     }
 
     .purchase-note {
@@ -673,8 +622,7 @@
       .feature-box,
       .price-card,
       .contract-card,
-      .contact-box,
-      .rate-lock-box {
+      .contact-box {
         padding: 24px;
       }
     }
@@ -768,14 +716,10 @@
     <section class="hero" aria-labelledby="hero-heading">
       <div class="container hero-grid">
         <div class="hero-copy">
-
           <h1 id="hero-heading">
             New Home.
             <span>Laundry Made Easier.</span>
           </h1>
-
-          </p>
-
         </div>
 
         <aside
@@ -793,11 +737,11 @@
             </li>
 
             <li>
-              3-, 6-, or 12-month Contracts
+              3-, 6-, or 12-month contracts.
             </li>
 
             <li>
-              Rate Lock Guarantee
+              Rate Lock Guarantee.
             </li>
 
             <li>
@@ -825,7 +769,6 @@
           <h2 id="pricing-heading">
             Step 1: Choose Your Machines
           </h2>
-
         </div>
 
         <div class="pricing-grid">
@@ -922,12 +865,11 @@
           <article class="contract-card">
             <h3>3-Month Contract</h3>
 
+            <p class="contract-highlight">
+              Rate Lock Guarantee
+            </p>
+
             <ul class="contract-list">
-
-              <li>
-                Rate Lock Guarantee
-              </li>
-
               <li>
                 Base purchase price applies if you
                 purchase at the end of this contract.
@@ -951,13 +893,13 @@
             <h3>6-Month Contract</h3>
 
             <p class="contract-highlight">
-             Rate Lock Guarantee
+              Rate Lock Guarantee
             </p>
 
             <ul class="contract-list">
-
               <li>
-                10% off the purchase price
+                10% off the purchase price at
+                the end of your contract.
               </li>
 
               <li>
@@ -975,14 +917,16 @@
           </article>
 
           <article class="contract-card featured">
+            <h3>12-Month Contract</h3>
 
             <p class="contract-highlight">
-          Rate Lock Guarantee
+              Rate Lock Guarantee
             </p>
 
             <ul class="contract-list">
               <li>
-                25% off the purchase price.
+                25% off the purchase price at
+                the end of your contract.
               </li>
 
               <li>
