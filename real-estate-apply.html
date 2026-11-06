@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Homebuyer Program Application | Rent-A-Wash</title>
+
+  <meta
+    name="description"
+    content="Apply for the Rent-A-Wash Homebuyer Program using our dedicated application for partner real estate agent referrals."
+  >
+
+  <meta name="author" content="Rent-A-Wash">
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="512x512"
+    href="/documents/favicon.png"
+  >
+
+  <link
+    rel="canonical"
+    href="https://rentyourwash.com/real-estate-apply.html"
+  >
+
+  <style>
+    :root {
+      --blue: #1f5f9b;
+      --blue-dark: #163f68;
+      --orange: #f28c28;
+      --tan: #f7f2e8;
+      --text: #243241;
+      --muted: #526170;
+      --border: #cbd2d8;
+      --white: #ffffff;
+      --max: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--tan);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: -150px;
+      left: 16px;
+      z-index: 2000;
+      padding: 12px 18px;
+      background: var(--white);
+      color: var(--blue-dark);
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    .site-header {
+      padding-block: 18px;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      max-width: 100%;
+      text-decoration: none;
+    }
+
+    .brand img {
+      display: block;
+      width: 300px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .brand-name {
+      display: block;
+      color: var(--blue-dark);
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .brand-description {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .navigation {
+      background: var(--blue-dark);
+      color: var(--white);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      padding: 14px 20px;
+      color: var(--white);
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    .nav-links a:hover {
+      background: var(--blue);
+    }
+
+    .nav-links a[aria-current="location"] {
+      background: var(--orange);
+      color: #172b40;
+    }
+
+    .banner {
+      padding-block: 32px;
+      background: var(--orange);
+      border-bottom: 4px solid var(--blue-dark);
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      color: #172b40;
+      font-size: clamp(2rem, 5vw, 3rem);
+      line-height: 1.15;
+    }
+
+    .banner p {
+      max-width: 780px;
+      margin: 0;
+      color: #172b40;
+    }
+
+    .application-section {
+      padding-block: 36px 48px;
+    }
+
+    .application-intro {
+      margin-bottom: 24px;
+      padding: 24px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 6px solid var(--orange);
+    }
+
+    .application-intro h2 {
+      margin: 0 0 12px;
+      color: var(--blue-dark);
+      font-size: 1.5rem;
+      line-height: 1.25;
+    }
+
+    .application-intro p {
+      margin: 0 0 12px;
+    }
+
+    .application-intro p:last-child {
+      margin-bottom: 0;
+    }
+
+    .application-intro a,
+    .form-help a {
+      color: var(--blue-dark);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .form-panel {
+      overflow: hidden;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 6px solid var(--blue-dark);
+    }
+
+    .application-frame {
+      display: block;
+      width: 100%;
+      height: 1100px;
+      border: 0;
+      background: var(--white);
+    }
+
+    .form-help {
+      margin: 20px 0 0;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    footer {
+      padding: 28px 0;
+      background: var(--blue-dark);
+      color: var(--white);
+      border-top: 5px solid var(--orange);
+      text-align: center;
+    }
+
+    footer p {
+      margin: 7px 0;
+    }
+
+    footer a {
+      color: var(--white);
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      overflow-wrap: anywhere;
+    }
+
+    .footer-name {
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    @media (max-width: 900px) {
+      .brand {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .nav-links a {
+        padding: 12px 13px;
+        font-size: 0.9rem;
+      }
+
+      .application-intro {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">
+    Skip to application
+  </a>
+
+  <header class="site-header">
+    <div class="container">
+      <a
+        class="brand"
+        href="./index.html"
+        aria-label="Rent-A-Wash home"
+      >
+        <img
+          src="./8371.png"
+          alt="Rent-A-Wash logo"
+        >
+
+        <span>
+          <span class="brand-name">Rent-A-Wash</span>
+          <span class="brand-description">
+            Washer &amp; Dryer Rentals and Repairs
+          </span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <nav class="navigation" aria-label="Main navigation">
+    <div class="container nav-links">
+      <a href="./index.html">Home</a>
+
+      <a
+        href="./real-estate-program.html"
+        aria-current="location"
+      >
+        Homebuyer Program
+      </a>
+
+      <a href="./documents.html">Documents</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="banner" aria-labelledby="page-title">
+      <div class="container">
+        <h1 id="page-title">
+          Homebuyer Program Application
+        </h1>
+
+        <p>
+          Apply for the Rent-A-Wash Homebuyer Program
+          through your partner real estate agent’s referral.
+        </p>
+      </div>
+    </section>
+
+    <section
+      class="application-section"
+      aria-label="Homebuyer application form"
+    >
+      <div class="container">
+        <div class="application-intro">
+          <h2>Getting Started</h2>
+
+          <p>
+            Complete the dedicated Homebuyer Program form
+            below and include your referring real estate
+            agent’s name.
+          </p>
+
+          <p>
+            The program requires an initial three-month
+            rental lease. Qualifying referrals receive
+            free delivery in Pasco, Richland, or Kennewick.
+            Regular rental rates apply.
+          </p>
+
+          <p>
+            Longevity discounts apply only to the purchase
+            price: 10% at six months and 25% at twelve months.
+            They do not reduce rental rates, and rental
+            payments do not count toward a purchase.
+          </p>
+
+          <p>
+            <a href="./real-estate-program.html">
+              Review program details and pricing
+            </a>
+            before submitting your application.
+          </p>
+        </div>
+
+        <div class="form-panel">
+          <iframe
+            class="application-frame"
+            src="https://tally.so/r/8NzG0o"
+            title="Rent-A-Wash Homebuyer Program application"
+          ></iframe>
+        </div>
+
+        <p class="form-help">
+          Form not loading?
+          <a
+            href="https://tally.so/r/8NzG0o"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open the Homebuyer Program application in a new tab
+          </a>.
+        </p>
+
+        <p class="form-help">
+          Questions? Call
+          <a href="tel:+15092127621">509-212-7621</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-name">Rent-A-Wash</p>
+
+      <p>
+        Washer &amp; Dryer Rentals and Repairs
+      </p>
+
+      <p>
+        <a href="tel:+15092127621">509-212-7621</a>
+      </p>
+
+      <p>
+        <a href="mailto:Rentyourwash@gmail.com">
+          Rentyourwash@gmail.com
+        </a>
+      </p>
+
+      <p>
+        <a href="./index.html">Home</a>
+        &bull;
+        <a href="./real-estate-program.html">
+          Homebuyer Program
+        </a>
+        &bull;
+        <a href="./documents.html">Documents &amp; Guides</a>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
