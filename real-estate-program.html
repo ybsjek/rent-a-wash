@@ -15,7 +15,7 @@
 
   <meta
     name="description"
-    content="Referred by a partner real estate agent? Get free delivery in Pasco, Richland, or Kennewick with a three-month washer and dryer lease. Regular rental rates apply."
+    content="Choose a 3-, 6-, or 12-month washer and dryer rental contract with a rate lock guarantee. Qualifying homebuyers receive free local delivery and purchase-only discounts on longer contracts."
   >
 
   <meta name="author" content="Rent-A-Wash">
@@ -41,7 +41,7 @@
 
   <meta
     property="og:description"
-    content="Partner-agent referrals receive free delivery in Pasco, Richland, or Kennewick with a three-month rental lease. Afterward, keep renting, purchase, or return."
+    content="Choose a 3-, 6-, or 12-month rental contract. Lock your rental rate for your selected term and receive purchase-only discounts at the end of a 6- or 12-month contract."
   >
 
   <meta name="twitter:card" content="summary">
@@ -53,7 +53,7 @@
 
   <meta
     name="twitter:description"
-    content="Washer and dryer rentals for referred homebuyers. Three-month lease with qualifying free local delivery."
+    content="Washer and dryer rentals for referred homebuyers. Three contract lengths, a rate lock guarantee, qualifying free local delivery, and purchase-only discounts."
   >
 
   <style>
@@ -107,10 +107,10 @@
       position: fixed;
       top: -150px;
       left: 16px;
+      z-index: 2000;
       padding: 12px 18px;
       background: var(--white);
       color: var(--blue-dark);
-      z-index: 2000;
     }
 
     .skip-link:focus {
@@ -136,6 +136,7 @@
     }
 
     .topbar-inner p {
+      min-width: 0;
       margin: 0;
       font-size: 0.95rem;
     }
@@ -151,15 +152,15 @@
       justify-content: center;
       flex-shrink: 0;
       min-height: 46px;
-      padding: 10px 26px;
+      max-width: 100%;
+      padding: 10px 22px;
       background: var(--orange);
       color: #172b40;
       border: 2px solid var(--orange);
       border-radius: 3px;
       font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-      white-space: nowrap;
+      text-align: center;
+      line-height: 1.3;
     }
 
     .apply-link:hover {
@@ -201,9 +202,9 @@
 
     .brand-name {
       display: block;
+      color: var(--blue-dark);
       font-size: 1.5rem;
       font-weight: 900;
-      color: var(--blue-dark);
       line-height: 1.2;
     }
 
@@ -262,20 +263,20 @@
       margin-bottom: 16px;
       padding: 7px 12px;
       background: #ffe5bf;
-      border-left: 5px solid var(--orange);
       color: #703600;
-      font-weight: 800;
-      text-transform: uppercase;
+      border-left: 5px solid var(--orange);
       font-size: 0.85rem;
+      font-weight: 800;
       letter-spacing: 0.03em;
+      text-transform: uppercase;
     }
 
     h1 {
       margin: 0 0 18px;
       color: var(--blue-dark);
       font-size: clamp(2.25rem, 4.5vw, 4rem);
-      line-height: 1.08;
       font-weight: 900;
+      line-height: 1.08;
     }
 
     h1 span {
@@ -299,6 +300,7 @@
       align-items: center;
       justify-content: center;
       min-height: 48px;
+      max-width: 100%;
       padding: 12px 20px;
       border: 2px solid transparent;
       border-radius: 3px;
@@ -306,20 +308,24 @@
       text-align: center;
     }
 
-    .btn-primary {
+    .btn-homebuyer {
       background: var(--orange);
-      border-color: #bd6210;
       color: #172b40;
+      border-color: var(--orange-dark);
     }
 
-    .btn-primary:hover {
+    .btn-homebuyer:hover {
       background: #ffac54;
+    }
+
+    .btn-homebuyer:focus-visible {
+      outline-color: var(--blue-dark);
     }
 
     .btn-secondary {
       background: var(--blue-dark);
-      border-color: var(--blue-dark);
       color: var(--white);
+      border-color: var(--blue-dark);
     }
 
     .btn-secondary:hover {
@@ -342,9 +348,9 @@
     }
 
     .feature-list {
-      list-style: none;
-      padding: 0;
       margin: 0;
+      padding: 0;
+      list-style: none;
     }
 
     .feature-list li {
@@ -368,8 +374,8 @@
     }
 
     .section-title p {
-      margin: 0;
       max-width: 850px;
+      margin: 0;
       color: var(--muted);
     }
 
@@ -378,19 +384,22 @@
       border-bottom: 1px solid var(--border);
     }
 
-    .pricing-grid {
+    .pricing-grid,
+    .contract-grid,
+    .grid-3 {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 22px;
     }
 
     .price-card {
       display: flex;
       flex-direction: column;
+      min-width: 0;
       padding: 26px;
+      background: var(--white);
       border: 1px solid var(--border);
       border-top: 7px solid var(--blue-dark);
-      background: var(--white);
     }
 
     .price-card.featured {
@@ -398,7 +407,7 @@
     }
 
     .price-card h3 {
-      margin: 0 0 14px;
+      margin: 0 0 18px;
       color: var(--blue-dark);
       font-size: 1.5rem;
       line-height: 1.25;
@@ -414,19 +423,36 @@
       margin: 4px 0 20px;
       color: var(--blue-dark);
       font-size: 3.1rem;
-      line-height: 1.2;
       font-weight: 900;
+      line-height: 1.2;
     }
 
     .amount span {
       display: inline-block;
+      color: var(--muted);
       font-size: 1.05rem;
       font-weight: 700;
-      color: var(--muted);
       white-space: nowrap;
     }
 
-    .price-card .btn {
+    .purchase-price {
+      margin: 0 0 24px;
+      padding-top: 16px;
+      border-top: 1px solid var(--border);
+    }
+
+    .purchase-amount {
+      display: block;
+      margin-top: 4px;
+      color: var(--blue-dark);
+      font-size: 1.8rem;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .price-card .btn,
+    .contract-card .btn {
+      width: 100%;
       margin-top: auto;
     }
 
@@ -438,19 +464,96 @@
     .small-note a,
     .contact-box a:not(.btn) {
       color: var(--blue-dark);
+      font-weight: 700;
       text-decoration: underline;
       text-underline-offset: 3px;
-      font-weight: 700;
       overflow-wrap: anywhere;
     }
 
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 20px;
+    .contract-card {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+      padding: 26px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-top: 7px solid var(--blue-dark);
+    }
+
+    .contract-card.featured {
+      border-top-color: var(--orange);
+    }
+
+    .contract-card h3 {
+      margin: 0 0 14px;
+      color: var(--blue-dark);
+      font-size: 1.7rem;
+      line-height: 1.25;
+    }
+
+    .contract-highlight {
+      margin: 0 0 16px;
+      color: var(--blue-dark);
+      font-size: 1.15rem;
+      font-weight: 800;
+    }
+
+    .contract-list {
+      margin: 0 0 24px;
+      padding-left: 20px;
+    }
+
+    .contract-list li {
+      padding-block: 6px;
+    }
+
+    .rate-lock-box {
+      margin-top: 28px;
+      padding: 26px;
+      background: var(--tan);
+      border: 1px solid var(--border);
+      border-left: 6px solid var(--orange);
+    }
+
+    .rate-lock-box h3 {
+      margin: 0 0 12px;
+      color: var(--blue-dark);
+      font-size: 1.6rem;
+      line-height: 1.25;
+    }
+
+    .rate-lock-box p {
+      margin: 0 0 14px;
+    }
+
+    .rate-lock-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .purchase-note {
+      margin-top: 24px;
+      padding: 22px;
+      background: #edf3f8;
+      border-left: 5px solid var(--blue-dark);
+    }
+
+    .purchase-note h3 {
+      margin: 0 0 10px;
+      color: var(--blue-dark);
+      font-size: 1.3rem;
+    }
+
+    .purchase-note p {
+      margin: 0;
+    }
+
+    .lease-options-section {
+      background: var(--tan);
+      border-top: 1px solid var(--border);
     }
 
     .card {
+      min-width: 0;
       padding: 24px;
       background: var(--white);
       border: 1px solid var(--border);
@@ -468,7 +571,6 @@
     }
 
     .signup-section {
-      background: var(--tan);
       border-top: 1px solid var(--border);
     }
 
@@ -488,10 +590,10 @@
 
     footer {
       padding: 28px 0;
-      text-align: center;
       background: var(--blue-dark);
       color: var(--white);
       border-top: 5px solid var(--orange);
+      text-align: center;
     }
 
     footer p {
@@ -504,10 +606,17 @@
     }
 
     footer a {
+      font-weight: 700;
       text-decoration: underline;
       text-underline-offset: 3px;
-      font-weight: 700;
       overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 1000px) {
+      .pricing-grid,
+      .contract-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
     }
 
     @media (max-width: 900px) {
@@ -528,7 +637,8 @@
     }
 
     @media (max-width: 600px) {
-      .pricing-grid {
+      .pricing-grid,
+      .contract-grid {
         grid-template-columns: 1fr;
       }
 
@@ -542,7 +652,8 @@
       }
 
       .apply-link {
-        padding: 10px 14px;
+        flex-shrink: 1;
+        padding: 10px 12px;
         font-size: 0.85rem;
       }
 
@@ -561,7 +672,9 @@
 
       .feature-box,
       .price-card,
-      .contact-box {
+      .contract-card,
+      .contact-box,
+      .rate-lock-box {
         padding: 24px;
       }
     }
@@ -580,7 +693,7 @@
     "@id": "https://rentyourwash.com/real-estate-program.html#webpage",
     "url": "https://rentyourwash.com/real-estate-program.html",
     "name": "Homebuyer Rental Program | Rent-A-Wash",
-    "description": "Washer and dryer rentals for recent homebuyers referred by partner real estate agents. A three-month lease includes free delivery in Pasco, Richland, or Kennewick. Regular rental rates apply.",
+    "description": "Washer and dryer rentals for recent homebuyers referred by partner real estate agents. Customers choose a 3-, 6-, or 12-month contract with a rental rate lock for the selected term. Qualifying referrals receive free delivery in Pasco, Richland, or Kennewick. Purchase-only discounts are available at the end of 6- and 12-month contracts.",
     "publisher": {
       "@type": "Organization",
       "@id": "https://rentyourwash.com/#organization",
@@ -602,11 +715,14 @@
     <div class="container topbar-inner">
       <p>
         <span class="topbar-brand">Rent-A-Wash</span>
-        Washer &amp; dryer rentals • Local support
+        Homebuyer Program • Partner-agent referrals
       </p>
 
-      <a class="apply-link" href="./apply.html">
-        Sign Up
+      <a
+        class="apply-link"
+        href="./real-estate-apply.html"
+      >
+        Homebuyer Application
       </a>
     </div>
   </div>
@@ -633,13 +749,20 @@
     </div>
   </header>
 
-<nav class="navigation" aria-label="Main navigation">
-  <div class="container nav-links">
-    <a href="./index.html" aria-current="page">Home</a>
-    <a href="./real-estate-program.html">Homebuyer Program</a>
-    <a href="./documents.html">Documents</a>
-  </div>
-</nav>
+  <nav class="navigation" aria-label="Main navigation">
+    <div class="container nav-links">
+      <a href="./index.html">Home</a>
+
+      <a
+        href="./real-estate-program.html"
+        aria-current="page"
+      >
+        Homebuyer Program
+      </a>
+
+      <a href="./documents.html">Documents</a>
+    </div>
+  </nav>
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-heading">
@@ -655,33 +778,57 @@
           </h1>
 
           <p>
-            Just purchased a home? If a partner real
-            estate agent referred you, sign a three-month
-            washer and dryer lease and get free delivery
-            in Pasco, Richland, or Kennewick.
+            Just purchased a home? If a participating
+            partner real estate agent referred you,
+            choose a washer and dryer rental contract
+            for 3, 6, or 12 months and receive free
+            delivery in Pasco, Richland, or Kennewick.
           </p>
 
           <p>
-            After three months, keep renting month to
-            month, purchase the machines outright,
-            or return them.
+            Every contract includes our Rate Lock
+            Guarantee. Your rental rate stays the
+            same for your entire selected contract
+            term, so you can plan your budget without
+            surprise rental-rate increases.
+          </p>
+
+          <p>
+            Choosing a longer contract locks your
+            rate for longer and gives you a lower
+            purchase price at the end: 10% off after
+            a 6-month contract or 25% off after a
+            12-month contract.
           </p>
 
           <div class="cta-row">
             <a
-              class="btn btn-primary"
-              href="./apply.html"
+              class="btn btn-homebuyer"
+              href="./real-estate-apply.html"
             >
-              Sign Up for the Homebuyer Program
+              Apply for the Homebuyer Program
             </a>
 
             <a
               class="btn btn-secondary"
-              href="tel:+15092127621"
+              href="#contracts"
             >
-              Call 509-212-7621
+              Compare Contract Options
+            </a>
+
+            <a
+              class="btn btn-secondary"
+              href="#pricing"
+            >
+              View Rental Pricing
             </a>
           </div>
+
+          <p class="small-note">
+            Use our dedicated Homebuyer Program application
+            and include your referring real estate
+            agent’s name.
+          </p>
         </div>
 
         <aside
@@ -695,23 +842,43 @@
           <ul class="feature-list">
             <li>
               For recent homebuyers referred by
-              participating partner agents.
+              participating partner real estate agents.
             </li>
+
             <li>
-              Three-month initial lease;
-              regular rental rates apply.
+              Your choice of a 3-, 6-, or 12-month
+              rental contract.
             </li>
+
+            <li>
+              Rate Lock Guarantee included with
+              all three contract lengths.
+            </li>
+
             <li>
               Free delivery in Pasco, Richland,
               or Kennewick.
             </li>
+
             <li>
               Discounted delivery outside those
               cities within our service area.
             </li>
+
             <li>
-              Pickup is available for an
-              additional charge.
+              10% off the purchase price at the end
+              of a 6-month contract.
+            </li>
+
+            <li>
+              25% off the purchase price at the end
+              of a 12-month contract.
+            </li>
+
+            <li>
+              At the end of your contract, continue
+              renting, purchase, or return the machines.
+              Pickup costs extra.
             </li>
           </ul>
         </aside>
@@ -726,12 +893,16 @@
       <div class="container">
         <div class="section-title">
           <h2 id="pricing-heading">
-            Choose Your Rental Set
+            Rental Options &amp; Purchase Prices
           </h2>
 
           <p>
-            Regular rental prices, with a special
-            delivery offer for qualifying referrals.
+            Choose your washer and dryer set, then
+            select a 3-, 6-, or 12-month contract.
+            Rental rates below are billed every two
+            weeks. Base purchase prices are separate
+            from rental charges and are shown before
+            any contract-end purchase discount.
           </p>
         </div>
 
@@ -739,57 +910,265 @@
           <article class="price-card featured">
             <h3>Top Load Washer &amp; Dryer</h3>
 
-            <div class="rate-label">Starting at</div>
+            <div class="rate-label">Rental rate</div>
 
             <div class="amount">
               $35 <span>/ 2 weeks</span>
             </div>
 
+            <p class="purchase-price">
+              Base purchase price
+              <span class="purchase-amount">$650</span>
+            </p>
+
             <a
-              class="btn btn-primary"
-              href="./apply.html"
+              class="btn btn-homebuyer"
+              href="./real-estate-apply.html"
             >
-              Sign Up for a Top Load Set
+              Apply for a Top Load Set
             </a>
           </article>
 
           <article class="price-card">
             <h3>Front Load Washer &amp; Dryer</h3>
 
-            <div class="rate-label">Starting at</div>
+            <div class="rate-label">Rental rate</div>
 
             <div class="amount">
               $45 <span>/ 2 weeks</span>
             </div>
 
+            <p class="purchase-price">
+              Base purchase price
+              <span class="purchase-amount">$700</span>
+            </p>
+
             <a
-              class="btn btn-secondary"
-              href="./apply.html"
+              class="btn btn-homebuyer"
+              href="./real-estate-apply.html"
             >
-              Sign Up for a Front Load Set
+              Apply for a Front Load Set
+            </a>
+          </article>
+
+          <article class="price-card">
+            <h3>Classic Top Load Washer &amp; Dryer</h3>
+
+            <div class="rate-label">Rental rate</div>
+
+            <div class="amount">
+              $35 <span>/ 2 weeks</span>
+            </div>
+
+            <p class="purchase-price">
+              Base purchase price
+              <span class="purchase-amount">$550</span>
+            </p>
+
+            <a
+              class="btn btn-homebuyer"
+              href="./real-estate-apply.html"
+            >
+              Apply for a Classic Top Load Set
             </a>
           </article>
         </div>
 
         <p class="small-note">
-          Rates are for every two weeks. Contact us
-          to confirm appliance availability, your
-          rental rate, billing schedule, and any
-          delivery charge outside the free-delivery area.
+          Rental rates are for every two weeks, not
+          twice per month. Contact us to confirm
+          appliance availability, billing arrangements,
+          and any delivery charge outside the
+          free-delivery area.
         </p>
       </div>
     </section>
 
     <section
-      id="lease-options"
+      id="contracts"
       class="section"
+      aria-labelledby="contracts-heading"
+    >
+      <div class="container">
+        <div class="section-title">
+          <h2 id="contracts-heading">
+            Choose Your Contract Length
+          </h2>
+
+          <p>
+            All three contract options include a
+            rental rate lock. Choose a longer term
+            for a longer price guarantee and a
+            purchase discount at the end of your
+            selected contract.
+          </p>
+        </div>
+
+        <div class="contract-grid">
+          <article class="contract-card">
+            <h3>3-Month Contract</h3>
+
+            <p class="contract-highlight">
+              Rental rate locked for 3 months
+            </p>
+
+            <ul class="contract-list">
+              <li>
+                Commit to a 3-month rental term.
+              </li>
+              <li>
+                No rental-rate increases during
+                your selected contract term.
+              </li>
+              <li>
+                Base purchase price applies if you
+                purchase at the end of this contract.
+              </li>
+              <li>
+                At contract end, continue renting,
+                purchase, or return the machines.
+              </li>
+            </ul>
+
+            <a
+              class="btn btn-homebuyer"
+              href="./real-estate-apply.html"
+            >
+              Apply for a 3-Month Contract
+            </a>
+          </article>
+
+          <article class="contract-card">
+            <h3>6-Month Contract</h3>
+
+            <p class="contract-highlight">
+              Rental rate locked for 6 months
+            </p>
+
+            <ul class="contract-list">
+              <li>
+                Commit to a 6-month rental term.
+              </li>
+              <li>
+                No rental-rate increases during
+                your selected contract term.
+              </li>
+              <li>
+                Receive 10% off the purchase price
+                if you purchase at the end of your
+                6-month contract.
+              </li>
+              <li>
+                At contract end, continue renting,
+                purchase, or return the machines.
+              </li>
+            </ul>
+
+            <a
+              class="btn btn-homebuyer"
+              href="./real-estate-apply.html"
+            >
+              Apply for a 6-Month Contract
+            </a>
+          </article>
+
+          <article class="contract-card featured">
+            <h3>12-Month Contract</h3>
+
+            <p class="contract-highlight">
+              Rental rate locked for 12 months
+            </p>
+
+            <ul class="contract-list">
+              <li>
+                Commit to a 12-month rental term.
+              </li>
+              <li>
+                No rental-rate increases during
+                your selected contract term.
+              </li>
+              <li>
+                Receive 25% off the purchase price
+                if you purchase at the end of your
+                12-month contract.
+              </li>
+              <li>
+                At contract end, continue renting,
+                purchase, or return the machines.
+              </li>
+            </ul>
+
+            <a
+              class="btn btn-homebuyer"
+              href="./real-estate-apply.html"
+            >
+              Apply for a 12-Month Contract
+            </a>
+          </article>
+        </div>
+
+        <aside
+          class="rate-lock-box"
+          aria-labelledby="rate-lock-heading"
+        >
+          <h3 id="rate-lock-heading">
+            Rate Lock Guarantee
+          </h3>
+
+          <p>
+            Your rental rate is guaranteed to stay
+            the same for the full length of your
+            selected 3-, 6-, or 12-month contract.
+            Choosing a longer contract means
+            knowing your rental rate for longer,
+            with no surprise rental-rate increases
+            during that term.
+          </p>
+
+          <p class="small-note">
+            The rate lock covers your rental rate
+            during your selected contract term.
+            Separate delivery or pickup charges
+            are not part of the rental rate.
+            Contact us to confirm rates and terms
+            for any rental continuation after your
+            contract ends.
+          </p>
+        </aside>
+
+        <div class="purchase-note">
+          <h3>Purchase Discounts Only—Not Rental Discounts</h3>
+
+          <p>
+            The 10% discount for a completed 6-month
+            contract and the 25% discount for a
+            completed 12-month contract apply only
+            to the purchase price of the machines.
+            They do not reduce your rental rate.
+            Rental payments do not count toward
+            the purchase price. This is not a
+            rent-to-own program.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="lease-options"
+      class="section lease-options-section"
       aria-labelledby="lease-options-heading"
     >
       <div class="container">
         <div class="section-title">
           <h2 id="lease-options-heading">
-            After Three Months, You Choose
+            At the End of Your Contract, You Choose
           </h2>
+
+          <p>
+            Once your selected 3-, 6-, or 12-month
+            contract is complete, choose the next
+            step that works for your household.
+          </p>
         </div>
 
         <div class="grid-3">
@@ -797,19 +1176,23 @@
             <h3>Keep Renting</h3>
 
             <p>
-              Continue month to month. Contact us
-              to confirm the ongoing rental and
-              billing arrangements.
+              Continue renting month to month.
+              Contact us before your contract ends
+              to confirm your ongoing rental rate
+              and billing arrangements.
             </p>
           </article>
 
           <article class="card">
-            <h3>Purchase Outright</h3>
+            <h3>Purchase Your Machines</h3>
 
             <p>
-              Ask for your machines’ purchase price.
-              Rental payments do not count toward
-              the purchase. This is not rent-to-own.
+              Purchase your set outright. Base
+              purchase prices apply after a
+              3-month contract. Receive 10% off
+              the purchase price at the end of a
+              6-month contract or 25% off at the
+              end of a 12-month contract.
             </p>
           </article>
 
@@ -817,10 +1200,11 @@
             <h3>Return the Machines</h3>
 
             <p>
-              End your rental after the initial
-              lease. Affordable pickup is available
-              for an additional charge; call for
-              pricing and scheduling.
+              Return your machines after completing
+              your selected contract term. Pickup
+              is available for an additional
+              charge. Call for pickup pricing
+              and scheduling.
             </p>
           </article>
         </div>
@@ -828,30 +1212,36 @@
     </section>
 
     <section
-      id="sign-up"
+      id="apply"
       class="section signup-section"
-      aria-labelledby="signup-heading"
+      aria-labelledby="apply-heading"
     >
       <div class="container">
         <div class="contact-box">
-          <h2 id="signup-heading">
+          <h2 id="apply-heading">
             Ready to Set Up Your New Home?
           </h2>
 
           <p>
-            Use our regular rental sign-up form.
-            Select the real estate agent referral
-            option and enter your agent’s name.
+            Complete our dedicated Homebuyer Program
+            application. Let us know your preferred
+            washer and dryer set, your selected
+            contract length, and your referring
+            real estate agent’s name.
+          </p>
+
+          <p>
             We’ll follow up to confirm eligibility,
-            availability, and delivery details.
+            appliance availability, your contract
+            details, and delivery scheduling.
           </p>
 
           <div class="cta-row">
             <a
-              class="btn btn-primary"
-              href="./apply.html"
+              class="btn btn-homebuyer"
+              href="./real-estate-apply.html"
             >
-              Sign Up for Your Rental
+              Apply for the Homebuyer Program
             </a>
 
             <a
@@ -867,9 +1257,10 @@
             <a href="./documents.html">
               rental documents
             </a>
-            before signing, including the initial
-            three-month commitment and early-ending
-            terms. Questions? Email
+            before signing, including your selected
+            contract commitment, rate lock guarantee,
+            purchase-discount eligibility, and
+            early-ending terms. Questions? Email
             <a href="mailto:Rentyourwash@gmail.com">
               Rentyourwash@gmail.com
             </a>.
@@ -904,7 +1295,9 @@
       </p>
 
       <p>
-        <a href="./apply.html">Rental Sign-Up</a>
+        <a href="./real-estate-apply.html">
+          Homebuyer Application
+        </a>
         &bull;
         <a
           href="./real-estate-program.html"
@@ -913,7 +1306,9 @@
           Homebuyer Program
         </a>
         &bull;
-        <a href="./documents.html">Documents &amp; Guides</a>
+        <a href="./documents.html">
+          Documents &amp; Guides
+        </a>
       </p>
     </div>
   </footer>
