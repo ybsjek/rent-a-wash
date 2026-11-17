@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link
+    rel="icon"
+    type="image/png"
+    sizes="512x512"
+    href="/documents/favicon.png"
+  >
+
+  <title>Maintenance Request – Current Renters | Rent-A-Wash</title>
+
+  <meta
+    name="description"
+    content="Current Rent-A-Wash renters can use this page to submit a washer or dryer maintenance request."
+  >
+
+  <meta name="author" content="Rent-A-Wash">
+
+  <link
+    rel="canonical"
+    href="https://rentyourwash.com/maintenance-request.html"
+  >
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:site_name" content="Rent-A-Wash">
+
+  <meta
+    property="og:url"
+    content="https://rentyourwash.com/maintenance-request.html"
+  >
+
+  <meta
+    property="og:title"
+    content="Maintenance Request – Current Renters | Rent-A-Wash"
+  >
+
+  <meta
+    property="og:description"
+    content="Submit a maintenance request for your Rent-A-Wash rental appliances."
+  >
+
+  <meta name="twitter:card" content="summary">
+
+  <meta
+    name="twitter:title"
+    content="Maintenance Request – Current Renters | Rent-A-Wash"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Submit a maintenance request for your Rent-A-Wash rental appliances."
+  >
+
+  <style>
+    :root {
+      --blue: #1f5f9b;
+      --blue-dark: #163f68;
+      --orange: #f28c28;
+      --tan: #f7f2e8;
+      --text: #243241;
+      --muted: #526170;
+      --border: #cbd2d8;
+      --white: #ffffff;
+      --max: 1160px;
+      --sticky-height: 90px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: calc(var(--sticky-height) + 20px);
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    a:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 4px;
+    }
+
+    .container {
+      width: min(100% - 32px, var(--max));
+      margin-inline: auto;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: -150px;
+      left: 16px;
+      z-index: 4000;
+      padding: 12px 18px;
+      background: var(--white);
+      color: var(--blue-dark);
+    }
+
+    .skip-link:focus {
+      top: 12px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      background: var(--blue-dark);
+      color: var(--white);
+      border-bottom: 5px solid var(--orange);
+      box-shadow: 0 3px 12px rgb(0 0 0 / 15%);
+    }
+
+    .topbar-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 14px;
+      padding-block: 12px;
+    }
+
+    .topbar-inner p {
+      min-width: 0;
+      margin: 0;
+      font-size: 0.95rem;
+    }
+
+    .topbar-brand {
+      display: block;
+      font-weight: 900;
+    }
+
+    .apply-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      min-height: 46px;
+      padding: 10px 26px;
+      background: var(--orange);
+      color: #172b40;
+      border: 2px solid var(--orange);
+      border-radius: 3px;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+
+    .apply-link:hover {
+      background: #ffac54;
+      border-color: #ffac54;
+    }
+
+    .apply-link:focus-visible {
+      outline-color: var(--white);
+    }
+
+    .site-header {
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 24px;
+      padding-block: 14px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      max-width: 100%;
+    }
+
+    .brand img {
+      display: block;
+      width: 300px;
+      max-width: 100%;
+      height: auto;
+    }
+
+    .brand-name {
+      display: block;
+      color: var(--blue-dark);
+      font-size: 1.5rem;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+
+    .brand-description {
+      display: block;
+      margin-top: 5px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .navigation {
+      background: var(--blue-dark);
+      color: var(--white);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      display: inline-block;
+      padding: 14px 20px;
+      font-weight: 800;
+    }
+
+    .nav-links a:hover {
+      background: var(--blue);
+    }
+
+    .nav-links a[aria-current="page"] {
+      background: var(--orange);
+      color: #172b40;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .page-heading {
+      padding-block: 36px;
+      background: var(--tan);
+      border-bottom: 1px solid var(--border);
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--blue-dark);
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      line-height: 1.15;
+    }
+
+    .page-heading p {
+      margin: 10px 0 0;
+      color: var(--muted);
+      font-size: 1.05rem;
+    }
+
+    .form-section {
+      padding-block: 32px 48px;
+    }
+
+    .tally-form-container {
+      min-height: 400px;
+    }
+
+    .tally-form-container iframe {
+      display: block;
+      width: 100%;
+      border: 0;
+    }
+
+    footer {
+      padding: 28px 0;
+      background: var(--blue-dark);
+      color: var(--white);
+      border-top: 5px solid var(--orange);
+      text-align: center;
+    }
+
+    footer p {
+      margin: 7px 0;
+    }
+
+    .footer-name {
+      font-size: 1.25rem;
+      font-weight: 900;
+    }
+
+    footer a {
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      overflow-wrap: anywhere;
+    }
+
+    @media (max-width: 900px) {
+      .header-inner,
+      .brand {
+        justify-content: center;
+        text-align: center;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .topbar-inner {
+        gap: 10px;
+      }
+
+      .topbar-inner p {
+        font-size: 0.8rem;
+        line-height: 1.35;
+      }
+
+      .apply-link {
+        padding: 10px 14px;
+        font-size: 0.85rem;
+      }
+
+      .nav-links a {
+        padding: 12px 13px;
+        font-size: 0.9rem;
+      }
+
+      .page-heading {
+        padding-block: 28px;
+      }
+
+      .form-section {
+        padding-block: 24px 36px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <a class="skip-link" href="#main">
+    Skip to main content
+  </a>
+
+  <div class="topbar">
+    <div class="container topbar-inner">
+      <p>
+        <span class="topbar-brand">Rent-A-Wash</span>
+        Washer &amp; dryer rentals • Local support
+      </p>
+
+      <a class="apply-link" href="./apply.html">
+        Sign Up
+      </a>
+    </div>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a
+        class="brand"
+        href="/"
+        aria-label="Rent-A-Wash home"
+      >
+        <img
+          src="./8371.png"
+          alt="Rent-A-Wash logo"
+        >
+
+        <span>
+          <span class="brand-name">Rent-A-Wash</span>
+          <span class="brand-description">
+            Washer &amp; Dryer Rentals and Repairs
+          </span>
+        </span>
+      </a>
+    </div>
+  </header>
+
+  <nav class="navigation" aria-label="Main navigation">
+    <div class="container nav-links">
+      <a href="./index.html">Home</a>
+
+      <a href="./real-estate-program.html">
+        Homebuyer Program
+      </a>
+
+      <a href="./documents.html">Documents</a>
+    </div>
+  </nav>
+
+  <main id="main">
+    <section class="page-heading" aria-labelledby="page-title">
+      <div class="container">
+        <h1 id="page-title">Maintenance Request</h1>
+        <p>Current Renters</p>
+      </div>
+    </section>
+
+    <section
+      class="form-section"
+      aria-label="Maintenance request form"
+    >
+      <div class="container">
+        <div class="tally-form-container">
+
+<iframe
+  src="https://tally.so/embed/VpP0yj?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
+  width="100%"
+  height="1000"
+  frameborder="0"
+  marginheight="0"
+  marginwidth="0"
+  title="Maintenance Request – Current Renters"
+></iframe>
+
+<script src="https://tally.so/widgets/embed.js"></script>
+
+<p style="margin-top: 20px; text-align: center;">
+  <a
+    href="https://tally.so/r/VpP0yj"
+    target="_blank"
+    rel="noopener noreferrer"
+    style="
+      color: #163f68;
+      font-weight: 700;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    "
+  >
+    Open the maintenance request form in a new tab
+  </a>
+</p>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p class="footer-name">Rent-A-Wash</p>
+
+      <p>
+        Washer &amp; Dryer Rentals and Repairs
+      </p>
+
+      <p>
+        Richland &bull; Kennewick &bull; Pasco &bull;
+        Benton City &bull; Yakima &bull; Walla Walla &bull;
+        College Place &bull; Hermiston &bull; Umatilla
+      </p>
+
+      <p>
+        <a href="tel:+15092127621">509-212-7621</a>
+      </p>
+
+      <p>
+        <a href="mailto:Rentyourwash@gmail.com">
+          Rentyourwash@gmail.com
+        </a>
+      </p>
+
+      <p>
+        <a href="./apply.html">Rental Sign-Up</a>
+        &bull;
+        <a href="./real-estate-program.html">
+          Homebuyer Program
+        </a>
+        &bull;
+        <a href="./documents.html">
+          Documents &amp; Guides
+        </a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    (() => {
+      const topbar = document.querySelector(".topbar");
+
+      function updateStickyHeight() {
+        if (!topbar) return;
+
+        document.documentElement.style.setProperty(
+          "--sticky-height",
+          `${topbar.getBoundingClientRect().height}px`
+        );
+      }
+
+      updateStickyHeight();
+
+      if (topbar && "ResizeObserver" in window) {
+        const topbarObserver = new ResizeObserver(
+          updateStickyHeight
+        );
+
+        topbarObserver.observe(topbar);
+      } else {
+        window.addEventListener(
+          "resize",
+          updateStickyHeight
+        );
+      }
+    })();
+  </script>
+</body>
+</html>
