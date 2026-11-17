@@ -86,6 +86,11 @@
       text-decoration: none;
     }
 
+    a:focus-visible {
+      outline: 3px solid var(--orange);
+      outline-offset: 4px;
+    }
+
     .container {
       width: min(100% - 32px, var(--max));
       margin-inline: auto;
@@ -95,25 +100,22 @@
       position: fixed;
       top: -150px;
       left: 16px;
+      z-index: 4000;
       padding: 12px 18px;
       color: var(--blue-dark);
       background: var(--white);
-      z-index: 2000;
     }
 
     .skip-link:focus {
       top: 12px;
     }
 
-    a:focus-visible {
-      outline: 3px solid var(--orange);
-      outline-offset: 4px;
-    }
-
+    /* Sticky navigation */
     .topbar {
       position: sticky;
       top: 0;
       z-index: 1000;
+      width: 100%;
       background: var(--blue-dark);
       color: var(--white);
       border-bottom: 5px solid var(--orange);
@@ -122,20 +124,106 @@
 
     .topbar-inner {
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      gap: 14px;
-      padding-block: 12px;
-    }
-
-    .topbar-inner p {
-      margin: 0;
-      font-size: 0.95rem;
+      justify-content: space-between;
+      gap: 20px;
+      padding-block: 10px;
     }
 
     .topbar-brand {
-      display: block;
+      display: inline-flex;
+      align-items: center;
+      flex-shrink: 0;
+      min-height: 46px;
+      color: var(--white);
+      font-size: 1.1rem;
       font-weight: 900;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .header-navigation {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex: 1;
+      min-width: 0;
+      gap: 20px;
+    }
+
+    .header-main-links,
+    .header-action-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .header-action-links {
+      flex-shrink: 0;
+      margin-left: auto;
+      gap: 14px;
+    }
+
+    .header-main-links a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 10px 12px;
+      color: var(--white);
+      border-radius: 3px;
+      font-size: 0.95rem;
+      font-weight: 800;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .header-main-links a:hover {
+      background: var(--blue);
+    }
+
+    .header-main-links a[aria-current="page"] {
+      background: var(--orange);
+      color: #172b40;
+    }
+
+    .maintenance-link {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 7px 12px;
+      background: transparent;
+      color: var(--white);
+      border: 1px solid var(--orange);
+      border-radius: 3px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      line-height: 1.3;
+      text-align: center;
+      white-space: nowrap;
+    }
+
+    .maintenance-link span {
+      display: block;
+      margin-bottom: 2px;
+      color: var(--orange);
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    .maintenance-link:hover,
+    .maintenance-link[aria-current="page"] {
+      background: var(--orange);
+      color: #172b40;
+    }
+
+    .maintenance-link:hover span,
+    .maintenance-link[aria-current="page"] span {
+      color: #172b40;
     }
 
     .apply-link {
@@ -144,14 +232,16 @@
       justify-content: center;
       flex-shrink: 0;
       min-height: 46px;
-      padding: 10px 26px;
+      padding: 10px 18px;
       background: var(--orange);
       color: #172b40;
       border: 2px solid var(--orange);
       border-radius: 3px;
+      font-size: 0.9rem;
       font-weight: 900;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
+      line-height: 1.3;
+      letter-spacing: 0.02em;
+      text-align: center;
       white-space: nowrap;
     }
 
@@ -160,10 +250,12 @@
       border-color: #ffac54;
     }
 
-    .apply-link:focus-visible {
-      outline-color: var(--white);
+    .topbar a:focus-visible {
+      outline: 3px solid var(--white);
+      outline-offset: 3px;
     }
 
+    /* Logo header */
     .site-header {
       background: var(--white);
       border-bottom: 1px solid var(--border);
@@ -207,32 +299,7 @@
       font-size: 0.95rem;
     }
 
-    .navigation {
-      background: var(--blue-dark);
-      color: var(--white);
-    }
-
-    .nav-links {
-      display: flex;
-      flex-wrap: wrap;
-    }
-
-    .nav-links a {
-      display: inline-block;
-      padding: 14px 20px;
-      color: var(--white);
-      font-weight: 800;
-    }
-
-    .nav-links a:hover {
-      background: var(--blue);
-    }
-
-    .nav-links a[aria-current="page"] {
-      background: var(--orange);
-      color: #172b40;
-    }
-
+    /* Hero */
     .hero {
       padding-block: 40px;
       background: var(--tan);
@@ -294,6 +361,7 @@
       align-items: center;
       justify-content: center;
       min-height: 48px;
+      max-width: 100%;
       padding: 12px 20px;
       border: 2px solid transparent;
       border-radius: 3px;
@@ -356,6 +424,7 @@
       margin-right: 10px;
     }
 
+    /* General sections */
     .section {
       padding-block: 48px;
     }
@@ -384,6 +453,7 @@
     }
 
     .card {
+      min-width: 0;
       padding: 24px;
       background: var(--white);
       border: 1px solid var(--border);
@@ -400,6 +470,7 @@
       margin-bottom: 0;
     }
 
+    /* Pricing */
     .pricing {
       background: #edf3f8;
       border-block: 1px solid var(--border);
@@ -414,6 +485,7 @@
     .price-card {
       display: flex;
       flex-direction: column;
+      min-width: 0;
       padding: 26px;
       border: 1px solid var(--border);
       border-top: 7px solid var(--blue-dark);
@@ -526,6 +598,7 @@
       overflow-wrap: anywhere;
     }
 
+    /* Homebuyer program */
     .homebuyer {
       background: var(--tan);
       border-bottom: 1px solid var(--border);
@@ -577,6 +650,7 @@
       padding-block: 7px;
     }
 
+    /* Frequently asked questions */
     .faq-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -584,6 +658,7 @@
     }
 
     .faq-item {
+      min-width: 0;
       padding: 22px;
       background: var(--white);
       border: 1px solid var(--border);
@@ -599,6 +674,7 @@
       margin: 0;
     }
 
+    /* Service areas */
     .areas {
       background: var(--tan);
       border-top: 1px solid var(--border);
@@ -621,6 +697,7 @@
       font-weight: 800;
     }
 
+    /* Footer */
     footer {
       padding: 28px 0;
       text-align: center;
@@ -645,7 +722,22 @@
       overflow-wrap: anywhere;
     }
 
+    /* Tablet layout */
     @media (max-width: 1000px) {
+      .topbar-inner {
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .topbar-brand {
+        min-height: 30px;
+      }
+
+      .header-navigation {
+        width: 100%;
+        flex: auto;
+      }
+
       .pricing-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
       }
@@ -663,9 +755,41 @@
         justify-content: center;
         text-align: center;
       }
+    }
 
-      .nav-links {
+    /* Mobile navigation */
+    @media (max-width: 700px) {
+      .header-navigation {
+        flex-direction: column;
+        gap: 8px;
+      }
+
+      .header-main-links {
         justify-content: center;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .header-main-links a {
+        min-height: 42px;
+        padding: 8px 10px;
+        font-size: 0.85rem;
+      }
+
+      .header-action-links {
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+        margin-left: 0;
+        gap: 10px;
+      }
+
+      .maintenance-link {
+        white-space: normal;
+      }
+
+      .apply-link {
+        padding: 10px 16px;
       }
     }
 
@@ -673,29 +797,6 @@
       .pricing-grid,
       .faq-grid {
         grid-template-columns: 1fr;
-      }
-
-      .topbar-inner {
-        gap: 10px;
-      }
-
-      .topbar-inner p {
-        font-size: 0.8rem;
-        line-height: 1.35;
-      }
-
-      .apply-link {
-        padding: 10px 14px;
-        font-size: 0.85rem;
-      }
-
-      .brand img {
-        width: 300px;
-      }
-
-      .nav-links a {
-        padding: 12px 13px;
-        font-size: 0.9rem;
       }
 
       .cta-row .btn {
@@ -778,14 +879,44 @@
 
   <div class="topbar">
     <div class="container topbar-inner">
-      <p>
-        <span class="topbar-brand">Rent-A-Wash</span>
-        Washer &amp; dryer rentals • Local support
-      </p>
-
-      <a class="apply-link" href="./apply.html">
-        Sign Up
+      <a
+        class="topbar-brand"
+        href="./index.html"
+        aria-label="Rent-A-Wash home"
+      >
+        Rent-A-Wash
       </a>
+
+      <nav
+        class="header-navigation"
+        aria-label="Main navigation"
+      >
+        <div class="header-main-links">
+          <a href="./index.html" aria-current="page">
+            Home
+          </a>
+
+          <a href="./real-estate-program.html">
+            Homebuyer Program
+          </a>
+
+          <a href="./documents.html">Documents</a>
+        </div>
+
+        <div class="header-action-links">
+          <a
+            class="maintenance-link"
+            href="./maintenance-request.html"
+          >
+            <span>Current Renters</span>
+            Maintenance Request
+          </a>
+
+          <a class="apply-link" href="./apply.html">
+            Start Today
+          </a>
+        </div>
+      </nav>
     </div>
   </div>
 
@@ -810,28 +941,6 @@
       </a>
     </div>
   </header>
-
-<nav class="navigation" aria-label="Main navigation">
-  <div class="container nav-links">
-    <div class="nav-main-links">
-      <a href="./index.html">Home</a>
-
-      <a href="./real-estate-program.html">
-        Homebuyer Program
-      </a>
-
-      <a href="./documents.html">Documents</a>
-    </div>
-
-    <a
-      class="maintenance-link"
-      href="./maintenance-request.html"
-    >
-      <span>Current Renters</span>
-      Maintenance Request
-    </a>
-  </div>
-</nav>
 
   <main id="main">
     <section class="hero" aria-labelledby="hero-heading">
@@ -989,10 +1098,19 @@
 
           <p>
             Recently purchased a home and been referred
-            by a partner real estate agent? Sign a
-            three-month washer and dryer rental lease
-            and receive free delivery in Pasco,
-            Richland, or Kennewick.
+            by a partner real estate agent? Choose a
+            3-, 6-, or 12-month washer and dryer rental
+            contract and receive free delivery in
+            Pasco, Richland, or Kennewick.
+          </p>
+
+          <p>
+            Every contract includes a Rate Lock Guarantee
+            for the selected term. Complete a 6-month
+            contract for 10% off the purchase price,
+            or a 12-month contract for 25% off.
+            Discounts apply only to purchases, not
+            rental rates.
           </p>
 
           <p>
@@ -1003,11 +1121,10 @@
           </p>
 
           <p>
-            At the end of the initial three months,
+            At the end of your selected contract,
             continue renting month to month, purchase
             the machines outright, or return them.
-            Affordable pickup is available for an
-            additional charge.
+            Pickup is available for an additional charge.
           </p>
 
           <div class="cta-row">
@@ -1020,16 +1137,16 @@
 
             <a
               class="btn btn-secondary"
-              href="./apply.html"
+              href="./real-estate-apply.html"
             >
-              Sign Up with Your Agent’s Referral
+              Apply with Your Agent’s Referral
             </a>
           </div>
 
           <p class="small-note">
-            On the sign-up form, select the real estate
-            agent referral option and enter your
-            agent’s name.
+            Use our dedicated Homebuyer Program
+            application and include your referring
+            real estate agent’s name.
           </p>
         </div>
 
@@ -1046,27 +1163,43 @@
               For recent homebuyers referred by
               participating partner real estate agents.
             </li>
+
             <li>
-              Initial three-month rental lease required.
+              Choose a 3-, 6-, or 12-month rental contract.
             </li>
+
+            <li>
+              Rental rate locked for your selected term.
+            </li>
+
             <li>
               Free delivery in Pasco, Richland,
               or Kennewick.
             </li>
+
             <li>
               Discounted delivery outside these cities
               within our service area.
             </li>
+
             <li>
               Regular rental prices apply.
             </li>
+
             <li>
-              After three months: continue renting,
+              Purchase-only discount at contract end:
+              10% for 6 months or 25% for 12 months.
+            </li>
+
+            <li>
+              At contract end: continue renting,
               purchase, or return.
             </li>
+
             <li>
               Pickup is available for an additional charge.
             </li>
+
             <li>
               Rental payments do not count toward
               the purchase price.
@@ -1184,8 +1317,8 @@
           Set prices shown are starting rates.
           Contact us to confirm availability, billing details,
           and cancellation arrangements before starting
-          your rental. The Homebuyer Program requires
-          an initial three-month lease.
+          your rental. Homebuyer Program participants
+          select a 3-, 6-, or 12-month contract.
         </p>
 
         <p class="small-note">
@@ -1213,10 +1346,10 @@
           <p>
             Qualifying recent homebuyers receive free
             delivery in Pasco, Richland, or Kennewick
-            with a three-month rental lease. Discounted
-            delivery is available outside these cities
-            within our service area. Regular rental
-            rates apply, and pickup costs extra.
+            with a selected 3-, 6-, or 12-month rental
+            contract. Discounted delivery is available
+            outside these cities within our service area.
+            Regular rental rates apply, and pickup costs extra.
             <a href="./real-estate-program.html">
               Review Homebuyer Program details.
             </a>
@@ -1305,8 +1438,8 @@
               Our regular rentals offer flexible cancellations.
               Contact us to discuss the terms and return
               arrangements before starting your rental.
-              The Homebuyer Program has an initial
-              three-month lease commitment.
+              Homebuyer Program participants commit to
+              their selected 3-, 6-, or 12-month contract.
             </p>
           </article>
 
@@ -1322,7 +1455,7 @@
               </a>
               participants receive free delivery in
               Pasco, Richland, or Kennewick with
-              a three-month lease.
+              their selected rental contract.
             </p>
           </article>
 
@@ -1331,8 +1464,9 @@
 
             <p>
               Recent homebuyers referred by participating
-              partner real estate agents can sign
-              a three-month rental lease and receive
+              partner real estate agents can choose a
+              3-, 6-, or 12-month rental contract with
+              a rate lock for the selected term and
               free delivery in Pasco, Richland, or
               Kennewick. Discounted delivery is available
               outside those cities within our service area.
@@ -1341,14 +1475,15 @@
           </article>
 
           <article class="faq-item">
-            <h3>What happens after the Homebuyer Program’s first three months?</h3>
+            <h3>What happens when my Homebuyer Program contract ends?</h3>
 
             <p>
-              You may continue renting month to month,
-              purchase the machines outright, or
-              return them. Affordable pickup is available
-              for an additional charge. Contact us to
-              arrange your preferred next step.
+              After completing your selected contract,
+              you may continue renting month to month,
+              purchase the machines outright, or return
+              them. Pickup is available for an additional
+              charge. Contact us to confirm ongoing
+              rental terms or arrange your next step.
             </p>
           </article>
 
@@ -1358,20 +1493,24 @@
             <p>
               No. Rental payments do not count toward
               or reduce the outright purchase price.
-              Contact us for the purchase price of
-              your machines. This is not a rent-to-own
-              program.
+              A completed 6-month contract provides
+              10% off the purchase price at contract end,
+              and a completed 12-month contract provides
+              25% off. These are purchase-only discounts,
+              not rental discounts. This is not a
+              rent-to-own program.
             </p>
           </article>
 
           <article class="faq-item">
-            <h3>How do I sign up with my real estate agent’s referral?</h3>
+            <h3>How do I apply with my real estate agent’s referral?</h3>
 
             <p>
               Use our
-              <a href="./apply.html">rental sign-up form</a>.
-              Select the real estate agent referral
-              option and enter your agent’s name.
+              <a href="./real-estate-apply.html">
+                dedicated Homebuyer Program application
+              </a>
+              and include your referring agent’s name.
               We’ll follow up to confirm program
               eligibility and availability.
             </p>
@@ -1477,7 +1616,10 @@
             Sign Up for a Rental
           </a>
 
-          <a class="btn btn-secondary" href="tel:+15092127621">
+          <a
+            class="btn btn-secondary"
+            href="tel:+15092127621"
+          >
             Call to Confirm Coverage
           </a>
         </div>
@@ -1516,7 +1658,9 @@
           Homebuyer Program
         </a>
         &bull;
-        <a href="./documents.html">Documents &amp; Guides</a>
+        <a href="./documents.html">
+          Documents &amp; Guides
+        </a>
       </p>
     </div>
   </footer>
